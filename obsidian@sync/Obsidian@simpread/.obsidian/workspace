@@ -1,0 +1,108 @@
+{
+  "main": {
+    "id": "21183fd9b3e3d153",
+    "type": "split",
+    "children": [
+      {
+        "id": "6c7f126d5783619f",
+        "type": "leaf",
+        "dimension": 50.28169014084508,
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      },
+      {
+        "id": "eeb7808fce2d911d",
+        "type": "leaf",
+        "dimension": 49.71830985915492,
+        "state": {
+          "type": "simpread-unreader",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b7fb0bde495b02fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "9a4d1e4069d3c94a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c870ac40ad89e7f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "7a823784402defb0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "02e5f22f9932f9e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "e1540d156e5a86f6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ff101d5ede0f433a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "8c870ac40ad89e7f",
+  "lastOpenFiles": [
+    "SimpRead/5-具透 - iOS 16 通知管理迷思，一个通知的 N 种呈现方式.md",
+    "SimpRead/5-具透 - iOS 16 通知管理迷思，一个通知的 N 种呈现方式@annote.md",
+    "SimpRead/4-看板、双向链接、知识图谱…… 简悦 2-2 想让你的稍后读不再不读.md",
+    "SimpRead/2-我如何使用 Notion 管理简悦的一切@annote.md",
+    "SimpRead/3-放弃纠结、拥抱妥协，重器轻用就是高效@annote.md",
+    "SimpRead/2-我如何使用 Notion 管理简悦的一切.md",
+    "SimpRead/2-放弃纠结、拥抱妥协，重器轻用就是高效@annote.md",
+    "SimpRead/2-放弃纠结、拥抱妥协，重器轻用就是高效.md",
+    "SimpRead/1-本地存储 + 线上获取：我的个人数据库建构路径.md",
+    "SimpRead/1-本地存储 + 线上获取：我的个人数据库建构路径@annote.md"
+  ]
+}

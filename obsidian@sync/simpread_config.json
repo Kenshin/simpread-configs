@@ -157,7 +157,7 @@
                 "pdf": true,
                 "plain": true
             },
-            "parse": false,
+            "parse": true,
             "port": 7026,
             "rss": false,
             "sync": false
@@ -172,7 +172,7 @@
             "bottom": true,
             "exports": {},
             "mode": "annote",
-            "offline": false,
+            "offline": true,
             "openmode": "evergreen",
             "sametheme": false,
             "savelocal": false,

@@ -1,3 +1,14 @@
+# Obsidian 库文件说明
+
+内置了跟简悦有关系的四个插件：
+
+- Banners
+- Dataview
+- Obsidian42 - BRAT
+- SimpRead Sync
+
+最主要的 SimpRead Sync 也配置完毕，内置了简悦的 Obsidain 模板，仅需要配置路径即可（下面的教程会告知如何配置）
+
 # 配置文件说明
 
 压缩包内的配置文件已经包含了跟 Obsidian 联动的必要插件以及几个阅读模式相关的插件。
@@ -108,6 +119,8 @@
 打开 Obsidan 里面应该有一些现成的 Markdown，打开一个并按照下面视频的操作，当在右侧标注时，会自动将标注同步到 Obsidian 中。
 
 https://user-images.githubusercontent.com/81074/192680366-d7bd67a9-77da-4a04-ad83-f98d8e705962.mp4
+
+https://user-images.githubusercontent.com/81074/192685660-35a6ae06-0c33-44ef-9208-0b806048059e.mp4
 
 ### 查看本地快照
 

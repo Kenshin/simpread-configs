@@ -160,7 +160,7 @@
             "parse": false,
             "port": 7026,
             "rss": false,
-            "sync": true
+            "sync": false
         },
         "save_at": "jianguo",
         "secret": false,
@@ -5735,7 +5735,7 @@
         "contact": "",
         "email": "",
         "name": "",
-        "rule": 2,
+        "rule": 1,
         "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     },
     "version": "2.2.0",

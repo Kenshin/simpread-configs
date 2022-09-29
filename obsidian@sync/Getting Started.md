@@ -141,8 +141,6 @@
 
 打开 Obsidan 里面应该有一些现成的 Markdown，打开一个并按照下面视频的操作，当在右侧标注时，会自动将标注同步到 Obsidian 中。
 
-https://user-images.githubusercontent.com/81074/192680366-d7bd67a9-77da-4a04-ad83-f98d8e705962.mp4
-
 https://user-images.githubusercontent.com/81074/192685660-35a6ae06-0c33-44ef-9208-0b806048059e.mp4
 
 ### 查看本地快照

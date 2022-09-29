@@ -148,3 +148,44 @@ https://user-images.githubusercontent.com/81074/192685660-35a6ae06-0c33-44ef-920
 打开稍后读，随便找一个已经存在的稍后读，如果有下面视频所示的标识则说明读取的本地文件。
 
 https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93b-768368b00bf5.mp4
+
+# 附录
+
+如果动手能力强的话，可以继续看看下面的一些技巧。
+
+## 一站式教程
+
+可以直接看 [语雀上的一站式教程](https://www.yuque.com/kenshin/simpread/fr8zo5) 或者等你熟悉这套方案后可以根据此教程进行更个性化的定制。
+
+注意：这里提到的一站式教程跟上面的教程无关，上面的教程只是针对配置库的设置。
+
+## 合并你的 Obsidian 配置
+
+如果你已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian` 对应的文件夹复制到你自己的  `.obsidian` 然后打开 `.obsidian/community-plugins.json` 将下面的内容加入其中。
+
+ ```
+ "obsidian42-brat",
+ "simpread",
+ "obsidian-banners",
+ "dataview"
+ ```
+
+## 合并 output 和稍后读内容
+
+如果你已经存在 output 并且也包含了一些稍后读，可以用任意文本编辑器分别打开你本地和解压缩后的的 `simpread_config.json` （假设你自己的叫 A，配置库的叫 B）
+
+推荐使用 vs code 并安装 [ JSON Tools](https://marketplace.visualstudio.com/items?itemName=eriklynd.json-tools) 插件，然后对 `simpread_config.json` 格式化，找到 `unrdist`  并留意 `idx` （是一个自增长的 ID）
+
+![image-20220929185850419](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449130.png)
+
+把 B 中  `unrdist`  对应的内容全部复制到 A 并根据 `idx` 自增长进行排序，如下图所示
+
+![image-20220929190305838](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449385.png)
+
+然后把配置库中 `output` 文件夹对应的快照 id 也对应修改下。
+
+![image-20220929190542971](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449543.png)
+
+以及 `Obsidian@simpread/SimpRead`文件夹对应的快照 id。
+
+![image-20220929190735233](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449655.png)

@@ -1,4 +1,26 @@
-# Obsidian 库文件说明
+# 特点
+
+这套工作流的特点：
+
+1. 在阅读模式下加入稍后读，会自动生成本地快照
+2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian（轻量级使用简悦 + Obsidan）
+3. 在 Obsidian 中也可以内嵌简悦的标注，同时也自动更新到 Obsidain 内的标注文档中（重度使用简悦 + Obsidan）
+
+# 适合用户
+
+- 新用户，尤其是需要使用简悦 + Obsidian 双链笔记配合的用户
+- 不想折腾配置的用户
+
+# 配置库文件说明
+
+## 文件说明
+
+- `Obsidian@simpread` → Obsidian 库文件，包含了跟简悦有关的一些插件
+- `output` → 本地快照文件夹，内置了一些稍后读对应的本地快照
+- `simpread_config.json` → 简悦配置文件，导入后即可使用
+- `Getting Started.md` → 说明文档
+
+## Obsidian 库文件说明
 
 内置了跟简悦有关系的四个插件：
 
@@ -8,10 +30,6 @@
 - SimpRead Sync
 
 最主要的 SimpRead Sync 也配置完毕，内置了简悦的 Obsidain 模板，仅需要配置路径即可（下面的教程会告知如何配置）
-
-# 配置文件说明
-
-压缩包内的配置文件已经包含了跟 Obsidian 联动的必要插件以及几个阅读模式相关的插件。
 
 ## 内置 Obsidian 模板
 
@@ -37,11 +55,19 @@
 
 # 教程
 
+## 准备
+
+1. 如果是老用户的话，请务必备份好你的之前的配置文件。（选项页 → 共通 → 导出配置文件到本地）
+2. 如果是新用户的话，请先确保是 [升级为高级账户](https://www.yuque.com/kenshin/simpread/pwpnsx) 并且 [绑定了同步助手](https://www.yuque.com/kenshin/simpread/pwpnsx)
+3. 一般来说使用这套流程的用户都使用坚果云，所以先暂停坚果云的自动同步功能或退出坚果云。
+
 ## 设置快照文件夹
 
 也就是 `output` 文件夹，将下载的压缩包解压缩后放入到同步助手设置的同步盘文件夹。
 
 ![image-20220928092931084](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664328571.png)
+
+如果你已经存在 `output` 文件夹的话，可以先将 `output` 文件夹改名为 `output@origin` 或其它名字。
 
 ## 设置 Obsidian 库文件夹
 
@@ -54,11 +80,6 @@
 ![image-20220928094417371](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664329457.png)
 
 ## 导入配置文件
-
-### 准备
-
-1. 如果是老用户的话，请务必备份好你的之前的配置文件。（选项页 → 共通 → 导出配置文件到本地）
-2. 如果是新用户的话，请先确保是 [升级为高级账户](https://www.yuque.com/kenshin/simpread/pwpnsx) 并且 [绑定了同步助手](https://www.yuque.com/kenshin/simpread/pwpnsx)
 
 ### 复制 UID
 

@@ -159,7 +159,7 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 注意：这里提到的一站式教程跟上面的教程无关，上面的教程只是针对配置库的设置。
 
-## 合并你的 Obsidian 配置
+## 合并 Obsidian 配置
 
 如果你已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian` 对应的文件夹复制到你自己的  `.obsidian` 然后打开 `.obsidian/community-plugins.json` 将下面的内容加入其中。
 
@@ -170,7 +170,7 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
  "dataview"
  ```
 
-## 合并 output 和稍后读内容
+## 合并 output 和稍后读
 
 如果你已经存在 output 并且也包含了一些稍后读，可以用任意文本编辑器分别打开你本地和解压缩后的的 `simpread_config.json` （假设你自己的叫 A，配置库的叫 B）
 

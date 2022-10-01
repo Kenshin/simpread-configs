@@ -189,3 +189,9 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 以及 `Obsidian@simpread/SimpRead`文件夹对应的快照 id。
 
 ![image-20220929190735233](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449655.png)
+
+## 修改文件夹的名字
+
+`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidain 插件的对应内容，也就是要保证下图对应的名字是一致即可。
+
+![image-20221001151556442](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608556.png)

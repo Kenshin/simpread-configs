@@ -214,7 +214,7 @@
                 }
             },
             "endpoint": "http://127.0.0.1:27123",
-            "folder": "Inbox",
+            "folder": "SimpRead",
             "host": "http://127.0.0.1:7027",
             "metadata": "---\nurl: {{url}}\ntitle: {{title}}\ndate: {{date}}\ntag: {{tags}}\nbanner: \"{{cover}}\"\nbanner_icon: 🔖\n---",
             "org_title": false,
@@ -226,7 +226,7 @@
             "token": "",
             "unread_new": "o b u n",
             "unread_update": "o b u u",
-            "valut": "SimpRead",
+            "valut": "Obsidian@simpread",
             "yaml": true
         },
         "DH9l5jblPH": {

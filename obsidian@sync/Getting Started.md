@@ -135,7 +135,7 @@
 
 然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
 
-<需要一个视频>
+https://user-images.githubusercontent.com/81074/193396924-bc83c8fe-d891-4462-b0bf-75385976c40f.mp4
 
 ### 在 Obsidian 中标注
 

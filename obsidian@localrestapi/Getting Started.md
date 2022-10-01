@@ -127,7 +127,7 @@
 
 然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
 
-https://user-images.githubusercontent.com/81074/193401016-a8df41b8-8e1f-49be-aa2c-4bdf0bdfc56a.mp4
+https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909b-d1a7613b31e3.mov
 
 ### 查看本地快照
 

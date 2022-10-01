@@ -2,8 +2,9 @@
 
 这套工作流的特点：
 
-1. 在阅读模式下加入稍后读，会自动生成本地快照
-2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian（轻量级使用简悦 + Obsidan）
+1. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Obsidian
+2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian
+3. 不使用同步助手，非常适合轻量级使用简悦 + Obsidan 的用户
 
 # 适合用户
 
@@ -46,8 +47,6 @@
 - [自动化辅助增强](https://simpread.ksria.cn/plugins/details/DH9l5jblPH)
 - [导入到 Obsidian](https://simpread.ksria.cn/plugins/details/1VQ19jCD8Z)
 - [Markdown 模板辅助增强插件](https://simpread.ksria.cn/plugins/details/HD9GmoatXd)
-
-以及 [插件管理器](https://simpread.ksria.cn/plugins/details/UEzvAXNSe5) 防止在开启同步助手后偶尔会出现无法正常安装插件的问题。（仅个别用户发生）
 
 # 教程
 
@@ -101,21 +100,9 @@
 
 ![image-20220928104247433](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664332967.png)
 
-此配置包内置了9个插件，导入成功后会有下图所示的提示。
+此配置包内置了8个插件，导入成功后会有下图所示的提示。
 
-![image-20220928104341346](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664333021.png)
-
-### 开启自动同步
-
-使用此功能前，确保已经按照准备工作绑定了同步助手，选项页 → 共通 → 自动同步，开启下面的选项，并一定要选择 **通过简悦 · 同步助手覆盖本地配置文件**。
-
-![image-20220928105621667](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664333781.png)
-
-然后刷新当前页面，然后会在你的同步助手设置的同步文件夹下发现 `simprea_config.json` 文件，即说明导入成功。
-
-![image-20220929184021771](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664448021.png)
-
-上述完成后，此配置文件全部配置完毕。
+![image-20221001184549812](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664621149.png)
 
 ## 测试
 
@@ -129,21 +116,9 @@
 
 https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909b-d1a7613b31e3.mov
 
-### 查看本地快照
-
-打开稍后读，随便找一个已经存在的稍后读，如果有下面视频所示的标识则说明读取的本地文件。
-
-https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93b-768368b00bf5.mp4
-
 # 附录
 
 如果动手能力强的话，可以继续看看下面的一些技巧。
-
-## 一站式教程
-
-可以直接看 [语雀上的一站式教程](https://www.yuque.com/kenshin/simpread/fr8zo5) 或者等你熟悉这套方案后可以根据此教程进行更个性化的定制。
-
-注意：这里提到的一站式教程跟上面的教程无关，上面的教程只是针对配置库的设置。
 
 ## 合并 Obsidian 配置
 
@@ -166,14 +141,6 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 把 B 中  `unrdist`  对应的内容全部复制到 A 并根据 `idx` 自增长进行排序，如下图所示
 
 ![image-20220929190305838](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449385.png)
-
-然后把配置库中 `output` 文件夹对应的快照 id 也对应修改下。
-
-![image-20220929190542971](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449543.png)
-
-以及 `Obsidian@simpread/SimpRead`文件夹对应的快照 id。
-
-![image-20220929190735233](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449655.png)
 
 ## 修改文件夹的名字
 

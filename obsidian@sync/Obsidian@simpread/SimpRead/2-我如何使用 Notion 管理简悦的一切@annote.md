@@ -12,8 +12,8 @@ idx: 2
 
 # 我如何使用 Notion 管理简悦的一切
 
-> [!example]- [🧷内部链接](<http://localhost:7026/unread/2>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/unread/2>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/unread/2>) [🌐外部链接](<https://sspai.com/post/70237>)    
+> URI:: [🧷](<http://localhost:7026/unread/2>) [🌐](<https://sspai.com/post/70237>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/2>)
 
 %%
@@ -40,7 +40,7 @@ idx: 2
 ## Annotations
 
 
-> [!srhl2] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008650243>) [🌐](<#id=1664008650243>)   
+> [!srhl2] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008650243>) [🌐](<http://localhost:7026/reading/2#id=1664008650243>)   
 > 处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。
 > 
 > 同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。
@@ -50,11 +50,11 @@ idx: 2
 > 我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。
 > ^sran-1664008650243
 
-> [!srhl3] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008663981>) [🌐](<#id=1664008663981>)   
+> [!srhl3] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008663981>) [🌐](<http://localhost:7026/reading/2#id=1664008663981>)   
 > ![](https://cdn.sspai.com/2021/12/01/article/d6027cfdc15580892a6013d9af40ae95)
 > ^sran-1664008663981
 
-> [!srhl5] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a8ea68">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008668130>) [🌐](<#id=1664008668130>)   
+> [!srhl5] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a8ea68">Highlights</mark> [🧷](<http://localhost:7026/unread/2#id=1664008668130>) [🌐](<http://localhost:7026/reading/2#id=1664008668130>)   
 > ![](https://cdn.sspai.com/2021/12/01/article/dcf998c9e173632ef816f7fae4165c9b)
 > ^sran-1664008668130
 

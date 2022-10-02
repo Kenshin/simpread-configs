@@ -12,8 +12,8 @@ idx: 3
 
 # 放弃纠结、拥抱妥协，重器轻用就是高效
 
-> [!example]- [🧷内部链接](<http://localhost:7026/unread/3>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/unread/3>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/unread/3>) [🌐外部链接](<https://sspai.com/post/71576>)    
+> URI:: [🧷](<http://localhost:7026/unread/3>) [🌐](<https://sspai.com/post/71576>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/3>)
 
 %%
@@ -42,7 +42,7 @@ idx: 3
 ## Annotations
 
 
-> [!srhl2] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008601679>) [🌐](<#id=1664008601679>)   
+> [!srhl2] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008601679>) [🌐](<http://localhost:7026/reading/3#id=1664008601679>)   
 > 我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具：
 > 
 > *   Chrome
@@ -51,11 +51,11 @@ idx: 3
 > *   iTerm + oh-my-zsh
 > ^sran-1664008601679
 
-> [!srhl3] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008612905>) [🌐](<#id=1664008612905>)   
+> [!srhl3] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008612905>) [🌐](<http://localhost:7026/reading/3#id=1664008612905>)   
 > ![](https://cdn.sspai.com/2022/02/21/article/2dd7acc86429078ce738ea11dc4f1794)
 > ^sran-1664008612905
 
-> [!srhl2] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008622457>) [🌐](<#id=1664008622457>)   
+> [!srhl2] [[SR3@放弃纠结、拥抱妥协，重器轻用就是高效|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> [🧷](<http://localhost:7026/unread/3#id=1664008622457>) [🌐](<http://localhost:7026/reading/3#id=1664008622457>)   
 > 如果为了极简而极简则显然丧失了极简的目的：**高效**。
 > 
 > *   只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。

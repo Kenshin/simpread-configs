@@ -12,8 +12,8 @@ idx: 1
 
 # 本地存储 + 线上获取：我的个人数据库建构路径
 
-> [!example]- [🧷内部链接](<http://localhost:7026/reading/1>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/reading/1>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/reading/1>) [🌐外部链接](<https://sspai.com/post/69972>)    
+> URI:: [🧷](<http://localhost:7026/reading/1>) [🌐](<https://sspai.com/post/69972>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/1>)
 
 %%

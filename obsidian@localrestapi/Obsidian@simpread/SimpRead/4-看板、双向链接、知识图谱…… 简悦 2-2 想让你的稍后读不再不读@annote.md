@@ -12,8 +12,8 @@ idx: 4
 
 # 看板、双向链接、知识图谱…… 简悦 2-2 想让你的稍后读不再不读
 
-> [!example]- [🧷内部链接](<http://localhost:7026/reading/4>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/reading/4>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/reading/4>) [🌐外部链接](<https://sspai.com/post/67074>)    
+> URI:: [🧷](<http://localhost:7026/reading/4>) [🌐](<https://sspai.com/post/67074>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/4>)
 
 %%

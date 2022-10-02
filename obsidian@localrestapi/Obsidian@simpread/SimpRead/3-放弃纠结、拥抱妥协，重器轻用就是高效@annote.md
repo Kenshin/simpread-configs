@@ -12,8 +12,8 @@ idx: 3
 
 # 放弃纠结、拥抱妥协，重器轻用就是高效
 
-> [!example]- [🧷内部链接](<http://localhost:7026/reading/3>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/reading/3>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/reading/3>) [🌐外部链接](<https://sspai.com/post/71576>)    
+> URI:: [🧷](<http://localhost:7026/reading/3>) [🌐](<https://sspai.com/post/71576>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/3>)
 
 %%

@@ -12,8 +12,8 @@ idx: 2
 
 # 我如何使用 Notion 管理简悦的一切
 
-> [!example]- [🧷内部链接](<http://localhost:7026/reading/2>) [🌐外部链接](<>)    
-> URI:: [🧷](<http://localhost:7026/reading/2>) [🌐](<>) 
+> [!example]- [🧷内部链接](<http://localhost:7026/reading/2>) [🌐外部链接](<https://sspai.com/post/70237>)    
+> URI:: [🧷](<http://localhost:7026/reading/2>) [🌐](<https://sspai.com/post/70237>) 
 > intURI:: [🧷内部链接](<http://localhost:7026/reading/2>)
 
 %%

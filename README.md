@@ -1,4 +1,4 @@
-![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221003_1664779141.png)
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221003_1664779141.png" /></p>
 
 # 简悦配置库
 

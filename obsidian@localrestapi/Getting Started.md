@@ -139,12 +139,6 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 如果动手能力强的话，可以继续看看下面的一些技巧。
 
-## 一站式教程
-
-可以直接看 [语雀上的一站式教程](https://www.yuque.com/kenshin/simpread/fr8zo5) 或者等你熟悉这套方案后可以根据此教程进行更个性化的定制。
-
-注意：这里提到的一站式教程跟上面的教程无关，上面的教程只是针对配置库的设置。
-
 ## 合并 Obsidian 配置
 
 如果你已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian` 对应的文件夹复制到你自己的  `.obsidian` 然后打开 `.obsidian/community-plugins.json` 将下面的内容加入其中。

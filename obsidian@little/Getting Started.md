@@ -1,6 +1,6 @@
-# 特点
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221003_1664782925.png" /></p>
 
-这套工作流的特点：
+# 特点
 
 1. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Obsidian
 2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian

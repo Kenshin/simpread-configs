@@ -16,7 +16,6 @@
 ## 文件说明
 
 - `Obsidian@simpread` → Obsidian 库文件，包含了跟简悦有关的一些插件
-- `output` → 本地快照文件夹，内置了一些稍后读对应的本地快照
 - `simpread_config.json` → 简悦配置文件，导入后即可使用
 - `Getting Started.md` → 说明文档
 

@@ -21,7 +21,7 @@
 
 ## Obsidian
 
-简悦跟 Obsidian 具有 [多种的联动方案](https://github.com/Kenshin/simpread/discussions?discussions_q=label%3Aobsidian)，为此简悦专门区分了使用场景，这些场景大多覆盖下面的流程：
+简悦跟 Obsidian 具有 [多种的联动方案](https://github.com/Kenshin/simpread/discussions?discussions_q=label%3Aobsidian)，为方便新用户上手，特此发布了 Obsidian 配置包，内置了一些常见的使用场景并覆盖下面的流程：
 
 - 加入稍后读，自动将本地快照 和 Markdown 导入到 Obsidan
 - 加入标注时，自动将标注内容导入到 Obsidian

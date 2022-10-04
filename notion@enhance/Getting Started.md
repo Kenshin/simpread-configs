@@ -2,34 +2,34 @@
 
 # 特点
 
-1. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Obsidian
-2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian
-3. 不使用同步助手，非常适合轻量级使用简悦 + Obsidan 的用户
+1. 导入到 Notion 时会将图片上传到 Notion （也就是开启 Notion 图床功能），防止图片 404
+2. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Notion
+3. 在阅读模式下标注时，标注内容会自动同步到 Notion
+4. 不使用同步助手，非常适合轻量级使用简悦 + Notion 的用户
 
 # 适合用户
 
-- 新用户，尤其是需要使用简悦 + Obsidian 双链笔记配合的用户
+- 新用户，尤其是需要使用简悦 + Notion 双链笔记配合的用户
 - 不想折腾配置的用户
 
 # 配置库文件说明
 
+## 内置 Notion 账户
+
+为了更直观的看到通过简悦导入到 Notion 后的效果，配置文件包含了简悦官方提供的 Notion 授权信息。
+
+使用 `zaqr7s0g7@mozmail.com / sr123_654` 登录到 Notion 后可直接使用。
+
+**注意**
+
+1. 不要修改测试账户的密码，我会随时找回。😂
+2. 测试账户只是让新用户更直观的看到通过简悦的导入效果，最终还是要更换为自己的账户。
+3. 如何使用请看下面的附录内容。
+
 ## 文件说明
 
-- `Obsidian@simpread` → Obsidian 库文件，包含了跟简悦有关的一些插件
 - `simpread_config.json` → 简悦配置文件，导入后即可使用
 - `Getting Started.md` → 说明文档
-
-## Obsidian 库文件说明
-
-内置了跟简悦有关系的四个插件：
-
-- Banners
-- Dataview
-- Local REST API
-
-## 内置 Obsidian 模板
-
-内置了一套 Obsidian 模板，如果对其它模板感兴趣的话，可以看看 [简悦的官方模板库](https://github.com/Kenshin/simpread/discussions/2153) 基本上满足大部分 Obsidan 用户需求。
 
 ## 内置插件
 
@@ -44,22 +44,15 @@
 
 - [修复标题因为特殊字符导致无法下载的问题](https://simpread.ksria.cn/plugins/details/tMGXrU1v0U)
 - [自动化辅助增强](https://simpread.ksria.cn/plugins/details/DH9l5jblPH)
-- [导入到 Obsidian](https://simpread.ksria.cn/plugins/details/1VQ19jCD8Z)
-- [Markdown 模板辅助增强插件](https://simpread.ksria.cn/plugins/details/HD9GmoatXd)
+- [导入到 Notion 辅助增强](https://simpread.ksria.cn/plugins/details/g60jwZEeqU)
 
 # 教程
 
 ## 准备
 
 1. 如果是老用户的话，请务必备份好你的之前的配置文件。（选项页 → 共通 → 导出配置文件到本地）
-2. 如果是新用户的话，请先确保是 [升级为高级账户](https://www.yuque.com/kenshin/simpread/pwpnsx) 并且 [绑定了同步助手](https://www.yuque.com/kenshin/simpread/pwpnsx)。
+2. 如果是新用户的话，请先确保是 [升级为高级账户](https://www.yuque.com/kenshin/simpread/pwpnsx)。
 3. 一般来说使用这套流程的用户都使用坚果云，所以先暂停坚果云的自动同步功能或退出坚果云。
-
-## 设置 Obsidian 库文件夹
-
-将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidain 指定这个目录。
-
-![image-20220928093550398](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664328950.png)
 
 ## 导入配置文件
 
@@ -101,27 +94,17 @@
 
 ![image-20220928111105632](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664334665.png)
 
-###  在阅读模式下标注
+###  在阅读模式下加入稍后读和标注
 
-然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
-
-https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909b-d1a7613b31e3.mov
+https://user-images.githubusercontent.com/81074/193757575-49c4cc2a-2df9-406b-a683-b409d6555009.mp4
 
 # 附录
 
 如果动手能力强的话，可以继续看看下面的一些技巧。
 
-## 合并 Obsidian 配置
+## 更换自己的 Notion 账户
 
-如果你已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian` 对应的文件夹复制到你自己的  `.obsidian` 然后打开 `.obsidian/community-plugins.json` 将下面的内容加入其中。
-
- ```
- "dataview",
- "obsidian-banners",
- "obsidian-local-rest-api"
- ```
-
-## 合并 output 和稍后读
+## 合并稍后读
 
 如果你已经存在 output 并且也包含了一些稍后读，可以用任意文本编辑器分别打开你本地和解压缩后的的 `simpread_config.json` （假设你自己的叫 A，配置库的叫 B）
 
@@ -132,17 +115,3 @@ https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909
 把 B 中  `unrdist`  对应的内容全部复制到 A 并根据 `idx` 自增长进行排序，如下图所示
 
 ![image-20220929190305838](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449385.png)
-
-## 修改文件夹的名字
-
-`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidain 插件的对应内容，也就是要保证下图对应的名字是一致即可。
-
-![image-20221001151914758](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608754.png)
-
-## 重置 Local REST API
-
-因为配置包直接自带了 Local REST API，因此也自动分配了一个 Token，但每个使用此方式的用户对应的 Token 都是一样的，可以通过删除并重新安装 Local REST API 的方式生成一个新的 Token。
-
-当重新生成了 Token 后请同时修改插件端的 Token，随便打开一个网址 e.g. https://sspai.com/post/69972 然后进入阅读模式 → 右下角触发器 → 动作 → 插件触发器 → 导入到 Obsidian 选项，按下图所示修改。
-
-![image-20221001162223433](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664612543.png)

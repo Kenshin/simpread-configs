@@ -230,7 +230,7 @@
         "fontsize": "",
         "highlight": true,
         "layout": "",
-        "lazyimg": true,
+        "lazyimg": false,
         "progress": false,
         "pure": true,
         "shortcuts": "A A",

@@ -39,8 +39,9 @@
 - [模仿 Safari 阅读模式样式](https://simpread.ksria.cn/plugins/details/tbjTx33iAA)
 - [Lightbox Gallery](https://simpread.ksria.cn/plugins/details/VQOZdNET2d)
 - [Live Editor](https://simpread.ksria.cn/plugins/details/y8Mai5IBwN)
+- [Assistive Touch - 类似 iOS 的快捷浮动工具栏](https://simpread.ksria.cn/plugins/details/rsd4UIcDKY)
 
-### 导入到 Obsidian 相关
+### 导入到 Notion 相关
 
 - [修复标题因为特殊字符导致无法下载的问题](https://simpread.ksria.cn/plugins/details/tMGXrU1v0U)
 - [自动化辅助增强](https://simpread.ksria.cn/plugins/details/DH9l5jblPH)

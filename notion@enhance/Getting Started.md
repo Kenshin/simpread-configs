@@ -113,7 +113,7 @@ https://user-images.githubusercontent.com/81074/193757575-49c4cc2a-2df9-406b-a68
 
    ![image-20221005114302175](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941382.png)
 
-4. 简悦 → 选项页 → 服务 → 授权管理 → Notion → 到这个 Page
+4. 简悦 → 选项页 → 服务 → 授权管理 → Notion → 取消授权 → 重新授权并找到到这个 Page
 
    ![image-20221005114328607](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941408.png)
 

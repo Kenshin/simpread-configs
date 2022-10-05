@@ -1,0 +1,12 @@
+{
+  "theme": null,
+  "themes": {
+    "mode": "light",
+    "light": null,
+    "dark": null
+  },
+  "externals": [],
+  "pinnedToolbarItems": [
+    "logseq-simpread:open-simpread-panel"
+  ]
+}

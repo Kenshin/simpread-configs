@@ -2,8 +2,8 @@
 
 # 特点
 
-1. 导入到 Notion 时会将图片上传到 Notion （也就是开启 Notion 图床功能），防止图片 404
-2. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Notion
+1. 导入到 Notion 时会将图片上传到 Notion （也就是开启了简悦的 Notion 图床功能），防止图片 404
+2. 在阅读模式下加入稍后读，正文导入以 Markdown 的格式导入到 Notion
 3. 在阅读模式下标注时，标注内容会自动同步到 Notion
 4. 不使用同步助手，非常适合轻量级使用简悦 + Notion 的用户
 
@@ -23,8 +23,8 @@
 **注意**
 
 1. 不要修改测试账户的密码，我会随时找回。😂
-2. 测试账户只是让新用户更直观的看到通过简悦的导入效果，最终还是要更换为自己的账户。
-3. 如何使用请看下面的附录内容。
+2. 不要删除任何其他用户导入的内容。
+3. 测试账户只是让新用户更直观的看到通过简悦的导入效果，在使用时还是要更换为自己的账户。（附录有教程）
 
 ## 文件说明
 
@@ -103,6 +103,52 @@ https://user-images.githubusercontent.com/81074/193757575-49c4cc2a-2df9-406b-a68
 如果动手能力强的话，可以继续看看下面的一些技巧。
 
 ## 更换自己的 Notion 账户
+
+1. 退出 Notion 账户
+
+2. 重新登录自己的 Notion 账户
+
+3. **Duplicate** [此模板](https://simpreadpublish.notion.site/e784eba882da452eb8f300e6cd6b195d)，然后改名为 **来自简悦的稍后读**，并对这个Page **加 Favorite** 操作。
+
+   ![image-20221005114302175](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941382.png)
+
+4. 简悦 → 选项页 → 服务 → 授权管理 → Notion → 到这个 Page
+
+   ![image-20221005114328607](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941408.png)
+
+5. 打开 https://www.notion.so/my-integrations 并添加一个 **新的 integration**
+
+   ![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941457.png)
+
+6. 然后按照下图设置
+
+   ![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941489.png)
+
+7. 其余内容默认值就可以， 确认无误后，选择 **Submit**，会得到下图
+
+   ![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941525.png)
+
+
+
+8.  复制上步位置的 Token 到剪切板
+9. 邀请当前的 integration 到你（[第一步](https://github.com/Kenshin/simpread/discussions/3572#discussioncomment-2419547)）授权的 Page。
+
+​	  https://user-images.githubusercontent.com/81074/193977342-333fd5f2-2d38-4d34-9088-376c6ebec251.mp4
+
+10. 打开第一步得到的 Page，例如 `https://www.notion.so/abcd****xyz?v=123***789` 这个 Page 对应的 ID 则是 **abcd\**\**xyz**
+
+    ![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941718.png)
+
+11. 随便进入一个页面 e.g. https://sspai.com/post/71576 并进入 **阅读模式 → 右下角触发器 → 动作 → 插件触发器**
+
+    按照下图所示即可查看此插件的选项页。
+
+    ![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664941750.png)
+
+12. 刷新当前页面 e.g. https://sspai.com/post/71576 然后打开【导入到 Notion 辅助增强选项】，确认上述内容已填写。
+13. 测试导入到 Notion，如果上述操作无误的话，会成功将当前页面导入到你的 Notion。
+
+至此，完成全部设置。
 
 ## 合并稍后读
 

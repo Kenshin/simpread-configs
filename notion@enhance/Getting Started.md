@@ -133,7 +133,7 @@ https://user-images.githubusercontent.com/81074/193757575-49c4cc2a-2df9-406b-a68
 8.  复制上步位置的 Token 到剪切板
 9. 邀请当前的 integration 到你（[第一步](https://github.com/Kenshin/simpread/discussions/3572#discussioncomment-2419547)）授权的 Page。
 
-​	  https://user-images.githubusercontent.com/81074/193977342-333fd5f2-2d38-4d34-9088-376c6ebec251.mp4
+https://user-images.githubusercontent.com/81074/193977342-333fd5f2-2d38-4d34-9088-376c6ebec251.mp4
 
 10. 打开第一步得到的 Page，例如 `https://www.notion.so/abcd****xyz?v=123***789` 这个 Page 对应的 ID 则是 **abcd\**\**xyz**
 

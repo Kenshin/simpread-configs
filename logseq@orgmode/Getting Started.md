@@ -63,7 +63,7 @@
 
 如果你已经存在 `output` 文件夹的话，可以先将 `output` 文件夹改名为 `output@origin` 或其它名字。
 
-如果没有 `Output` 文件夹的话，在设置的同步文件夹下新建 `output` 即可，并在同步助手 → 导出 → 路径中设置
+如果没有 `Output` 文件夹的话，在设置的同步文件夹下新建 `output` 即可，并在同步助手 → 导出 → 路径，添加 `output` 路径。
 
 ![image-20221006165001158](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665046201.png)
 
@@ -91,6 +91,12 @@
 {"extension":"org", "path":"C:\\Users\\***\\Logseq@simpread\\pages"}
 ```
 
+## 设置 org 格式
+
+在选项中要确保是 `.org` 格式。
+
+![image-20221006190739137](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665054459.png)
+
 ## 导入 .logseq 文件夹
 
 ### 自动安装
@@ -98,6 +104,10 @@
 打开 Logseq 的插件市场，输入 `simpread` 然后安装即可。
 
 ![image-20221006160411926](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665043451.png)
+
+没有插件市场的话，请通过下图所示的方式开启。
+
+![image-20221006191310436](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665054790.png)
 
 ### 手动安装
 

@@ -258,12 +258,6 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 如果动手能力强的话，可以继续看看下面的一些技巧。
 
-## 一站式教程
-
-可以直接看 [语雀上的一站式教程](https://www.yuque.com/kenshin/simpread/gbere7) 或者等你熟悉这套方案后可以根据此教程进行更个性化的定制。
-
-注意：这里提到的一站式教程跟上面的教程无关，上面的教程只是针对配置库的设置。
-
 ## 合并 output 和稍后读
 
 如果你已经存在 output 并且也包含了一些稍后读，可以用任意文本编辑器分别打开你本地和解压缩后的的 `simpread_config.json` （假设你自己的叫 A，配置库的叫 B）

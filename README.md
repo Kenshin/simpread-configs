@@ -38,7 +38,7 @@
 
 备注：极速版可支持 Markdown 形式的本地快照，其余两种均支持 HTML 和 Markdown 本地快照。
 
-# Notion
+## Notion
 
 简悦跟 Obsidian 具有 [多种的联动方案](https://github.com/Kenshin/simpread/discussions?discussions_q=label%3Anotion)，为方便新用户上手，特此发布了 Notion 配置包，内置了一些常见的使用场景并覆盖下面的流程：
 
@@ -54,3 +54,18 @@
 | [基础版](notion%40enhance/Getting%20Started.md) | 轻度使用简悦 +  Notion 的用户 | 不需要  | ✓         | ✓      | ✕    |
 | [高级版](notion%40sync/Getting%20Started.md)    | 重度使用简悦 + Notion 的用户  | 需要   | ✓         | ✓      | ✓    |
 
+## Logseq
+
+简悦跟 Logseq 具有 [多种的联动方案](https://github.com/Kenshin/simpread/discussions?discussions_q=label%3Alogseq)，为方便新用户上手，特此发布了 Logseq 配置包，内置了一些常见的使用场景并覆盖下面的流程：
+
+- 加入稍后读，自动生成本地快照
+- 加入标注时，自动将标注内容导入本地快照和 Logseq
+- 改变稍后读或标注的元数据时，自动将改动的内容保存到本地快照和 Logseq
+- 在 Logseq 中直接内置好了简悦的标注系统，可直接在 Logseq 实现标注
+
+因为 Logseq 与 Obsidian 在插件 API 的支持度，所以并没有轻量级使用方案，根据 Logseq 支持的文件格式，区别为以下两种：
+
+|                                                      | 适合受众                     | 同步助手 | 自动导入标注 | 本地快照 | 在 Logseq 直接标注 | 支持文件格式 |
+| ---------------------------------------------------- | ---------------------------- | -------- | ------------ | -------- | ------------------ | ------------ |
+| [Org-mode 版](logseq%40orgmode/Getting%20Started.md) | 重度使用简悦 + Logseq 的用户 | 需要     | ✓            | ✓        | ✓                  | `.org`       |
+| [Markdown 版](logseq%40md/Getting%20Started.md)      | 重度使用简悦 + Logseq 的用户 | 需要     | ✓            | ✓        | ✓                  | `.md`        |

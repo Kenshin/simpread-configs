@@ -65,6 +65,10 @@
 
 如果你已经存在 `output` 文件夹的话，可以先将 `output` 文件夹改名为 `output@origin` 或其它名字。
 
+如果没有 `Output` 文件夹的话，在设置的同步文件夹下新建 `output` 即可，并在同步助手 → 导出 → 路径，添加 `output` 路径。
+
+![image-20221006165001158](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665046201.png)
+
 ## 设置 Obsidian 库文件夹
 
 将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidian 指定这个目录。

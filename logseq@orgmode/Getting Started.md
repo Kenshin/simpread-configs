@@ -91,7 +91,7 @@
 {"extension":"org", "path":"C:\\Users\\***\\Logseq@simpread\\pages"}
 ```
 
-## 设置 org 格式
+## 设置 Logseq 文件格式
 
 在选项中要确保是 `.org` 格式。
 

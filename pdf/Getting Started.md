@@ -106,9 +106,9 @@
 
 ![image-20220928104247433](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664332967.png)
 
-此配置包内置了9个插件，导入成功后会有下图所示的提示。
+此配置包内置了8个插件，导入成功后会有下图所示的提示。
 
-![image-20220928104341346](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664333021.png)
+![image-20221007191647079](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221007_1665141407.png)
 
 ### 开启自动同步
 

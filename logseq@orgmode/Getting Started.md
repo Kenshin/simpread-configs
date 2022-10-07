@@ -284,7 +284,7 @@ let fileTags = (jd_tags2)? jd_tags2.join(" ") : "";
 
 ###  在阅读模式下标注
 
-然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
+然后再开启 Logseq 的前提下，增加新的标注，看看是否会自动同步到 Logseq。
 
 https://user-images.githubusercontent.com/81074/194263928-ec5db1ea-0eb6-4966-9522-f74f147eebb3.mp4
 

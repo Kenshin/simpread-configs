@@ -4,7 +4,7 @@
 
 1. 在阅读模式下加入稍后读，会将正文导入以 Markdown 的格式导入到 Obsidian
 2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian
-3. 不使用同步助手，非常适合轻量级使用简悦 + Obsidan 的用户
+3. 不使用同步助手，非常适合轻量级使用简悦 + Obsidian 的用户
 
 # 适合用户
 
@@ -29,7 +29,7 @@
 
 ## 内置 Obsidian 模板
 
-内置了一套 Obsidian 模板，如果对其它模板感兴趣的话，可以看看 [简悦的官方模板库](https://github.com/Kenshin/simpread/discussions/2153) 基本上满足大部分 Obsidan 用户需求。
+内置了一套 Obsidian 模板，如果对其它模板感兴趣的话，可以看看 [简悦的官方模板库](https://github.com/Kenshin/simpread/discussions/2153) 基本上满足大部分 Obsidian 用户需求。
 
 ## 内置插件
 
@@ -57,7 +57,7 @@
 
 ## 设置 Obsidian 库文件夹
 
-将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidain 指定这个目录。
+将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidian 指定这个目录。
 
 ![image-20220928093550398](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664328950.png)
 
@@ -103,7 +103,7 @@
 
 ###  在阅读模式下标注
 
-然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
+然后再开启 Obsidian 的前提下，增加新的标注，看看是否会自动同步到 Obsidian。
 
 https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909b-d1a7613b31e3.mov
 
@@ -135,7 +135,7 @@ https://user-images.githubusercontent.com/81074/193401583-80a15ce4-4c98-40d1-909
 
 ## 修改文件夹的名字
 
-`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidain 插件的对应内容，也就是要保证下图对应的名字是一致即可。
+`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidian 插件的对应内容，也就是要保证下图对应的名字是一致即可。
 
 ![image-20221001151914758](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608754.png)
 

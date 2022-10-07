@@ -4,7 +4,7 @@
 
 1. 在阅读模式下加入稍后读，会自动生成本地快照
 2. 在阅读模式下标注时，标注内容会自动同步到 Obsidian（轻量级使用简悦 + Obsidan）
-3. 在 Obsidian 中也可以内嵌简悦的标注，同时也自动更新到 Obsidain 内的标注文档中（重度使用简悦 + Obsidan）
+3. 在 Obsidian 中也可以内嵌简悦的标注，同时也自动更新到 Obsidian 内的标注文档中（重度使用简悦 + Obsidan）
 
 # 适合用户
 
@@ -29,7 +29,7 @@
 - Obsidian42 - BRAT
 - SimpRead Sync
 
-最主要的 SimpRead Sync 也配置完毕，内置了简悦的 Obsidain 模板，仅需要配置路径即可（下面的教程会告知如何配置）
+最主要的 SimpRead Sync 也配置完毕，内置了简悦的 Obsidian 模板，仅需要配置路径即可（下面的教程会告知如何配置）
 
 ## 内置 Obsidian 模板
 
@@ -71,7 +71,7 @@
 
 ## 设置 Obsidian 库文件夹
 
-将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidain 指定这个目录。
+将解压缩的文件夹 `Obsidian@simpread` 放到你需要的任意目录，然后在 Obsidian 指定这个目录。
 
 ![image-20220928093550398](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664328950.png)
 
@@ -133,13 +133,13 @@
 
 ###  在阅读模式下标注
 
-然后再开启 Obsidain 的前提下，增加新的标注，看看是否会自动同步到 Obsidan。
+然后再开启 Obsidian 的前提下，增加新的标注，看看是否会自动同步到 Obsidian。
 
 https://user-images.githubusercontent.com/81074/193396924-bc83c8fe-d891-4462-b0bf-75385976c40f.mp4
 
 ### 在 Obsidian 中标注
 
-打开 Obsidan 里面应该有一些现成的 Markdown，打开一个并按照下面视频的操作，当在右侧标注时，会自动将标注同步到 Obsidian 中。
+打开 Obsidian 里面应该有一些现成的 Markdown，打开一个并按照下面视频的操作，当在右侧标注时，会自动将标注同步到 Obsidian 中。
 
 https://user-images.githubusercontent.com/81074/192685660-35a6ae06-0c33-44ef-9208-0b806048059e.mp4
 
@@ -192,6 +192,6 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 ## 修改文件夹的名字
 
-`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidain 插件的对应内容，也就是要保证下图对应的名字是一致即可。
+`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidian 插件的对应内容，也就是要保证下图对应的名字是一致即可。
 
 ![image-20221001151914758](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608754.png)

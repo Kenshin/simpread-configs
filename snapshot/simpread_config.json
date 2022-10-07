@@ -1,0 +1,691 @@
+{
+    "version": "2.2.0",
+    "option": {
+        "annote": {
+            "autosave": true,
+            "color": 1,
+            "effect": "normal",
+            "event": "click",
+            "exp_mode": "both",
+            "exp_name": "html",
+            "export": true,
+            "hypothes": false,
+            "keyboard": "Q Q",
+            "link": "[{{an_text}}]({{an_int_uri}})",
+            "off": false,
+            "order": "auto",
+            "savelocal": false,
+            "shortcuts": "M M",
+            "style": 0,
+            "trigger": true
+        },
+        "auto_mode": "read",
+        "automated": [
+            {
+                "action": [
+                    {
+                        "id": 1663756989374,
+                        "value": "html"
+                    }
+                ],
+                "bgColor": "#195bf7",
+                "color": "#fff",
+                "icon": "<i class=\"fas fa-project-diagram\"></i>",
+                "id": 1663756989374,
+                "name": "",
+                "target": "unreader",
+                "type": "auto"
+            },
+            {
+                "action": [
+                    {
+                        "disable": false,
+                        "id": 1663846286442,
+                        "value": "html"
+                    }
+                ],
+                "bgColor": "#195bf7",
+                "color": "#fff",
+                "icon": "<i class=\"fas fa-project-diagram\"></i>",
+                "id": 1663846286442,
+                "name": "",
+                "target": "annote",
+                "type": "auto"
+            }
+        ],
+        "blacklist": [
+            "google.com",
+            "youtube.com",
+            "simp.red",
+            "simpread.herokuapp.com",
+            "simpread-test.herokuapp.com",
+            "simpread.ksria.cn",
+            "https://www.oschina.net/"
+        ],
+        "br_exit": false,
+        "create": "",
+        "darkmode": "auto",
+        "esc": true,
+        "export": {
+            "custom": [],
+            "html": {
+                "layout": "normal",
+                "proxy": false,
+                "toc": false
+            },
+            "markdeep": {
+                "custom": false,
+                "template": ""
+            },
+            "markdown": {
+                "backlink": "",
+                "custom": false,
+                "ext_uri": "",
+                "format": "",
+                "int_uri": "",
+                "single": false,
+                "single_tmp": "",
+                "tag": "",
+                "tag_sep": "",
+                "template": ""
+            },
+            "title": {
+                "custom": true,
+                "template": "{{id}}{{un_title}}{{mode}}"
+            },
+            "webhooks": []
+        },
+        "lazyload": [
+            "baidu.com",
+            "weibo.com",
+            "youtube.com"
+        ],
+        "manual": {
+            "mode": "read",
+            "select": true,
+            "shortcuts": "S S",
+            "site": "confirm"
+        },
+        "menu": {
+            "blacklist": false,
+            "exclusion": false,
+            "focus": true,
+            "lazyload": false,
+            "link": false,
+            "list": true,
+            "manual": true,
+            "option": true,
+            "read": true,
+            "unrdist": true,
+            "whitelist": false
+        },
+        "notice": true,
+        "origins": [],
+        "plugins": [
+            "PcmPCT9rgM",
+            "tMGXrU1v0U",
+            "tbjTx33iAA",
+            "VQOZdNET2d",
+            "UEzvAXNSe5",
+            "y8Mai5IBwN"
+        ],
+        "preload": true,
+        "remote": {
+            "export": {
+                "attach": "none",
+                "epub": true,
+                "kindle": true,
+                "mail": false,
+                "pdf": true,
+                "plain": true
+            },
+            "parse": true,
+            "port": 7026,
+            "rss": false,
+            "sync": false
+        },
+        "save_at": "jianguo",
+        "secret": false,
+        "shortcuts": "enable",
+        "sync": "2022年10月07日 16:02:56",
+        "uninstall": true,
+        "unreader": {
+            "autoiframe": false,
+            "bottom": true,
+            "exports": {},
+            "mode": "annote",
+            "offline": true,
+            "openmode": "evergreen",
+            "sametheme": false,
+            "savelocal": false,
+            "savetype": "ofhtml",
+            "search": true,
+            "shortcuts": "D D",
+            "show": "senior",
+            "sidebar": true,
+            "theme": "default"
+        },
+        "update": "2022年10月07日 16:02:56",
+        "urlscheme": true,
+        "version": "2017-04-03"
+    },
+    "collections": [],
+    "focus": {
+        "auto": false,
+        "bgcolor": "rgba( 235, 235, 235, 0.9 )",
+        "controlbar": true,
+        "highlight": true,
+        "mask": true,
+        "opacity": 90,
+        "shortcuts": "A S",
+        "version": "2016-12-29"
+    },
+    "notice": {
+        "latest": 0,
+        "read": [],
+        "unsee": 0
+    },
+    "plugstorge": {
+        "PcmPCT9rgM": {},
+        "UEzvAXNSe5": {},
+        "VQOZdNET2d": {},
+        "tMGXrU1v0U": {},
+        "tbjTx33iAA": {
+            "exist": "false"
+        },
+        "y8Mai5IBwN": {}
+    },
+    "read": {
+        "actionbar": {},
+        "auto": true,
+        "cleanup": true,
+        "controlbar": true,
+        "custom": {
+            "art": {
+                "color": "",
+                "fontFamily": "",
+                "fontSize": "",
+                "fontWeight": "",
+                "letterSpacing": "",
+                "lineHeight": "",
+                "textIndent": "",
+                "wordSpacing": ""
+            },
+            "code": {
+                "fontFamily": "",
+                "fontSize": ""
+            },
+            "css": "",
+            "desc": {
+                "color": "",
+                "fontFamily": "",
+                "fontSize": ""
+            },
+            "pre": {
+                "textShadow": ""
+            },
+            "title": {
+                "color": "",
+                "fontFamily": "",
+                "fontSize": ""
+            }
+        },
+        "exclusion": [
+            "v2ex.com",
+            "issue.github.com",
+            "readme.github.com",
+            "question.zhihu.com",
+            "douban.com",
+            "nationalgeographic.com.cn",
+            "tech.163.com",
+            "docs.microsoft.com",
+            "msdn.microsoft.com",
+            "baijia.baidu.com",
+            "code.oschina.net",
+            "http://www.ifanr.com",
+            "http://www.ifanr.com/news",
+            "http://www.ifanr.com/app",
+            "http://www.ifanr.com/minapp",
+            "http://www.ifanr.com/dasheng",
+            "http://www.ifanr.com/data",
+            "https://www.ifanr.com/app",
+            "http://www.ifanr.com/weizhizao",
+            "http://www.thepaper.cn",
+            "http://www.pingwest.com",
+            "http://tech2ipo.com",
+            "https://www.waerfa.com/social"
+        ],
+        "fap": true,
+        "fap_layout": "list",
+        "fontfamily": "default",
+        "fontsize": "",
+        "highlight": true,
+        "layout": "",
+        "lazyimg": true,
+        "progress": false,
+        "pure": true,
+        "shortcuts": "A A",
+        "theme": "github",
+        "toc": true,
+        "toc_hide": true,
+        "version": "2017-03-16",
+        "whitelist": []
+    },
+    "statistics": {
+        "read": 5,
+        "service": {
+            "html": 17
+        }
+    },
+    "unrdist": [
+        {
+            "annotations": [
+                {
+                    "annote": "<sr-annote data-id=\"1664008720665\">传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：</sr-annote><sr-annote data-id=\"1664008720665\">稍后读与标注具有一样的地位，且都可以支持无限层级标签系统</sr-annote><sr-annote data-id=\"1664008720665\">。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。</sr-annote><sr-annote data-id=\"1664008720665\">随着 Zettelkasten 笔记法的流行，越来越多的使用者开始注意笔记（信息）之间的内化与相互之间的关联性，其实在 Wiki 页面就存在着这样的信息关联性，而作为信息完整度最好的稍后读工具，却天然地缺失这类方式。</sr-annote><sr-annote data-id=\"1664008720665\">因此&nbsp;2.2.0&nbsp;版简悦的稍后读借鉴了 ZK 笔记法的一些特点，专门针对信息的整合增加了如下一些新功能，对于一个稍后读产品来说这些功能都是简悦独有的功能。</sr-annote><sr-annote data-id=\"1664008720665\">双向链接</sr-annote><sr-annote data-id=\"1664008720665\">知识图谱</sr-annote><sr-annote data-id=\"1664008720665\">Mindmap</sr-annote><sr-annote data-id=\"1664008720665\"> 多种信息展示方式（布局）：</sr-annote><sr-annote data-id=\"1664008720665\">Evergreen</sr-annote><sr-annote data-id=\"1664008720665\">、</sr-annote><sr-annote data-id=\"1664008720665\">Workflowy</sr-annote><sr-annote data-id=\"1664008720665\">、</sr-annote><sr-annote data-id=\"1664008720665\">k</sr-annote>",
+                    "color": 1,
+                    "html": "<p>传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：<strong>稍后读与标注具有一样的地位，且都可以支持无限层级标签系统</strong>。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。</p><p>随着 Zettelkasten 笔记法的流行，越来越多的使用者开始注意笔记（信息）之间的内化与相互之间的关联性，其实在 Wiki 页面就存在着这样的信息关联性，而作为信息完整度最好的稍后读工具，却天然地缺失这类方式。</p><p>因此&nbsp;2.2.0&nbsp;版简悦的稍后读借鉴了 ZK 笔记法的一些特点，专门针对信息的整合增加了如下一些新功能，对于一个稍后读产品来说这些功能都是简悦独有的功能。</p><ul><li><a href=\"http://ksria.com/simpread/docs/#/%E5%8F%8C%E5%90%91%E9%93%BE%E6%8E%A5\" target=\"_blank\">双向链接</a></li><li><a href=\"http://ksria.com/simpread/docs/#/%E5%8F%8C%E5%90%91%E9%93%BE%E6%8E%A5?id=%E5%9B%BE%E8%B0%B1\" target=\"_blank\">知识图谱</a></li><li><a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB?id=Mindmap\" target=\"_blank\">Mindmap</a></li><li> 多种信息展示方式（布局）：<a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Evergreen\" target=\"_blank\">Evergreen</a>、<a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Workflowy\" target=\"_blank\">Workflowy</a>、<a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Kanban\" target=\"_blank\">k</a></li></ul><h3 id=\"sr-toc-1\"></h3>",
+                    "id": 1664008720665,
+                    "items": [
+                        {
+                            "root": "传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：稍后读与标注具有一样的地位，且都可以支持无限层级标签系统。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。",
+                            "str": "传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是："
+                        },
+                        {
+                            "root": "传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：稍后读与标注具有一样的地位，且都可以支持无限层级标签系统。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。",
+                            "str": "稍后读与标注具有一样的地位，且都可以支持无限层级标签系统"
+                        },
+                        {
+                            "root": "传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：稍后读与标注具有一样的地位，且都可以支持无限层级标签系统。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。",
+                            "str": "。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。"
+                        },
+                        {
+                            "root": "因此 2.2.0 版简悦的稍后读借鉴了 ZK 笔记法的一些特点，专门针对信息的整合增加了如下一些新功能，对于一个稍后读产品来说这些功能都是简悦独有的功能。",
+                            "str": "随着 Zettelkasten 笔记法的流行，越来越多的使用者开始注意笔记（信息）之间的内化与相互之间的关联性，其实在 Wiki 页面就存在着这样的信息关联性，而作为信息完整度最好的稍后读工具，却天然地缺失这类方式。"
+                        },
+                        {
+                            "root": "双向链接\n知识图谱\nMindmap\n多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "因此 2.2.0 版简悦的稍后读借鉴了 ZK 笔记法的一些特点，专门针对信息的整合增加了如下一些新功能，对于一个稍后读产品来说这些功能都是简悦独有的功能。"
+                        },
+                        {
+                            "root": "双向链接\n知识图谱\nMindmap\n多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "双向链接"
+                        },
+                        {
+                            "root": "双向链接\n知识图谱\nMindmap\n多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "知识图谱"
+                        },
+                        {
+                            "root": "双向链接\n知识图谱\nMindmap\n多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "Mindmap"
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "多种信息展示方式（布局）："
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "Evergreen"
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "、"
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "Workflowy"
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "、"
+                        },
+                        {
+                            "root": "多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                            "str": "k"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "传统的稍后读只是将不同的信息用「文件夹 + 标签」方式来展示，但这样对信息来说，颗粒度还是太大了。简悦对此的解决方案是：稍后读与标注具有一样的地位，且都可以支持无限层级标签系统。这样做虽然减小了信息的颗粒度问题，但并未真正解决信息的关联性问题。随着 Zettelkasten 笔记法的流行，越来越多的使用者开始注意笔记（信息）之间的内化与相互之间的关联性，其实在 Wiki 页面就存在着这样的信息关联性，而作为信息完整度最好的稍后读工具，却天然地缺失这类方式。因此 2.2.0 版简悦的稍后读借鉴了 ZK 笔记法的一些特点，专门针对信息的整合增加了如下一些新功能，对于一个稍后读产品来说这些功能都是简悦独有的功能。双向链接知识图谱Mindmap多种信息展示方式（布局）：Evergreen、Workflowy、k",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "",
+                    "color": 5,
+                    "html": "",
+                    "id": 1664008727659,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2021/05/27/3df7b554b18a30e156673c3511a897e2.png",
+                    "type": "img"
+                },
+                {
+                    "annote": "<sr-annote data-id=\"1664008742365\">新的布局</sr-annote><sr-annote data-id=\"1664008742365\">布局是信息的展示方式，加入了双向链接等功能后，2.2 版本之前的布局已经无法承载这些内容。所以 2.2 版本增加了三类布局：</sr-annote><sr-annote data-id=\"1664008742365\">Evergreen</sr-annote><sr-annote data-id=\"1664008742365\">：信息的之间的关联性联系 </sr-annote><sr-annote data-id=\"1664008742365\">Workflowy</sr-annote><sr-annote data-id=\"1664008742365\">：将多种信息汇总为一个页面 </sr-annote><sr-annote data-id=\"1664008742365\">Kanban</sr-annote><sr-annote data-id=\"1664008742365\">：用 GTD 的方式管理你的稍后读</sr-annote>",
+                    "color": 3,
+                    "html": "<h3 id=\"sr-toc-3\">新的布局</h3><p>布局是信息的展示方式，加入了双向链接等功能后，2.2 版本之前的布局已经无法承载这些内容。所以 2.2 版本增加了三类布局：</p><ul><li><a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Evergreen\" target=\"_blank\">Evergreen</a>：信息的之间的关联性联系 </li><li><a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Workflowy\" target=\"_blank\">Workflowy</a>：将多种信息汇总为一个页面 </li><li><a href=\"http://ksria.com/simpread/docs/#/%E7%A8%8D%E5%90%8E%E8%AF%BB-%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80?id=Kanban\" target=\"_blank\">Kanban</a>：用 GTD 的方式管理你的稍后读</li></ul>",
+                    "id": 1664008742365,
+                    "items": [
+                        {
+                            "root": "布局是信息的展示方式，加入了双向链接等功能后，2.2 版本之前的布局已经无法承载这些内容。所以 2.2 版本增加了三类布局：",
+                            "str": "新的布局"
+                        },
+                        {
+                            "root": "Evergreen：信息的之间的关联性联系\nWorkflowy：将多种信息汇总为一个页面\nKanban：用 GTD 的方式管理你的稍后读",
+                            "str": "布局是信息的展示方式，加入了双向链接等功能后，2.2 版本之前的布局已经无法承载这些内容。所以 2.2 版本增加了三类布局："
+                        },
+                        {
+                            "root": "Evergreen：信息的之间的关联性联系",
+                            "str": "Evergreen"
+                        },
+                        {
+                            "root": "Evergreen：信息的之间的关联性联系",
+                            "str": "：信息的之间的关联性联系"
+                        },
+                        {
+                            "root": "Workflowy：将多种信息汇总为一个页面",
+                            "str": "Workflowy"
+                        },
+                        {
+                            "root": "Workflowy：将多种信息汇总为一个页面",
+                            "str": "：将多种信息汇总为一个页面"
+                        },
+                        {
+                            "root": "Kanban：用 GTD 的方式管理你的稍后读",
+                            "str": "Kanban"
+                        },
+                        {
+                            "root": "Kanban：用 GTD 的方式管理你的稍后读",
+                            "str": "：用 GTD 的方式管理你的稍后读"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "新的布局布局是信息的展示方式，加入了双向链接等功能后，2.2 版本之前的布局已经无法承载这些内容。所以 2.2 版本增加了三类布局：Evergreen：信息的之间的关联性联系Workflowy：将多种信息汇总为一个页面Kanban：用 GTD 的方式管理你的稍后读",
+                    "type": "paragraph"
+                }
+            ],
+            "create": "2022年09月24日 16:38:25",
+            "desc": "我希望简悦不仅是一个工具，它更应该是你的信息获取助理，是建立在信息与笔记之间的桥梁，是建立在原始网页与生产力工具之间的桥梁。",
+            "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico",
+            "idx": 4,
+            "img": "https://cdn.sspai.com/article/053250ba-a755-1fb8-25d7-d96ca0aa7b31.png",
+            "note": "",
+            "tags": [],
+            "title": "看板、双向链接、知识图谱…… 简悦 2-2 想让你的稍后读不再不读",
+            "url": "https://sspai.com/post/67074"
+        },
+        {
+            "annotations": [
+                {
+                    "annote": "<sr-annote data-id=\"1664008601679\">我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具：</sr-annote><sr-annote data-id=\"1664008601679\">Chrome</sr-annote><sr-annote data-id=\"1664008601679\">VS Code</sr-annote><sr-annote data-id=\"1664008601679\">Github + git</sr-annote><sr-annote data-id=\"1664008601679\">iTerm + oh-my-zsh</sr-annote>",
+                    "color": 1,
+                    "html": "<p>我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具：</p><ul><li>Chrome</li><li>VS Code</li><li>Github + git</li><li>iTerm + oh-my-zsh</li></ul>",
+                    "id": 1664008601679,
+                    "items": [
+                        {
+                            "root": "Chrome\nVS Code\nGithub + git\niTerm + oh-my-zsh",
+                            "str": "我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具："
+                        },
+                        {
+                            "root": "Chrome\nVS Code\nGithub + git\niTerm + oh-my-zsh",
+                            "str": "Chrome"
+                        },
+                        {
+                            "root": "Chrome\nVS Code\nGithub + git\niTerm + oh-my-zsh",
+                            "str": "VS Code"
+                        },
+                        {
+                            "root": "Chrome\nVS Code\nGithub + git\niTerm + oh-my-zsh",
+                            "str": "Github + git"
+                        },
+                        {
+                            "root": "Chrome\nVS Code\nGithub + git\niTerm + oh-my-zsh",
+                            "str": "iTerm + oh-my-zsh"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具：ChromeVS CodeGithub + gitiTerm + oh-my-zsh",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "",
+                    "color": 2,
+                    "html": "",
+                    "id": 1664008612905,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2022/02/21/article/2dd7acc86429078ce738ea11dc4f1794",
+                    "type": "img"
+                },
+                {
+                    "annote": "<sr-annote data-id=\"1664008622457\">如果为了极简而极简则显然丧失了极简的目的：</sr-annote><sr-annote data-id=\"1664008622457\">高效</sr-annote><sr-annote data-id=\"1664008622457\">。</sr-annote><sr-annote data-id=\"1664008622457\">只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。</sr-annote><sr-annote data-id=\"1664008622457\">只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。</sr-annote><sr-annote data-id=\"1664008622457\">只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。</sr-annote>",
+                    "color": 1,
+                    "html": "<p>如果为了极简而极简则显然丧失了极简的目的：<strong>高效</strong>。</p><ul><li>只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。</li><li>只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。</li><li>只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。</li></ul>",
+                    "id": 1664008622457,
+                    "items": [
+                        {
+                            "root": "如果为了极简而极简则显然丧失了极简的目的：高效。",
+                            "str": "如果为了极简而极简则显然丧失了极简的目的："
+                        },
+                        {
+                            "root": "如果为了极简而极简则显然丧失了极简的目的：高效。",
+                            "str": "高效"
+                        },
+                        {
+                            "root": "如果为了极简而极简则显然丧失了极简的目的：高效。",
+                            "str": "。"
+                        },
+                        {
+                            "root": "只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。\n只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。\n只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。",
+                            "str": "只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。"
+                        },
+                        {
+                            "root": "只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。\n只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。\n只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。",
+                            "str": "只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。"
+                        },
+                        {
+                            "root": "只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。\n只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。\n只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。",
+                            "str": "只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "如果为了极简而极简则显然丧失了极简的目的：高效。只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。",
+                    "type": "paragraph"
+                }
+            ],
+            "create": "2022年09月24日 16:36:20",
+            "desc": "大家好，我是 Kenshin，简悦的作者，这次跟大家分享我对极简效率工作的一些理解，我接触效率相关的内容，与简悦的诞生有关：\n\n简悦始于 2016 年…… 那时因为家里的一些事情，我解散了团队，注销了公司。",
+            "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico",
+            "idx": 3,
+            "img": "https://cdn.sspai.com/2022/02/21/88f0c0c3d31e13ff8e8c004893de5394.png",
+            "note": "",
+            "tags": [],
+            "title": "放弃纠结、拥抱妥协，重器轻用就是高效",
+            "url": "https://sspai.com/post/71576"
+        },
+        {
+            "annotations": [
+                {
+                    "annote": "<sr-annote data-id=\"1664008650243\">处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。</sr-annote><sr-annote data-id=\"1664008650243\">同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。</sr-annote><sr-annote data-id=\"1664008650243\">首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。</sr-annote><sr-annote data-id=\"1664008650243\">我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。</sr-annote>",
+                    "color": 1,
+                    "html": "<p>处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。</p><p>同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。</p><p>首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。</p><p>我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。</p>",
+                    "id": 1664008650243,
+                    "items": [
+                        {
+                            "root": "同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。",
+                            "str": "处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。"
+                        },
+                        {
+                            "root": "首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。",
+                            "str": "同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。"
+                        },
+                        {
+                            "root": "我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。",
+                            "str": "首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。"
+                        },
+                        {
+                            "root": "同时在日志中也可以详细描写某些 Task 为什么延迟以及原因等，用作事后复盘。",
+                            "str": "我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "",
+                    "color": 2,
+                    "html": "",
+                    "id": 1664008663981,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2021/12/01/article/d6027cfdc15580892a6013d9af40ae95",
+                    "type": "img"
+                },
+                {
+                    "annote": "",
+                    "color": 4,
+                    "html": "",
+                    "id": 1664008668130,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2021/12/01/article/dcf998c9e173632ef816f7fae4165c9b",
+                    "type": "img"
+                }
+            ],
+            "create": "2022年09月24日 16:34:27",
+            "desc": "我每天都要处理两类事务：简悦 & 工作，每个事务都会有不同的角色。通过这篇文章，我就来跟大家分享下使用 Notion 管理简悦的一切工作的经验。",
+            "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico",
+            "idx": 2,
+            "img": "https://cdn.sspai.com/2021/12/01/316ccb44c2542cfdc492b84faf0e3085.png",
+            "note": "",
+            "tags": [],
+            "title": "我如何使用 Notion 管理简悦的一切",
+            "url": "https://sspai.com/post/70237"
+        },
+        {
+            "annotations": [
+                {
+                    "annote": "<sr-annote data-id=\"1663757635024\">这是个信息轰炸的时代，除了必要的信息过滤手段外，每个人都应该构建属于自己的个人知识库。</sr-annote>",
+                    "color": "2",
+                    "html": "这是个信息轰炸的时代，除了必要的信息过滤手段外，每个人都应该构建属于自己的个人知识库。",
+                    "id": 1663757635024,
+                    "items": [
+                        {
+                            "root": "一、个人数据库避坑指南",
+                            "str": "这是个信息轰炸的时代，除了必要的信息过滤手段外，每个人都应该构建属于自己的个人知识库。"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "这是个信息轰炸的时代，除了必要的信息过滤手段外，每个人都应该构建属于自己的个人知识库。",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "",
+                    "color": 5,
+                    "html": "",
+                    "id": 1663757593476,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2021/11/17/02dcb3e22348318ab27890b2272242a6.png",
+                    "type": "img"
+                },
+                {
+                    "annote": "<sr-annote data-id=\"1663757042487\">到的可能是一个共性问题，也就是：我们自己的笔记究竟该如何处理才最方便、最有助于个人成长？不同的软件有不同的理念，有的服务注重开放性，能够与市面上的其他服务共通，便于定制自己的</sr-annote>",
+                    "color": 1,
+                    "html": "到的可能是一个共性问题，也就是：我们自己的笔记究竟该如何处理才最方便、最有助于个人成长？不同的软件有不同的理念，有的服务注重开放性，能够与市面上的其他服务共通，便于定制自己的",
+                    "id": 1663757042487,
+                    "items": [
+                        {
+                            "root": "使用过笔记类软件的朋友都知道，这位朋友遇到的可能是一个共性问题，也就是：我们自己的笔记究竟该如何处理才最方便、最有助于个人成长？不同的软件有不同的理念，有的服务注重开放性，能够与市面上的其他服务共通，便于定制自己的知识空间；有的软件则认为自己的知识整理理念独一无二且非常优秀，因此相对封闭，便于吸引用户且留住用户。在这篇文章中，针对笔记和知识整理领域，我们来共同探讨关于个人数据整理的问题：",
+                            "str": "到的可能是一个共性问题，也就是：我们自己的笔记究竟该如何处理才最方便、最有助于个人成长？不同的软件有不同的理念，有的服务注重开放性，能够与市面上的其他服务共通，便于定制自己的"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "到的可能是一个共性问题，也就是：我们自己的笔记究竟该如何处理才最方便、最有助于个人成长？不同的软件有不同的理念，有的服务注重开放性，能够与市面上的其他服务共通，便于定制自己的",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "<sr-annote data-id=\"1663757046716\">究竟什么样的个人数据存储方案才是好的？</sr-annote><sr-annote data-id=\"1663757046716\">如何构建适合自己的数据存储空间？</sr-annote><sr-annote data-id=\"1663757046716\">构建自己的个性化服务应该注意哪些内容？</sr-annote>",
+                    "color": 1,
+                    "html": "<ol><li>究竟什么样的个人数据存储方案才是好的？</li><li>如何构建适合自己的数据存储空间？</li><li>构建自己的个性化服务应该注意哪些内容？</li></ol><h3 id=\"sr-toc-1\"></h3>",
+                    "id": 1663757046716,
+                    "items": [
+                        {
+                            "root": "究竟什么样的个人数据存储方案才是好的？\n如何构建适合自己的数据存储空间？\n构建自己的个性化服务应该注意哪些内容？",
+                            "str": "究竟什么样的个人数据存储方案才是好的？"
+                        },
+                        {
+                            "root": "究竟什么样的个人数据存储方案才是好的？\n如何构建适合自己的数据存储空间？\n构建自己的个性化服务应该注意哪些内容？",
+                            "str": "如何构建适合自己的数据存储空间？"
+                        },
+                        {
+                            "root": "究竟什么样的个人数据存储方案才是好的？\n如何构建适合自己的数据存储空间？\n构建自己的个性化服务应该注意哪些内容？",
+                            "str": "构建自己的个性化服务应该注意哪些内容？"
+                        }
+                    ],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "究竟什么样的个人数据存储方案才是好的？如何构建适合自己的数据存储空间？构建自己的个性化服务应该注意哪些内容？",
+                    "type": "paragraph"
+                },
+                {
+                    "annote": "",
+                    "color": 2,
+                    "html": "",
+                    "id": 1663757053676,
+                    "items": [],
+                    "note": "",
+                    "style": 0,
+                    "tags": [],
+                    "text": "https://cdn.sspai.com/2021/11/17/d603dfc12369401e5d24eeff2c2ddb85.jpg",
+                    "type": "img"
+                }
+            ],
+            "create": "2022年09月21日 18:43:54",
+            "desc": "这是个信息轰炸的时代，除了必要的信息过滤手段外，每个人都应该构建属于自己的个人知识库。",
+            "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico",
+            "idx": 1,
+            "img": "https://cdn.sspai.com/2021/11/17/365ff29b5ab274691d99b1417912aade.png",
+            "note": "",
+            "tags": [],
+            "title": "本地存储 + 线上获取：我的个人数据库建构路径",
+            "url": "https://sspai.com/post/69972"
+        }
+    ],
+    "user": {
+        "avatar": "",
+        "contact": "",
+        "email": "",
+        "name": "",
+        "rule": 1,
+        "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    "websites": {
+        "custom": [],
+        "local": [],
+        "person": []
+    }
+}

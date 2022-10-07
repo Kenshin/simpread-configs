@@ -179,7 +179,7 @@ Logseq 与 Obsidian 的插件机制不一样，Logseq 属于全局，所以没�
 
 打开左上角 Icon，并按照下图所示设置。
 
-![image-20221006161608782](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665044168.png)
+![image-20221007113530695](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221007_1665113730.png)
 
 ### 稍后读模板
 

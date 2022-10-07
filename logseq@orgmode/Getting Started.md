@@ -272,7 +272,7 @@ let fileTags = (jd_tags2)? jd_tags2.join(" ") : "";
 
 ```
 
-复制时请留意空格，复制粘贴保存后，刷新当前页面确保生效。上面的模板来自 https://github.com/Kenshin/simpread/discussions/2153#discussioncomment-2627320，关于 Logseq 的更多官方模式，[请看这里](https://github.com/Kenshin/simpread/discussions/3725#discussioncomment-2635600)。
+复制时请留意空格，复制粘贴保存后，刷新当前页面确保生效。上面的模板来自 https://github.com/Kenshin/simpread/discussions/2153#discussioncomment-2627320 关于 Logseq 的更多官方模式，[请看这里](https://github.com/Kenshin/simpread/discussions/3725#discussioncomment-2635600)。
 
 上述完成后，此配置文件全部配置完毕。
 

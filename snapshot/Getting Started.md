@@ -1,4 +1,4 @@
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221007_1665118121.png" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221008_1665202007.png" /></p>
 
 # 特点
 

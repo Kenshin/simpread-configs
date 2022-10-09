@@ -2,8 +2,7 @@
 
 # 特点
 
-1. 在阅读模式下加入稍后读，会自动生成本地快照
-2. 在阅读模式下标注时，标注自动生成本地快照
+在阅读模式下加入稍后读，会自动生成离线 HTML，将图片本地化，用以解决图片 404 问题。
 
 # 适合用户
 
@@ -26,6 +25,8 @@
 - [模仿 Safari 阅读模式样式](https://simpread.ksria.cn/plugins/details/tbjTx33iAA)
 - [Lightbox Gallery](https://simpread.ksria.cn/plugins/details/VQOZdNET2d)
 - [Live Editor](https://simpread.ksria.cn/plugins/details/y8Mai5IBwN)
+
+- [Assistive Touch - 类似 iOS 的快捷浮动工具栏](https://simpread.ksria.cn/plugins/details/rsd4UIcDKY)
 
 - [修复标题因为特殊字符导致无法下载的问题](https://simpread.ksria.cn/plugins/details/tMGXrU1v0U)
 
@@ -81,9 +82,9 @@
 
 ![image-20220928104247433](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664332967.png)
 
-此配置包内置了6个插件，导入成功后会有下图所示的提示。
+此配置包内置了7个插件，导入成功后会有下图所示的提示。
 
-![image-20221005120248874](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664942568.png)
+![image-20221009163308104](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221009_1665304388.png)
 
 ### 开启自动同步
 

@@ -25,7 +25,8 @@
                 "action": [
                     {
                         "id": 1663756989374,
-                        "value": "html"
+                        "value": "offlinehtml",
+                        "disable": false
                     }
                 ],
                 "bgColor": "#195bf7",
@@ -34,22 +35,6 @@
                 "id": 1663756989374,
                 "name": "",
                 "target": "unreader",
-                "type": "auto"
-            },
-            {
-                "action": [
-                    {
-                        "disable": false,
-                        "id": 1663846286442,
-                        "value": "html"
-                    }
-                ],
-                "bgColor": "#195bf7",
-                "color": "#fff",
-                "icon": "<i class=\"fas fa-project-diagram\"></i>",
-                "id": 1663846286442,
-                "name": "",
-                "target": "annote",
                 "type": "auto"
             }
         ],
@@ -127,7 +112,8 @@
             "tbjTx33iAA",
             "VQOZdNET2d",
             "UEzvAXNSe5",
-            "y8Mai5IBwN"
+            "y8Mai5IBwN",
+            "rsd4UIcDKY"
         ],
         "preload": true,
         "remote": {
@@ -189,6 +175,45 @@
         "PcmPCT9rgM": {},
         "UEzvAXNSe5": {},
         "VQOZdNET2d": {},
+        "rsd4UIcDKY": {
+            "clicks": {
+                "dobule": "",
+                "single": ""
+            },
+            "position": {},
+            "service": {
+                "1": {
+                    "icon": "",
+                    "name": "离线 HTML",
+                    "value": "offlinehtml"
+                },
+                "2": {
+                    "icon": "",
+                    "name": "",
+                    "value": ""
+                },
+                "3": {
+                    "icon": "",
+                    "name": "",
+                    "value": ""
+                },
+                "4": {
+                    "icon": "",
+                    "name": "",
+                    "value": ""
+                },
+                "5": {
+                    "icon": "",
+                    "name": "",
+                    "value": ""
+                },
+                "6": {
+                    "icon": "",
+                    "name": "",
+                    "value": ""
+                }
+            }
+        },
         "tMGXrU1v0U": {},
         "tbjTx33iAA": {
             "exist": "false"

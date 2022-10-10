@@ -1,5 +1,9 @@
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221005_1664946661.png" /></p>
 
+# 下载地址
+
+[Github](https://github.com/Kenshin/simpread-configs/releases) 或 [百度云](https://pan.baidu.com/s/1SkFLJ21CKFL4lhWPhEg0iA?pwd=99mq) 请下载 `notion@base.zip` 
+
 # 特点
 
 1. 导入到 Notion 时会将图片上传到 Notion （也就是开启了简悦的 Notion 图床功能），防止图片 404

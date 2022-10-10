@@ -1,5 +1,9 @@
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221008_1665200341.png" /></p>
 
+# 下载地址
+
+[Github](https://github.com/Kenshin/simpread-configs/releases) 或 [百度云](https://pan.baidu.com/s/1SkFLJ21CKFL4lhWPhEg0iA?pwd=99mq) 请下载 `pdf.zip` 
+
 # 特点
 
 1. 在阅读模式下加入稍后读，会自动生成本地快照和 PDF

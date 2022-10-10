@@ -1,5 +1,9 @@
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221008_1665202307.png" /></p>
 
+# 下载地址
+
+[Github](https://github.com/Kenshin/simpread-configs/releases) 或 [百度云](https://pan.baidu.com/s/1SkFLJ21CKFL4lhWPhEg0iA?pwd=99mq) 请下载 `snapshot.zip` 
+
 # 特点
 
 在阅读模式下加入稍后读，会自动生成离线 HTML，将图片本地化，用以解决图片 404 问题。

@@ -1,0 +1,36 @@
+:PROPERTIES:
+:UID: 20220924163620
+:alias: 放弃纠结、拥抱妥协，重器轻用就是高效
+:source: https://sspai.com/post/71576
+:snapshot: [[http://localhost:7026/reading/3?embed=logseq][3]]
+:tags: #SimpRead 
+:index: 3
+:date: [[2022年09月24日]]
+:END:
+
+
+
+** ^^摘要^^
+#+BEGIN_QUOTE
+大家好，我是 Kenshin，简悦的作者，这次跟大家分享我对极简效率工作的一些理解，我接触效率相关的内容，与简悦的诞生有关：
+
+简悦始于 2016 年…… 那时因为家里的一些事情，我解散了团队，注销了公司。
+#+END_QUOTE
+
+** ^^标注^^
+
+*** [[http://localhost:7026/unread/3#id=1664008601679][📌 #1]] 
+> [:p {:style {:background-color "#ffeb3b"}}
+"我非常不喜欢安装各种 App，再加上越来越强大的电脑性能与大前端的普及，所以一个浏览器几乎可以覆盖全部的工作，因此我的工作环境被压缩为下面几个工具：ChromeVS CodeGithub + gitiTerm + oh-my-zsh"]
+
+*** [[http://localhost:7026/unread/3#id=1664008612905][📌 #2]] 
+> [:p {:style {:background-color "#a2e9f2"}}
+"https://cdn.sspai.com/2022/02/21/article/2dd7acc86429078ce738ea11dc4f1794"]
+
+*** [[http://localhost:7026/unread/3#id=1664008622457][📌 #3]] 
+> [:p {:style {:background-color "#ffeb3b"}}
+"如果为了极简而极简则显然丧失了极简的目的：高效。只选择 Notion 的用户，虽然可以一键登录你全部的数据，但失去了 Obsidian / Logseq 本地应用的高效性。只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。"]
+
+
+
+

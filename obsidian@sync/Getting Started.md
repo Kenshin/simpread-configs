@@ -199,3 +199,34 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 `Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidian 插件的对应内容，也就是要保证下图对应的名字是一致即可。
 
 ![image-20221001151914758](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608754.png)
+
+## 使用 md + assets 导出方案
+
+当使用导入到 Obsidian 插件时，也可以选择 `md + asset` 导出方案，打开 https://sspai.com/post/69972 进入阅读模式 → 右下角 → 动作 → 插件触发器 → 导入到 Obsidain 选项，按下图所示设置（设置后请保存，然后刷新当前页面使其生效。）
+
+![image-20221010110920384](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221010_1665371360.png)
+
+在同步助手 → 导出 → 增强导出，按下图所示设置
+
+![image-20221009161643869](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221009_1665303403.png)
+
+当生成后 文件后自动生成到 `xxx` 文件夹，我一般都是保存到 Obsidian 对应的文件夹
+
+```
+{"extension":"assets", "path":"/Users/xxxx/Obsidian@simpread"}
+```
+
+如果是 Windows 系统的话，请使用下面的方案（留意有两个斜杠 `\\`）
+
+```
+{"extension":"assets", "path":"C:\\Users\\***\\Obsidian@simpread"}
+```
+
+当加入稍后读时，会自动将当前页面的内容以 `md + assets` 方式导入到 Obsidian 中。
+
+![image-20221010111239402](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221010_1665371559.png)
+
+同时此方式也支持手动导入（也就是说不用开启上面的选项），使用下图所示的方式即可。
+
+![image-20221010111435191](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221010_1665371675.png)
+

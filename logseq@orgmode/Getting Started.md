@@ -20,7 +20,7 @@
 ## 文件说明
 
 - `Logseq@simpread` → Logseq 库文件，包含了跟简悦有关的一些插件
-- `.logseq` → SimpRead Sync 插件
+- `.logseq` → SimpRead Sync 插件（注意：**这个文件夹为隐藏状态**，需要在系统中让它显示。）
 - `output` → 本地快照文件夹，内置了一些稍后读对应的本地快照
 - `simpread_config.json` → 简悦配置文件，导入后即可使用
 - `Getting Started.md` → 说明文档

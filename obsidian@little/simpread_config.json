@@ -151,7 +151,7 @@
     },
     "read": {
         "actionbar": {},
-        "auto": true,
+        "auto": false,
         "cleanup": true,
         "controlbar": true,
         "custom": {
@@ -207,7 +207,8 @@
             "http://www.thepaper.cn",
             "http://www.pingwest.com",
             "http://tech2ipo.com",
-            "https://www.waerfa.com/social"
+            "https://www.waerfa.com/social",
+            "github.com"
         ],
         "fap": true,
         "fap_layout": "list",
@@ -223,7 +224,9 @@
         "toc": true,
         "toc_hide": true,
         "version": "2017-03-16",
-        "whitelist": []
+        "whitelist": [
+            "https://sspai.com/post/*"
+        ]
     },
     "websites": {
         "custom": [],

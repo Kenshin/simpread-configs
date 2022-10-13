@@ -238,3 +238,23 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 - [白名单](URL编辑器?id=白名单)、[黑名单](http://ksria.com/simpread/docs/#/URL编辑器?id=黑名单)、[排除列表](http://ksria.com/simpread/docs/#/URL编辑器?id=排除列表)、[延迟加载列表](http://ksria.com/simpread/docs/#/词法分析引擎?id=延迟加载) 的使用说明
 
 更多关于阅读模式的技巧 [请看这里](https://github.com/Kenshin/simpread/discussions?discussions_q=label%3A%22read+mode%22)。
+
+## 定制化路径
+
+我发现有些 Obsidian 用户喜欢把配置文件和 `Obsidian@simpread` 放到一起，下面是基于此方案的例子。
+
+![image](https://user-images.githubusercontent.com/81074/195492790-22732842-72a7-4b74-89d6-0549d7601641.png)
+
+一定要保证下面的结构，即 `simpread_config.json` 与 `output` 同级
+
+![image](https://user-images.githubusercontent.com/81074/195492511-64f4170b-2ffa-4bb2-9829-31e99cc074be.png)
+
+请留意这三者的关系。
+
+1. Obsidian SimpRead Sync config
+2. 同步助手 → 同步 → 同步文件夹路径
+3. 同步助手 → 导出 → 导出路径
+
+![SCR-20221013-fta](https://user-images.githubusercontent.com/81074/195492357-83e551a0-e4f3-4e2d-b091-b4443fc6d24f.png)
+
+为了防止其它错误，请确保使用 `Obsdian@simpread`  作为当前配置时的库，等确保配置无误后再更改为自己习惯的方案。

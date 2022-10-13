@@ -167,7 +167,7 @@ https://user-images.githubusercontent.com/81074/193977342-333fd5f2-2d38-4d34-908
 
 ![image-20220929190305838](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220929_1664449385.png)
 
-## 阅读模式优化
+## 阅读模式优化
 
 当前配置包没有开启 **如果当前页面为适配站点，自动进入阅读模式** 的功能，如果需要开启请进入选项页 → 阅读模式，按下图所示开启。
 

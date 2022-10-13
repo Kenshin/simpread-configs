@@ -280,7 +280,7 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 以及 `Logseq@simpread/SimpRead`文件夹对应的快照 id。
 
-##  阅读模式优化
+## 阅读模式优化
 
 当前配置包没有开启 **如果当前页面为适配站点，自动进入阅读模式** 的功能，如果需要开启请进入选项页 → 阅读模式，按下图所示开启。
 

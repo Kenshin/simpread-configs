@@ -58,6 +58,10 @@
 
 ![image-20221006165001158](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221006_1665046201.png)
 
+注意：`output` 文件夹不能改名，且必须要放到同步文件夹路径下面，也就是保证下面的结构，即 `simpread_config.json` 与 `output` 同级。
+
+![image-20221013120008103](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221013_1665633608.png)
+
 ## 导入配置文件
 
 ### 复制 UID

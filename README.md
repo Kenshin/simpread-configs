@@ -49,11 +49,12 @@
 
 不同的使用场景具体包含的内容可以根据下面的链接查看，下面是这几种方案的区别：
 
-|                                              | 适合受众                 | 同步助手 | Notion 图床 | 自动导入标注 | 本地快照 |
-|----------------------------------------------|----------------------|------|-----------|--------|------|
-| [极速版](notion%40base/Getting%20Started.md)    | 尝鲜用户                 | 不需要  | ✓         | ✕      | ✕    |
-| [基础版](notion%40enhance/Getting%20Started.md) | 轻度使用简悦 +  Notion 的用户 | 不需要  | ✓         | ✓      | ✕    |
-| [高级版](notion%40sync/Getting%20Started.md)    | 重度使用简悦 + Notion 的用户  | 需要   | ✓         | ✓      | ✓    |
+|     | 适合受众                 | 同步助手 | Notion 图床 | 自动导入标注 | 本地快照 | 文档          |
+|-----|----------------------|------|-----------|--------|------|-------------|
+| 极速版 | 尝鲜用户                 | 不需要  | ✓         | ✕      | ✕    | [Github](https://github.com/Kenshin/simpread-configs/blob/main/notion%40base/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/ewaflu) |
+| 基础版 | 轻度使用简悦 +  Notion 的用户 | 不需要  | ✓         | ✓      | ✕    | [Github](https://github.com/Kenshin/simpread-configs/blob/main/notion%40enhance/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/odhlf2) |
+| 高级版 | 重度使用简悦 + Notion 的用户  | 需要   | ✓         | ✓      | ✓    | [Github](https://github.com/Kenshin/simpread-configs/blob/main/notion%40sync/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/zuptv2) |
+
 
 ## Logseq
 

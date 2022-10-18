@@ -173,7 +173,11 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 ## 合并 Obsidian 配置
 
-如果你已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian` 对应的文件夹复制到你自己的  `.obsidian` 然后打开 `.obsidian/community-plugins.json` 将下面的内容加入其中。
+如果已经存在了一些 Obsidian 插件，仅需要将 `Obsidian@simpread/.obsidian/plugins` 对应的文件夹复制到你自己的 `.obsidian/plugins` 文件夹中。
+
+![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221018_1666075189.png)
+
+然后打开 `.obsidian/community-plugins.json` 将下面的内容加入你自己的库对应的同名文件其中。
 
  ```
  "obsidian42-brat",
@@ -181,6 +185,8 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
  "obsidian-banners",
  "dataview"
  ```
+
+当完成这些操作后，**重启 Obsidian 并确保只有一个存在 SimpRead Sync 库的 Obsidian 存在**。（如果打开多个 SimpRead Sync 库的话，会因为端口占用无法实现自动同步）
 
 ## 合并 output 和稍后读
 

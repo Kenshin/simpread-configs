@@ -25,9 +25,9 @@
 - `simpread_config.json` → 简悦配置文件，导入后即可使用
 - `Getting Started.md` → 说明文档
 
-## Logseq 库文件说明
+## Logseq SimpRead Sync 插件
 
-- [SimpRead Sync](https://github.com/OverflowCat/logseq-simpread)
+https://github.com/Kenshin/simpread/discussions/4220
 
 ## 内置 Logseq 模板
 

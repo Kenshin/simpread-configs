@@ -68,10 +68,10 @@
 
 因为 Logseq 与 Obsidian 在插件 API 的支持度有限，所以并没有轻量级使用方案，根据 Logseq 支持的文件格式，区别为以下两种：
 
-|                                                     | 同步助手 | 自动导入标注 | 本地快照 | 在 Logseq 直接标注 | 支持文件格式 |
-|-----------------------------------------------------|------|--------|------|---------------|--------|
-| [Org-mode 版](logseq%40orgmode/Getting%20Started.md) | 需要   | ✓      | ✓    | ✓             | `.org` |
-| [Markdown 版](logseq%40md/Getting%20Started.md)      | 需要   | ✓      | ✓    | ✓             | `.md`  |
+|             | 同步助手 | 自动导入标注 | 本地快照 | 在 Logseq 直接标注 | 支持文件格式 | 文档                                                         |
+| ----------- | -------- | ------------ | -------- | ------------------ | ------------ | ------------------------------------------------------------ |
+| Org Mode 版 | 需要     | ✓            | ✓        | ✓                  | `.org`       | [Github](https://github.com/Kenshin/simpread-configs/blob/main/logseq%40orgmode/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/mdgp9n) |
+| Markdown 版 | 需要     | ✓            | ✓        | ✓                  | `.md`        | [Github](https://github.com/Kenshin/simpread-configs/blob/main/logseq%40md/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/tukkeo) |
 
 # 剪藏版
 

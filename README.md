@@ -77,10 +77,10 @@
 
 简悦拥有众多的导出服务（剪藏功能），所以如果是喜欢将正文收藏到本地的用户，简悦官方为此适配了一组剪藏相关的配置包：
 
-|                                               | 同步助手 | 本地快照 | 图片永久化方案                    | 支持文件格式 |
-| --------------------------------------------- | -------- | -------- | --------------------------------- | ------------ |
-| [离线 HTML 版](snapshot/Getting%20Started.md) | 需要     | ✓        | 将图片以 `base64` 编码保存到 HTML | `.html`      |
-| [PDF 版](pdf/Getting%20Started.md)            | 需要     | ✓        | PDF                               | `.pdf`       |
-| [md + assets 版](assets/Getting%20Started.md) | 需要     | ✓        | 将图片下载到 `./assets` 文件夹    | `.md`        |
+|                | 同步助手 | 本地快照 | 图片永久化方案                    | 支持文件格式 | 文档                                                         |
+| -------------- | -------- | -------- | --------------------------------- | ------------ | ------------------------------------------------------------ |
+| 离线 HTML 版   | 需要     | ✓        | 将图片以 `base64` 编码保存到 HTML | `.html`      | [Github](https://github.com/Kenshin/simpread-configs/blob/main/snapshot/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/fiyku3) |
+| PDF            | 需要     | ✓        | PDF                               | `.pdf`       | [Github](https://github.com/Kenshin/simpread-configs/blob/main/pdf/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/omehxx) |
+| md + assets 版 | 需要     | ✓        | 将图片下载到 `./assets` 文件夹    | `.md`        | [Github](https://github.com/Kenshin/simpread-configs/blob/main/assets/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/chyo5a) |
 
 上述方案均没有设置标注的自动化，可以看作完全是为了剪藏服务的配置包。

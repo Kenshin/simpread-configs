@@ -189,9 +189,21 @@ https://user-images.githubusercontent.com/81074/192681150-f3986a9c-9983-4bae-b93
 
 ## 修改文件夹的名字
 
-`Obsidian@simpread` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidian 插件的对应内容，也就是要保证下图对应的名字是一致即可。
+`Obsidian@simpread ` 的名字是可以随便修改的，但修改后需要修改导入到 Obsidian 插件的对应内容，也就是要保证下图对应的名字是一致即可，只需要修改下面的两个地方：
 
-![image-20221001151914758](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664608754.png)
+- 导入到 Obsidian
+- Obsidian SimpRead Sync
+
+![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221107_1667795425.png)
+
+## 设置多级目录
+
+如果你需要在 Obsidian 上设置多级目录的话，，也就是要保证下图对应的名字是一致即可，只需要修改下面的两个地方：
+
+- 导入到 Obsidian
+- Obsidian SimpRead Sync
+
+![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221107_1667795491.png)
 
 ## 重置 Local REST API
 

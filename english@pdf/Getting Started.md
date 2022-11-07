@@ -217,9 +217,29 @@ https://user-images.githubusercontent.com/81074/194741971-03a2f7ba-3e1f-4043-b60
 
 https://user-images.githubusercontent.com/81074/194741162-cc5acd9b-6d4a-4bde-bb7d-2943db2d7dd7.mp4
 
+# 注意事项
+
+- 使用此配置库方案**加入稍后读时只能使用快捷键** `d d` **或右键菜单的方式**，其它方式无法实现自动化。
+
+![img](https://cdn.nlark.com/yuque/0/2022/png/353945/1667796093600-99625a73-5cc8-4a9c-9118-526275035a12.png)
+
+- 建议不要删除已经存在的示例稍后读，当删除全部稍后读后，第一个稍后读会没有标号。（细节请看 https://www.yuque.com/kenshin/simpread/apes3k ）
+
 # 附录
 
 如果动手能力强的话，可以继续看看下面的一些技巧。
+
+## 使用 Assistive Touch 插件替代快捷键加入稍后读
+
+[Assistive Touch](https://simpread.ksria.cn/plugins/details/rsd4UIcDKY) 是简悦的一个插件，作用是为用户提供一个比浮动控制栏/快捷键更加便捷的快捷键操作面板，用户可以在设置一些常用的操作，效果如下：
+
+![img](https://cdn.nlark.com/yuque/0/2022/png/353945/1667796716057-48e36703-df50-487a-8658-0aff759432ee.png)
+
+当按下图设置后，就可以使用 Assistive Touch 替代快捷键 `d d` 来加入稍后读了。
+
+![img](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221107_1667797265.png)
+
+也可以参考 [为 Assistive Touch 设置好看的 Icon](https://github.com/Kenshin/simpread/discussions/1600#discussioncomment-3930672) 定制化你的 Assistive Touch。
 
 ## 翻译相关说明
 

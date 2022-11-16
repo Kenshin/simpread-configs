@@ -221,16 +221,24 @@ date:: [[{{create|yyyy年mm月dd日}}]]
 let colors = [ '#B4D9FB', '#ffeb3b', '#a2e9f2', '#a1e0ff', '#a8ea68', '#ffb7da' ],
     color  = colors[ annote.color ];
 let url    = 'http://localhost:7026/unread/' + unread.idx + '#id=' + annote.id;
+let highlights = `[:p {:style "background-color:${color}"} "${annote.text}"]`;
+if ( annote.type == 'img' ) {
+    highlights = `[:img {:style "border-bottom: 5px solid ${color}" :src "${ annote.text }" }]`
+}
 %>
 ## [📌](<<%= url %>>) Highlights {{an_tags}}
-> [:p {:style {:background-color "<%= color %>"}} "{{an_text}}"]
+> <%- highlights %>
+
 <% if (annote.note) { %>
 >> {{an_note}}
 <% } %>
+
+<% if (annote.refs) { %>
 ### reference
 <%- (annote.refs)? "> refs: " + annote.refs : "" %>
 
 > backlinks: {{an_backlinks}}
+<% } %>
 
 ```
 

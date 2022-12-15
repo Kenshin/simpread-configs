@@ -15,9 +15,14 @@
 ## 包含
 
 - [Obsidian](#obsidian)
+
 - [Notion](#notion)
+
 - [Logseq](#obsidian)
-- [剪藏版](#%E5%89%AA%E8%97%8F%E7%89%88)
+
+- [剪藏版](#剪藏版)
+
+- [FlowUs](#FlowUs)
 
 ## Obsidian
 
@@ -86,3 +91,22 @@
 | md + assets 版 | 需要     | ✓        | 将图片下载到 `./assets` 文件夹    | `.md`        | [Github](https://github.com/Kenshin/simpread-configs/blob/main/assets/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/chyo5a) |
 
 上述方案均没有设置标注的自动化，可以看作完全是为了剪藏服务的配置包。
+
+## FlowUs
+
+简悦针对 FlowUs 有很多用法：
+
+- [导入到 FlowUs](https://github.com/Kenshin/simpread/discussions/4772)
+
+- [适配 FlowUs 文章页与分享页](https://github.com/Kenshin/simpread/discussions/4860)
+
+为了更方便的让用户上手这些方案，为此制作了配置包方案，包含：
+
+- 不使用同步助手，加入稍后读自动导入到 FlowUs 的轻量级方案
+- 使用同步助手，加入稍后读时会生成本地快照（包含离线图片的 HTML）以及导入到 FlowUs 的高级版方案
+
+|        | **适合受众**               | **自动化导入 FlowUs** | **同步助手** | **本地快照** | **文档**                                                     |
+| ------ | -------------------------- | --------------------- | ------------ | ------------ | ------------------------------------------------------------ |
+| 极速版 | 轻量级使用                 | ✓                     | 不需要       | ✕            | [Github](https://github.com/Kenshin/simpread-configs/blob/main/flowus@little/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/qk0h8tzzg1gewmio) |
+| 高级版 | 重度使用简悦 + FlowUs 用户 | ✓                     | 需要         | ✓            | [Github](https://github.com/Kenshin/simpread-configs/blob/main/flowus@sync/Getting%20Started.md) · [语雀](https://www.yuque.com/kenshin/simpread/qmphtccgbm00fk5i) |
+

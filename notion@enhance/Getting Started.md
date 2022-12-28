@@ -40,16 +40,36 @@
 ### 阅读模式相关
 
 - [题图](https://simpread.ksria.cn/plugins/details/PcmPCT9rgM)
+
 - [模仿 Safari 阅读模式样式](https://simpread.ksria.cn/plugins/details/tbjTx33iAA)
+
 - [Lightbox Gallery](https://simpread.ksria.cn/plugins/details/VQOZdNET2d)
+
 - [Live Editor](https://simpread.ksria.cn/plugins/details/y8Mai5IBwN)
+
 - [Assistive Touch - 类似 iOS 的快捷浮动工具栏](https://simpread.ksria.cn/plugins/details/rsd4UIcDKY)
 
 ### 导入到 Notion 相关
 
+- [导入到 Notion](https://simpread.ksria.cn/plugins/details/OpaogjT8KJ) （这是简悦官方推出的新插件用来取代扩展端导出 Notion 功能）
+
 - [修复标题因为特殊字符导致无法下载的问题](https://simpread.ksria.cn/plugins/details/tMGXrU1v0U)
+
 - [自动化辅助增强](https://simpread.ksria.cn/plugins/details/DH9l5jblPH)
+
 - [导入到 Notion 辅助增强](https://simpread.ksria.cn/plugins/details/g60jwZEeqU)
+
+## 内置适配规则
+
+内置两个跟 Notion 有关的适配规则。
+
+![](https://s1.ax1x.com/2022/12/28/pSSPPZ4.png)
+
+## 内置适配规则
+
+内置两个跟 Notion 有关的适配规则。
+
+![](https://s1.ax1x.com/2022/12/28/pSSPPZ4.png)
 
 # 教程
 
@@ -89,9 +109,9 @@
 
 ![image-20220928104247433](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20220928_1664332967.png)
 
-此配置包内置了8个插件，导入成功后会有下图所示的提示。
+此配置包内置了9个插件，导入成功后会有下图所示的提示。
 
-![image-20221001184549812](https://cdn.jsdelivr.net/gh/23784148/upload-images@main/typora/20221001_1664621149.png)
+![image-20221001184549812](https://s1.ax1x.com/2022/12/28/pSSPQdH.png)
 
 ## 测试
 

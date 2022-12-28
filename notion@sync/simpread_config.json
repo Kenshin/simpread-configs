@@ -24,11 +24,6 @@
             {
                 "action": [
                     {
-                        "disable": false,
-                        "id": 1664854659291,
-                        "value": "notion"
-                    },
-                    {
                         "id": 1664942999852,
                         "value": "html"
                     }
@@ -133,6 +128,7 @@
             "VQOZdNET2d",
             "y8Mai5IBwN",
             "rsd4UIcDKY",
+            "OpaogjT8KJ",
             "DH9l5jblPH",
             "g60jwZEeqU",
             "UEzvAXNSe5"
@@ -269,7 +265,52 @@
     "websites": {
         "custom": [],
         "local": [],
-        "person": []
+        "person": [
+            [
+                "https://*.notion.site/*",
+                {
+                    "css": "html {\n    overflow: initial!important;\n}\nsr-rd-content div {\n    margin-bottom: 5px!important;\n}\nsr-rd-content .notion-bookmark-block div[role=\"button\"] > div:nth-child(1) img {\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    margin-right: 6px;\n}\nsr-rd-content .notion-collection-block .notion-page-block a {\n    display: block;\n    color: inherit;\n    text-decoration: none;\n    box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 2px 4px;\n    border-radius: 3px;\n    background: white;\n    overflow: hidden;\n    transition: background 100ms ease-out 0s;\n    position: static;\n    height: 100%;\n    text-decoration: none!important;\n    font-weight: 400!important;\n    padding: 0;\n}\nsr-rd-content .notion-collection-block img {\n    display: block;\n    object-fit: cover;\n    border-radius: 1px 1px 0px 0px;\n    width: 100%;\n    height: 113.625px;\n    object-position: center 21.61%;\n}\nsr-rd-content .notion-record-icon {\n    margin-right: 10px!important;\n}\nsr-rd-content .notion-record-icon img {\n    display: block;\n    margin-top: 12px;\n    margin-right: 0;\n    object-fit: cover;\n    border-radius: 3px;\n    width: 15.984px;\n    height: 15.984px;\n    transition: opacity 100ms ease-out 0s;\n}\nsr-rd-content .notion-text-block img {\n    width: 1em;\n    height: 1em;\n    vertical-align: -0.15em;\n    margin-right: 0.2em;\n    border-radius: 1px;\n} \nsr-rd-content svg { display: none; }\nsr-notion-video {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\nsr-rd-content .notion-selectable.notion-video-block {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\nsr-notion-video iframe {\n    position: initial!important;\n    width: 100%!important;\n    height: 400px!important;\n}\nsr-notion-video .sr-rd-content-center {\n    width: 100%;\n}\nsr-notion-bookmark {\n    display: flex;\n    justify-content: center;\n    margin: 16px auto;\n    padding: 12px 12px 9px 12px;\n    border: 3px solid #F6F6F6;\n}",
+                    "desc": "[[{$('meta[name=Description]').attr('content')||$('meta[name=description]').attr('content')}]]",
+                    "exclude": [
+                        "<svg>"
+                    ],
+                    "include": "[[{(()=>{let html=\"\",$target;const header=()=>{let tmpl='';const $header=$target.find('[placeholder]'),level=$header.attr(\"placeholder\"),text=$header.text();if(/Heading 1/.test(level)){tmpl=`<h1>${text}</h1>`}else if(/Heading 2/.test(level)){tmpl=`<h2>${text}</h2>`}else{tmpl=`<h3>${text}</h3>`}return tmpl},quote=()=>{let tmpl='';const $bulleted=$target.find('[placeholder]');tmpl=$bulleted.html();return tmpl?`<blockquote>${tmpl}</blockquote>`:''},bulleted=()=>{let tmpl='';const $bulleted=$target.find('[placeholder=\"List\"]');tmpl=$bulleted.html();return tmpl?`<ul><li>${tmpl}</li></ul>`:''},numbered=()=>{let tmpl='';const $header=$target.find('[placeholder]');tmpl=$header.html();return`<ul><li>${tmpl}</li></ul>`},image=()=>{let tmpl='';const $img=$target.find('img'),caption=$target.find('div.notranslate').text();if($img.length>0){tmpl=$img[0].outerHTML;return`<figure>${tmpl}<figcaption>${caption}</figcaption></figure>`}else return\"\"},bookmark=()=>{const $bookmark=$target.find('a'),src=$bookmark.attr('href'),text=$bookmark.find('.notion-focusable div div:first').text();return src?`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`:''},alias=()=>{const $alias=$target.find('a'),src=$alias.attr('href'),text=$alias.find('.notranslate').text();return src?`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`:''},page=()=>{let tmpl='';if($target.attr('class')!='notion-selectable notion-page-block')return'';if(!$target.parent().parent().parent().hasClass('.notion-breadcrumb-block')){const $a=$target.find('a'),src=$a.find('href'),text=$a.find('.notranslate').text();tmpl=`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`;return tmpl}return``},code=()=>{let tmpl='';const $code=$target;tmpl=$code.text();return`<pre>${tmpl}</pre>`},video=()=>{let tmpl='';const $video=$target;if($video.length>0){tmpl=$video[0].outerHTML;if($video.find('video').length>0){const src=$video.find('video').attr('src');tmpl=`<video controls=\"\"autoplay=\"\"name=\"media\"><source src=\"${ src }\"type=\"video/mp4\">video</video>`}else if($video.find('iframe').length>0){tmpl=$video.find('iframe')[0].outerHTML;tmpl=tmpl.replace(/<\\/iframe>$/,'iframe</iframe>')}return`<sr-notion-video>${tmpl}</sr-notion-video>`}else return\"\"},collectionitem=()=>{let tmpl='';const $collection=$target;tmpl=$collection.html();return`<div class=\"notion-collection-block\">${tmpl}</div>`},collection=()=>{let tmpl='';const $collection=$target;if($collection.length>0){const $head=$collection.find('.notion-collection_view-block:first'),src=$head.find('a').attr('href'),h1=$head.find('a').text()||$head.text().replace(/Search/ig,''),text=$head.find('.notion-collection-view-select').text();tmpl+=src?`<h1>${h1}</h1><sr-notion-bookmark><a href=\"${ src }\">${text||'打开新的一页查看详细说明'}</a></sr-notion-bookmark>`:'';if($collection.find('.notion-gallery-view').length>0){const $gallery=$collection.find('.notion-gallery-view');$gallery.find('.notion-collection-item').map((idx,item)=>{const $target=$(item),$a=$target.find('a'),src=$a.attr('href'),text=$a.find('[placeholder]').text();tmpl+=`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`})}else if($collection.find('.notion-table-view').length>0){}return tmpl}else return\"\"};$(\".notion-page-content .notion-selectable\").map((idx,item)=>{$target=$(item);const cls=$target.attr(\"class\").replace(\"notion-selectable \",\"\");if(/notion-header-block/.test(cls)){html+=header()}else if(/notion-sub_header-block/.test(cls)){html+=header()}else if(/notion-quote-block/.test(cls)){html+=quote()}else if(/notion-text-block/.test(cls)){html+=`<div class=\"notion-text-block\">${$target.html()}</div>`}else if(/notion-bulleted_list-block/.test(cls)){html+=bulleted()}else if(/notion-numbered_list-block/.test(cls)){html+=bulleted()}else if(/notion-image-block/.test(cls)){html+=image()}else if(/notion-code-block/.test(cls)){html+=code()}else if(/notion-bookmark-block/.test(cls)){html+=bookmark()}else if(/notion-page-block/.test(cls)){html+=page()}else if(/notion-alias-block/.test(cls)){html+=alias()}else if(/notion-collection_view-block/.test(cls)){html+=collection()}else if(/notion-video-block/.test(cls)){html+=video()}});return html})()}]]",
+                    "info": {
+                        "bgColor": "#111111",
+                        "category": "其它",
+                        "color": "#ffffff",
+                        "create": "2021/10/04 15:50:53",
+                        "domain": "PYK6c7l880",
+                        "id": "vdmq0t08-PYK6c7l880",
+                        "title": "Notion.site"
+                    },
+                    "name": "notion.site",
+                    "title": "<title>"
+                }
+            ],
+            [
+                "https://www.notion.so/*",
+                {
+                    "css": "html {\n    overflow: initial!important;\n}\nsr-rd-content div {\n    margin-bottom: 5px!important;\n}\nsr-rd-content .notion-bookmark-block div[role=\"button\"] > div:nth-child(1) img {\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    margin-right: 6px;\n}\nsr-rd-content .notion-collection-block .notion-page-block a {\n    display: block;\n    color: inherit;\n    text-decoration: none;\n    box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 2px 4px;\n    border-radius: 3px;\n    background: white;\n    overflow: hidden;\n    transition: background 100ms ease-out 0s;\n    position: static;\n    height: 100%;\n    text-decoration: none!important;\n    font-weight: 400!important;\n    padding: 0;\n}\nsr-rd-content .notion-collection-block img {\n    display: block;\n    object-fit: cover;\n    border-radius: 1px 1px 0px 0px;\n    width: 100%;\n    height: 113.625px;\n    object-position: center 21.61%;\n}\nsr-rd-content .notion-record-icon {\n    margin-right: 10px!important;\n}\nsr-rd-content .notion-record-icon img {\n    display: block;\n    margin-top: 12px;\n    margin-right: 0;\n    object-fit: cover;\n    border-radius: 3px;\n    width: 15.984px;\n    height: 15.984px;\n    transition: opacity 100ms ease-out 0s;\n}\nsr-rd-content .notion-text-block img {\n    width: 1em;\n    height: 1em;\n    vertical-align: -0.15em;\n    margin-right: 0.2em;\n    border-radius: 1px;\n} \nsr-rd-content svg { display: none; }\nsr-notion-video {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\nsr-rd-content .notion-selectable.notion-video-block {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\nsr-notion-video iframe {\n    position: initial!important;\n    width: 100%!important;\n    height: 400px!important;\n}\nsr-notion-video .sr-rd-content-center {\n    width: 100%;\n}\nsr-notion-bookmark {\n    display: flex;\n    justify-content: center;\n    margin: 16px auto;\n    padding: 12px 12px 9px 12px;\n    border: 3px solid #F6F6F6;\n}",
+                    "desc": "[[{$('meta[name=Description]').attr('content')||$('meta[name=description]').attr('content')}]]",
+                    "exclude": [
+                        "<svg>"
+                    ],
+                    "include": "[[{(()=>{let html=\"\",$target;const header=()=>{let tmpl='';const $header=$target.find('[placeholder]'),level=$header.attr(\"placeholder\"),text=$header.text();if(/Heading 1/.test(level)){tmpl=`<h1>${text}</h1>`}else if(/Heading 2/.test(level)){tmpl=`<h2>${text}</h2>`}else{tmpl=`<h3>${text}</h3>`}return tmpl},quote=()=>{let tmpl='';const $bulleted=$target.find('[placeholder]');tmpl=$bulleted.html();return tmpl?`<blockquote>${tmpl}</blockquote>`:''},bulleted=()=>{let tmpl='';const $bulleted=$target.find('[placeholder=\"List\"]');tmpl=$bulleted.html();return tmpl?`<ul><li>${tmpl}</li></ul>`:''},numbered=()=>{let tmpl='';const $header=$target.find('[placeholder]');tmpl=$header.html();return`<ul><li>${tmpl}</li></ul>`},image=()=>{let tmpl='';const $img=$target.find('img'),caption=$target.find('div.notranslate').text();if($img.length>0){tmpl=$img[0].outerHTML;return`<figure>${tmpl}<figcaption>${caption}</figcaption></figure>`}else return\"\"},bookmark=()=>{const $bookmark=$target.find('a'),src=$bookmark.attr('href'),text=$bookmark.find('.notion-focusable div div:first').text();return src?`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`:''},alias=()=>{const $alias=$target.find('a'),src=$alias.attr('href'),text=$alias.find('.notranslate').text();return src?`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`:''},page=()=>{let tmpl='';if($target.attr('class')!='notion-selectable notion-page-block')return'';if(!$target.parent().parent().parent().hasClass('.notion-breadcrumb-block')){const $a=$target.find('a'),src=$a.find('href'),text=$a.find('.notranslate').text();tmpl=`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`;return tmpl}return``},code=()=>{let tmpl='';const $code=$target;tmpl=$code.text();return`<pre>${tmpl}</pre>`},video=()=>{let tmpl='';const $video=$target;if($video.length>0){tmpl=$video[0].outerHTML;if($video.find('video').length>0){const src=$video.find('video').attr('src');tmpl=`<video controls=\"\"autoplay=\"\"name=\"media\"><source src=\"${ src }\"type=\"video/mp4\">video</video>`}else if($video.find('iframe').length>0){tmpl=$video.find('iframe')[0].outerHTML;tmpl=tmpl.replace(/<\\/iframe>$/,'iframe</iframe>')}return`<sr-notion-video>${tmpl}</sr-notion-video>`}else return\"\"},collectionitem=()=>{let tmpl='';const $collection=$target;tmpl=$collection.html();return`<div class=\"notion-collection-block\">${tmpl}</div>`},collection=()=>{let tmpl='';const $collection=$target;if($collection.length>0){const $head=$collection.find('.notion-collection_view-block:first'),src=$head.find('a').attr('href'),h1=$head.find('a').text()||$head.text().replace(/Search/ig,''),text=$head.find('.notion-collection-view-select').text();tmpl+=src?`<h1>${h1}</h1><sr-notion-bookmark><a href=\"${ src }\">${text||'打开新的一页查看详细说明'}</a></sr-notion-bookmark>`:'';if($collection.find('.notion-gallery-view').length>0){const $gallery=$collection.find('.notion-gallery-view');$gallery.find('.notion-collection-item').map((idx,item)=>{const $target=$(item),$a=$target.find('a'),src=$a.attr('href'),text=$a.find('[placeholder]').text();tmpl+=`<sr-notion-bookmark><a href=\"${ src }\"target=\"_blank\">${text||src}</a></sr-notion-bookmark>`})}else if($collection.find('.notion-table-view').length>0){}return tmpl}else return\"\"};$(\".notion-page-content .notion-selectable\").map((idx,item)=>{$target=$(item);const cls=$target.attr(\"class\").replace(\"notion-selectable \",\"\");if(/notion-header-block/.test(cls)){html+=header()}else if(/notion-sub_header-block/.test(cls)){html+=header()}else if(/notion-quote-block/.test(cls)){html+=quote()}else if(/notion-text-block/.test(cls)){html+=`<div class=\"notion-text-block\">${$target.html()}</div>`}else if(/notion-bulleted_list-block/.test(cls)){html+=bulleted()}else if(/notion-numbered_list-block/.test(cls)){html+=bulleted()}else if(/notion-image-block/.test(cls)){html+=image()}else if(/notion-code-block/.test(cls)){html+=code()}else if(/notion-bookmark-block/.test(cls)){html+=bookmark()}else if(/notion-page-block/.test(cls)){html+=page()}else if(/notion-alias-block/.test(cls)){html+=alias()}else if(/notion-collection_view-block/.test(cls)){html+=collection()}else if(/notion-video-block/.test(cls)){html+=video()}});return html})()}]]",
+                    "info": {
+                        "bgColor": "#111111",
+                        "category": "其它",
+                        "color": "#fff",
+                        "create": "2021/10/04 15:56:43",
+                        "domain": "JPbELFpvSS",
+                        "id": "vdmq0t08-JPbELFpvSS",
+                        "title": "Notion.so"
+                    },
+                    "name": "notion.so",
+                    "title": "<title>"
+                }
+            ]
+        ]
     },
     "statistics": {
         "read": 5,
@@ -783,7 +824,7 @@
             "an_service": "html",
             "service": "-1",
             "shortcut": "",
-            "un_addshort": "",
+            "un_addshort": "z n t",
             "un_changshort": "e n t",
             "un_service": "html",
             "unauto": "",
@@ -794,7 +835,7 @@
         "VQOZdNET2d": {},
         "g60jwZEeqU": {
             "annote": true,
-            "auto": false,
+            "auto": true,
             "blog": false,
             "cover": true,
             "dbid": "cb91571e13494064a1439d08876c8c8b",
@@ -817,8 +858,8 @@
             "service": {
                 "1": {
                     "icon": "<svg viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"1811\" width=\"25\" height=\"25\"><path d=\"M707.2 309.333333c2.645333 14.72-0.768 29.013333-14.421333 30.336l-22.698667 4.096-9.386667 354.858667c-19.968 10.666667-38.144 16.554667-53.12 16-24.192-0.853333-30.037333-9.173333-47.36-33.92l-141.056-253.738667-6.4 240.469334 46.421334 12.970666s-0.768 29.056-38.4 27.733334l-104.106667 2.901333c-2.816-6.613333 0.597333-22.698667 11.306667-25.429333l27.306666-7.210667 8.405334-317.866667-37.546667-4.522666c-2.645333-14.72 5.461333-35.370667 26.538667-36.266667l111.658666-4.224 146.986667 257.152 5.930667-222.762667-39.082667-6.272a26.453333 26.453333 0 0 1 24.917333-31.317333l104.106667-2.986667z\" fill=\"#ffffff\" p-id=\"1812\"></path><path d=\"M736.341333 120.874667a2036.096 2036.096 0 0 0-448.682666 0c-85.845333 9.6-155.178667 77.226667-165.248 163.498666a1959.338667 1959.338667 0 0 0 0 455.253334c10.069333 86.272 79.36 153.898667 165.248 163.498666 147.882667 16.512 300.8 16.512 448.682666 0 85.845333-9.6 155.178667-77.226667 165.248-163.498666a1958.997333 1958.997333 0 0 0 0-455.253334c-10.069333-86.272-79.36-153.898667-165.248-163.498666z m-441.6 63.573333a1972.053333 1972.053333 0 0 1 434.517334 0c56.746667 6.4 102.186667 51.157333 108.8 107.392a1895.296 1895.296 0 0 1 0 440.32c-6.613333 56.234667-52.053333 101.034667-108.8 107.349333a1971.925333 1971.925333 0 0 1-434.517334 0c-56.746667-6.314667-102.186667-51.114667-108.8-107.349333a1895.296 1895.296 0 0 1 0-440.32c6.613333-56.234667 52.053333-101.034667 108.8-107.349333z\" fill=\"#ffffff\"></path></svg>",
-                    "name": "Notion",
-                    "value": "notion"
+                    "name": "一键导入全文到 Notion",
+                    "value": "OpaogjT8KJ_export"
                 },
                 "2": {
                     "icon": "",
@@ -846,6 +887,15 @@
                     "value": ""
                 }
             }
+        },
+        "OpaogjT8KJ": {
+            "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
+            "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
+            "save_image": true,
+            "save_quit": true,
+            "schema": "b[^^",
+            "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",
+            "type": "collection"
         },
         "tMGXrU1v0U": {},
         "tbjTx33iAA": {
@@ -897,11 +947,11 @@
             "group_name": ""
         },
         "notion": {
-            "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
-            "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
-            "save_image": true,
-            "schema": ")?;&",
-            "type": "collection"
+            "access_token": "",
+            "folder_id": "",
+            "save_image": "",
+            "schema": "",
+            "type": ""
         },
         "onenote": {
             "access_token": ""

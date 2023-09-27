@@ -775,7 +775,7 @@
         "OpaogjT8KJ": {
             "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
             "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
-            "save_image": true,
+            "save_image": false,
             "save_quit": true,
             "schema": "b[^^",
             "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",

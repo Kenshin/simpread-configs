@@ -6,7 +6,7 @@
 
 # 特点
 
-1. 导入到 Notion 时会将图片上传到 Notion （也就是开启了简悦的 Notion 图床功能），防止图片 404
+1. 内置 Cloudinary 图床 [更多说明](https://zhuanlan.zhihu.com/p/658561272)
 2. 在阅读模式下加入稍后读，正文导入以 Markdown 的格式导入到 Notion
 3. 在阅读模式下标注时，标注内容会自动同步到 Notion
 4. 不使用同步助手，非常适合轻量级使用简悦 + Notion 的用户

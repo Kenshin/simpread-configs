@@ -53,6 +53,12 @@
 
 # 教程
 
+## 注意
+
+从 1.5.0 开始此插件启用了全新的 2.0 版 UI 设计（下图），为了简化重新截图的问题，所以下面的截图有可能与你看的教程在文案或界面上有些区别，但功能并没有任何变化。
+
+![Obsidain Plugin Option 2](https://res.cloudinary.com/simpread/image/upload/v1724993913/config/obsidian-plugin-option-ui-2.png)
+
 ## 准备
 
 1. 如果是老用户的话，请务必备份好你的之前的配置文件。（选项页 → 共通 → 导出配置文件到本地）

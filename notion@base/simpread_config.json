@@ -93,11 +93,12 @@
             "tbjTx33iAA",
             "PcmPCT9rgM",
             "tMGXrU1v0U",
-            "VQOZdNET2d",
+            "TmZSYtz5lA",
             "y8Mai5IBwN",
             "rsd4UIcDKY",
             "OpaogjT8KJ",
-            "DH9l5jblPH"
+            "DH9l5jblPH",
+            "xZVbwW4C5A"
         ],
         "preload": true,
         "remote": {
@@ -169,7 +170,7 @@
                 "fontFamily": "",
                 "fontSize": ""
             },
-            "css": "",
+            "css": "\n/* ==== read mode enhance css ==== */\nhtml.simpread-font {\n    overflow: initial !important;\n}\nsr-rd-content p,\nsr-rd-content * {\n    hyphens: auto!important;\n    text-align: justify !important;\n}\nsr-rd-content figcaption {\n    text-align: center!important;\n    font-size: 14px;\n}\nsr-rd-content video {\n    width: 100%;\n    max-width: 100%;\n}\nsr-rd-mult sr-rd-mult-avatar img {\n    min-width: 50px;\n}\n.simpread-font toc {\n    overflow-y: auto!important;\n    overflow-x: hidden!important;\n}\n/* ==== read mode enhance css ==== */",
             "desc": {
                 "color": "",
                 "fontFamily": "",
@@ -774,11 +775,29 @@
         },
         "OpaogjT8KJ": {
             "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
+            "cl_account": "simpread",
+            "cl_folder": "simpread",
+            "cl_image": false,
+            "cl_key": "",
+            "cl_mode": "local",
+            "cl_name": "",
+            "cl_secret": "",
+            "cloudinary": true,
+            "dbid": "cb91571e13494064a1439d08876c8c8b",
             "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
+            "mode": "page",
+            "pages": [
+                {
+                    "id": "cb91571e-1349-4064-a143-9d08876c8c8b",
+                    "name": "简悦的稍后读",
+                    "value": "cb91571e-1349-4064-a143-9d08876c8c8b"
+                }
+            ],
             "save_image": false,
             "save_quit": true,
             "schema": "b[^^",
             "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",
+            "token": "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",
             "type": "collection"
         },
         "DH9l5jblPH": {
@@ -793,7 +812,8 @@
             "unauto": "",
             "unread": false,
             "version": "1.1.0"
-        }
+        },
+        "xZVbwW4C5A": {}
     },
     "secret": {
         "dropbox": {

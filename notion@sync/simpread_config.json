@@ -8,7 +8,7 @@
             "event": "click",
             "exp_mode": "both",
             "exp_name": "html",
-            "export": false,
+            "export": true,
             "hypothes": false,
             "keyboard": "Q Q",
             "link": "[{{an_text}}]({{an_int_uri}})",
@@ -24,14 +24,15 @@
             {
                 "action": [
                     {
-                        "id": 1664942999852,
+                        "disable": false,
+                        "id": 1663756989374,
                         "value": "html"
                     }
                 ],
                 "bgColor": "#195bf7",
                 "color": "#fff",
                 "icon": "<i class=\"fas fa-project-diagram\"></i>",
-                "id": 1664854659291,
+                "id": 1663756989374,
                 "name": "",
                 "target": "unreader",
                 "type": "auto"
@@ -39,15 +40,14 @@
             {
                 "action": [
                     {
-                        "disable": false,
-                        "id": 1664943009685,
+                        "id": 1695108350614,
                         "value": "html"
                     }
                 ],
                 "bgColor": "#195bf7",
                 "color": "#fff",
                 "icon": "<i class=\"fas fa-project-diagram\"></i>",
-                "id": 1664943009685,
+                "id": 1695108339692,
                 "name": "",
                 "target": "annote",
                 "type": "auto"
@@ -125,13 +125,16 @@
             "tbjTx33iAA",
             "PcmPCT9rgM",
             "tMGXrU1v0U",
-            "VQOZdNET2d",
+            "TmZSYtz5lA",
             "y8Mai5IBwN",
             "rsd4UIcDKY",
             "OpaogjT8KJ",
             "DH9l5jblPH",
             "g60jwZEeqU",
-            "UEzvAXNSe5"
+            "UEzvAXNSe5",
+            "dtIMMLktg9",
+            "VdMfVaXlni",
+            "xZVbwW4C5A"
         ],
         "preload": true,
         "remote": {
@@ -151,7 +154,7 @@
         "save_at": "jianguo",
         "secret": true,
         "shortcuts": "enable",
-        "sync": "2022年10月05日 12:17:39",
+        "sync": "2024年12月10日 18:54:24",
         "uninstall": true,
         "unreader": {
             "autoiframe": false,
@@ -169,7 +172,7 @@
             "sidebar": true,
             "theme": "default"
         },
-        "update": "2022年10月05日 12:18:47",
+        "update": "2024年12月10日 18:55:33",
         "urlscheme": true,
         "version": "2017-04-03"
     },
@@ -203,7 +206,7 @@
                 "fontFamily": "",
                 "fontSize": ""
             },
-            "css": "",
+            "css": "\n/* ==== read mode enhance css ==== */\nhtml.simpread-font {\n    overflow: initial !important;\n}\nsr-rd-content p,\nsr-rd-content * {\n    hyphens: auto!important;\n    text-align: justify !important;\n}\nsr-rd-content figcaption {\n    text-align: center!important;\n    font-size: 14px;\n}\nsr-rd-content video {\n    width: 100%;\n    max-width: 100%;\n}\nsr-rd-mult sr-rd-mult-avatar img {\n    min-width: 50px;\n}\n.simpread-font toc {\n    overflow-y: auto!important;\n    overflow-x: hidden!important;\n}\n/* ==== read mode enhance css ==== */",
             "desc": {
                 "color": "",
                 "fontFamily": "",
@@ -333,63 +336,6 @@
         "unsee": 0
     },
     "unrdist": [
-        {
-            "url": "https://sspai.com/post/75646",
-            "title": "看什么 Café - 从《教父》的剧本改编，看如何渐进式阅读、思考和沉淀",
-            "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico",
-            "img": "https://cdn.sspai.com/article/b4b25fcb-562e-49ce-d917-17f32cd9b6d4.png",
-            "desc": "编者按：1895 年 12 月 28 日，在巴黎卡普辛路 14 号的大咖啡馆，历史上最著名的一场电影放映出现了——卢米埃尔兄弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的 ......",
-            "create": "2022年10月05日 12:14:51",
-            "idx": 5,
-            "annotations": [
-                {
-                    "id": 1664943360605,
-                    "color": 2,
-                    "style": 0,
-                    "tags": [],
-                    "note": "测试备注",
-                    "type": "paragraph",
-                    "html": "<p>弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的重要场所。</p><p>「看什么 Café」作为「本周看什么」栏目的衍生，就是想为热爱影视艺术的少数派们创造这样一个氛围，虽然我们无法回到电影诞生的那个年代，但我们依旧可以喝着咖啡，深入探讨有关影视艺术的一切。</p><p>今天「看什么 Café」的放送员是&nbsp;<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://sspai.com/u/hahad\">@知道分子吴先先</a>，他想和大家聊聊<strong>在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。</strong>你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选</p>",
-                    "text": "弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的重要场所。「看什么 Café」作为「本周看什么」栏目的衍生，就是想为热爱影视艺术的少数派们创造这样一个氛围，虽然我们无法回到电影诞生的那个年代，但我们依旧可以喝着咖啡，深入探讨有关影视艺术的一切。今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选",
-                    "annote": "<sr-annote data-id=\"1664943360605\">弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的重要场所。</sr-annote><sr-annote data-id=\"1664943360605\">「看什么 Café」作为「本周看什么」栏目的衍生，就是想为热爱影视艺术的少数派们创造这样一个氛围，虽然我们无法回到电影诞生的那个年代，但我们依旧可以喝着咖啡，深入探讨有关影视艺术的一切。</sr-annote><sr-annote data-id=\"1664943360605\">今天「看什么 Café」的放送员是&nbsp;</sr-annote><sr-annote data-id=\"1664943360605\">@知道分子吴先先</sr-annote><sr-annote data-id=\"1664943360605\">，他想和大家聊聊</sr-annote><sr-annote data-id=\"1664943360605\">在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。</sr-annote><sr-annote data-id=\"1664943360605\">你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选</sr-annote>",
-                    "items": [
-                        {
-                            "str": "弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的重要场所。",
-                            "root": "编者按：1895 年 12 月 28 日，在巴黎卡普辛路 14 号的大咖啡馆，历史上最著名的一场电影放映出现了 —— 卢米埃尔兄弟的一系列短片和其他演出一起成为了咖啡馆的助兴节目，而咖啡馆也正是那时人们谈论电影和艺术的重要场所。"
-                        },
-                        {
-                            "str": "「看什么 Café」作为「本周看什么」栏目的衍生，就是想为热爱影视艺术的少数派们创造这样一个氛围，虽然我们无法回到电影诞生的那个年代，但我们依旧可以喝着咖啡，深入探讨有关影视艺术的一切。",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        },
-                        {
-                            "str": "今天「看什么 Café」的放送员是 ",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        },
-                        {
-                            "str": "@知道分子吴先先",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        },
-                        {
-                            "str": "，他想和大家聊聊",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        },
-                        {
-                            "str": "在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        },
-                        {
-                            "str": "你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选",
-                            "root": "今天「看什么 Café」的放送员是 @知道分子吴先先，他想和大家聊聊在分析电影《教父》的剧本改编过程中，所收获的关于「渐进式总结」的启发。你在观看《教父》或其他电影时，获得了什么电影之外的灵感？欢迎在评论区留言讨论，我们将选取优质评论送上少数派周边或 6 个月 B 站大会员 🎁！"
-                        }
-                    ],
-                    "refs": ""
-                }
-            ],
-            "tags": [
-                "阅读"
-            ],
-            "note": ""
-        },
         {
             "annotations": [
                 {
@@ -819,20 +765,75 @@
     "collections": [],
     "plugstorge": {
         "DH9l5jblPH": {
-            "an_addshort": "n n n",
-            "an_changshort": "n n n",
-            "an_service": "html",
+            "an_addshort": "",
+            "an_changshort": "",
+            "an_service": "-1",
+            "clean_notify": true,
             "service": "-1",
             "shortcut": "",
-            "un_addshort": "z n t",
-            "un_changshort": "e n t",
-            "un_service": "html",
+            "un_addshort": "",
+            "un_changshort": "z n t\nn n n",
+            "un_service": "-1",
             "unauto": "",
             "unread": false,
             "version": "1.1.0"
         },
+        "OpaogjT8KJ": {
+            "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
+            "cl_account": "simpread",
+            "cl_folder": "simpread",
+            "cl_image": true,
+            "cl_key": "",
+            "cl_mode": "local",
+            "cl_name": "",
+            "cl_secret": "",
+            "cloudinary": false,
+            "dbid": "cb91571e13494064a1439d08876c8c8b",
+            "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
+            "mode": "all",
+            "pages": [
+                {
+                    "id": "cb91571e-1349-4064-a143-9d08876c8c8b",
+                    "name": "简悦的稍后读",
+                    "value": "cb91571e-1349-4064-a143-9d08876c8c8b"
+                }
+            ],
+            "save_image": false,
+            "save_quit": true,
+            "schema": "b[^^",
+            "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",
+            "token": "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",
+            "type": "collection"
+        },
         "PcmPCT9rgM": {},
         "VQOZdNET2d": {},
+        "VdMfVaXlni": {
+            "add_unread": true,
+            "base64": false,
+            "cl_account": "simpread",
+            "cl_folder": "simpread",
+            "cl_key": "",
+            "cl_mode": "local",
+            "cl_name": "",
+            "cl_secret": "",
+            "cloudinary": true,
+            "picgo": false,
+            "piclist": false,
+            "pl_endpoint": "",
+            "service": "",
+            "simpread": false,
+            "sr_folder": "custom",
+            "sr_name": "hash",
+            "sr_override": false,
+            "sr_path": ""
+        },
+        "dtIMMLktg9": {
+            "auto_save": true,
+            "blacklist": "",
+            "dbl_remove": true,
+            "load_local": true,
+            "save_local": true
+        },
         "g60jwZEeqU": {
             "annote": true,
             "auto": true,
@@ -841,13 +842,25 @@
             "dbid": "cb91571e13494064a1439d08876c8c8b",
             "desc": true,
             "divider": true,
+            "feature": "1.2.5",
             "icon": true,
+            "note": false,
             "origins": true,
+            "pages": [
+                {
+                    "id": "cb91571e-1349-4064-a143-9d08876c8c8b",
+                    "name": "简悦的稍后读",
+                    "value": "cb91571e-1349-4064-a143-9d08876c8c8b"
+                }
+            ],
+            "summary": false,
             "taglst": "简悦",
             "tags": true,
+            "template": "group",
             "title": "",
-            "token": "secret_kfHCYwOI1UkTA93Q2RsGLc6seMYVOTPH9vYN6rJYvyJ",
-            "unread": true
+            "token": "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",
+            "unread": true,
+            "version": "1.2.5"
         },
         "rsd4UIcDKY": {
             "clicks": {
@@ -888,19 +901,11 @@
                 }
             }
         },
-        "OpaogjT8KJ": {
-            "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
-            "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
-            "save_image": false,
-            "save_quit": true,
-            "schema": "b[^^",
-            "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",
-            "type": "collection"
-        },
         "tMGXrU1v0U": {},
         "tbjTx33iAA": {
             "exist": "false"
         },
+        "xZVbwW4C5A": {},
         "y8Mai5IBwN": {}
     },
     "secret": {

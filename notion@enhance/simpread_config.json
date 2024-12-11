@@ -93,12 +93,13 @@
             "tbjTx33iAA",
             "PcmPCT9rgM",
             "tMGXrU1v0U",
-            "VQOZdNET2d",
+            "TmZSYtz5lA",
             "y8Mai5IBwN",
             "rsd4UIcDKY",
             "OpaogjT8KJ",
             "DH9l5jblPH",
-            "g60jwZEeqU"
+            "g60jwZEeqU",
+            "xZVbwW4C5A"
         ],
         "preload": true,
         "remote": {
@@ -170,7 +171,7 @@
                 "fontFamily": "",
                 "fontSize": ""
             },
-            "css": "",
+            "css": "\n/* ==== read mode enhance css ==== */\nhtml.simpread-font {\n    overflow: initial !important;\n}\nsr-rd-content p,\nsr-rd-content * {\n    hyphens: auto!important;\n    text-align: justify !important;\n}\nsr-rd-content figcaption {\n    text-align: center!important;\n    font-size: 14px;\n}\nsr-rd-content video {\n    width: 100%;\n    max-width: 100%;\n}\nsr-rd-mult sr-rd-mult-avatar img {\n    min-width: 50px;\n}\n.simpread-font toc {\n    overflow-y: auto!important;\n    overflow-x: hidden!important;\n}\n/* ==== read mode enhance css ==== */",
             "desc": {
                 "color": "",
                 "fontFamily": "",
@@ -775,21 +776,40 @@
         },
         "OpaogjT8KJ": {
             "access_token": "f719497c-9e41-4ad2-888a-8d294a6c4b16",
+            "cl_account": "simpread",
+            "cl_folder": "simpread",
+            "cl_image": true,
+            "cl_key": "",
+            "cl_mode": "local",
+            "cl_name": "",
+            "cl_secret": "",
+            "cloudinary": true,
+            "dbid": "cb91571e13494064a1439d08876c8c8b",
             "folder_id": "5eeaacda-0232-4404-81dd-c4ad0e9303c1",
+            "mode": "all",
+            "pages": [
+                {
+                    "id": "cb91571e-1349-4064-a143-9d08876c8c8b",
+                    "name": "简悦的稍后读",
+                    "value": "cb91571e-1349-4064-a143-9d08876c8c8b"
+                }
+            ],
             "save_image": false,
             "save_quit": true,
             "schema": "b[^^",
             "space_id": "01cd0388-d685-4787-8b56-acf6e1e49e2e",
+            "token": "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",
             "type": "collection"
         },
         "DH9l5jblPH": {
-            "an_addshort": "n n n",
-            "an_changshort": "n n n",
+            "an_addshort": "",
+            "an_changshort": "",
             "an_service": "-1",
+            "clean_notify": false,
             "service": "-1",
             "shortcut": "",
             "un_addshort": "z n t",
-            "un_changshort": "e n t",
+            "un_changshort": "z n t\nn n n",
             "un_service": "-1",
             "unauto": "",
             "unread": false,
@@ -803,14 +823,27 @@
             "dbid": "cb91571e13494064a1439d08876c8c8b",
             "desc": true,
             "divider": true,
+            "feature": "1.2.5",
             "icon": true,
+            "note": false,
             "origins": true,
+            "pages": [
+                {
+                    "id": "cb91571e-1349-4064-a143-9d08876c8c8b",
+                    "name": "简悦的稍后读",
+                    "value": "cb91571e-1349-4064-a143-9d08876c8c8b"
+                }
+            ],
+            "summary": false,
             "taglst": "简悦",
             "tags": true,
+            "template": "group",
             "title": "",
-            "token": "secret_kfHCYwOI1UkTA93Q2RsGLc6seMYVOTPH9vYN6rJYvyJ",
-            "unread": true
-        }
+            "token": "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",
+            "unread": true,
+            "version": "1.2.5"
+        },
+        "xZVbwW4C5A": {}
     },
     "secret": {
         "dropbox": {

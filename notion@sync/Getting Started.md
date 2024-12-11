@@ -176,7 +176,7 @@ https://res.cloudinary.com/simpread/video/upload/v1733830646/config/2024-12-10_1
 7. 导入带标注色的全文到 Notion
 8. 导入标注到 Notion
 
-https://res.cloudinary.com/simpread/video/upload/v1733830646/config/2024-12-10_19-23-54_zbatxc.mp4
+https://res.cloudinary.com/simpread/video/upload/v1733830771/config/2024-12-10_19-32-49_fvrn8m.mp4
 
 ### 查看本地快照
 

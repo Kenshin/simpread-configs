@@ -144,7 +144,7 @@ https://user-images.githubusercontent.com/81074/193757575-49c4cc2a-2df9-406b-a68
 >
 > 加入稍后读 → 标注 → 添加稍后读元数据 → 触发 **导入全文到 Notion** 和 **导入标注到 Notion**。
 >
-> 如果你希望每次标注都会自动导入到 Notion，请看附录里面的《每标注一次即可同步一次到 Notion》
+> 如果你希望每次标注都会自动导入到 Notion，请看附录里面的 [每标注一次即可同步一次到 Notion](#每标注一次即可同步一次到-notion)
 
 # 注意事项
 

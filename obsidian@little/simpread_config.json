@@ -708,7 +708,7 @@
             "endpoint": "http://127.0.0.1:27123",
             "folder": "SimpRead",
             "host": "http://127.0.0.1:7027",
-            "metadata": "---\nurl: {{url}}\ntitle: {{title}}\ndate: {{date}}\ntag: {{tags}}\nbanner: \"{{cover}}\"\nbanner_icon: 🔖\n---",
+            "metadata": "---\nurl: {{url}}\ntitle: {{title}}\ndate: {{date}}\ntags:\n{{ - |tag|\\n| }}\nbanner: \"{{cover}}\"\nbanner_icon: 🔖\n---",
             "org_title": false,
             "path": "",
             "post": true,

@@ -1,0 +1,20 @@
+{
+  "pluginList": [
+    "Kenshin/simpread-obsidian-plugin"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "Kenshin/simpread-obsidian-plugin",
+      "version": "2.1.0"
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": false,
+  "updateThemesAtStartup": false,
+  "ribbonIconEnabled": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": true,
+  "notificationsEnabled": true
+}

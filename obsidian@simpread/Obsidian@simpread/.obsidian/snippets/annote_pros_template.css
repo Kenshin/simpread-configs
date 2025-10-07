@@ -1,0 +1,32 @@
+.markdown-rendered blockquote {
+    padding: var(--size-4-3) var(--size-4-4);
+    background-color: var(--code-background);
+    border-inline-start: 4px solid var(--blockquote-border-color);
+    border-radius: 4px 0 0 4px;
+}
+
+.callout[data-callout="star"] {
+    --callout-color: 8, 185, 78;;
+    --callout-icon-size: 20px;
+    --callout-icon: arrow-up-from-line;
+    border-color: rgb(var(--callout-color));
+    background-color: rgba(var(--callout-success), .2);
+}
+
+.callout[data-callout="tips"] {
+    --callout-color: 120, 82, 238;
+    --callout-icon-size: 20px;
+    --callout-icon: lightbulb;
+    border-color: rgb(var(--callout-color));
+    background-color: rgba(var(--color-purple-rgb), .1);
+}
+
+small.simpread .external-link {
+    background-image: unset;
+    padding-right: 5px;
+    transition: opacity 0.25s ease-out;
+    opacity: .1;
+}
+small.simpread .external-link:hover {
+    opacity: 1;
+}

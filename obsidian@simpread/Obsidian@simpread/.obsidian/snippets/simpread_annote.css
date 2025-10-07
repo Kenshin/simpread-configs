@@ -1,0 +1,252 @@
+/**
+ * Annotation colors
+ */
+
+:root {
+    --sr-annote-color-0: #B4D9FB;
+    --sr-annote-color-1: #ffeb3b;
+    --sr-annote-color-2: #a2e9f2;
+    --sr-annote-color-3: #a1e0ff;
+    --sr-annote-color-4: #a8ea68;
+    --sr-annote-color-5: #ffb7da;
+}
+
+/**
+ * Annotation colors style
+ */
+
+[data-sr-annote-bg-color] {
+    color: inherit;
+}
+
+[data-sr-annote-bg-color][data-color-type="0"] { background-color: var(--sr-annote-color-0); }
+[data-sr-annote-bg-color][data-color-type="1"] { background-color: var(--sr-annote-color-1); }
+[data-sr-annote-bg-color][data-color-type="2"] { background-color: var(--sr-annote-color-2); }
+[data-sr-annote-bg-color][data-color-type="3"] { background-color: var(--sr-annote-color-3); }
+[data-sr-annote-bg-color][data-color-type="4"] { background-color: var(--sr-annote-color-4); }
+[data-sr-annote-bg-color][data-color-type="5"] { background-color: var(--sr-annote-color-5); }
+
+[data-sr-annote-bb-color][data-color-type="1"] { border-bottom-color: var(--sr-annote-color-1); }
+[data-sr-annote-bb-color][data-color-type="2"] { border-bottom-color: var(--sr-annote-color-2); }
+[data-sr-annote-bb-color][data-color-type="3"] { border-bottom-color: var(--sr-annote-color-3); }
+[data-sr-annote-bb-color][data-color-type="4"] { border-bottom-color: var(--sr-annote-color-4); }
+[data-sr-annote-bb-color][data-color-type="5"] { border-bottom-color: var(--sr-annote-color-5); }
+
+[data-sr-annote-bl-color][data-color-type="1"] { border-left: 5px solid var(--sr-annote-color-1);}
+[data-sr-annote-bl-color][data-color-type="2"] { border-left: 5px solid var(--sr-annote-color-2);}
+[data-sr-annote-bl-color][data-color-type="3"] { border-left: 5px solid var(--sr-annote-color-3);}
+[data-sr-annote-bl-color][data-color-type="4"] { border-left: 5px solid var(--sr-annote-color-4);}
+[data-sr-annote-bl-color][data-color-type="5"] { border-left: 5px solid var(--sr-annote-color-5);}
+
+/**
+ * Annotation color style 1
+ */
+
+[data-color-style="1"] {
+    background-color: transparent!important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+[data-color-style="1"][data-color-type="1"] {
+    background-color: transparent!important;
+    background-image: url(../icons/annote-color-style-1-1.png);
+}
+[data-color-style="1"][data-color-type="2"] {
+    background-color: transparent!important;
+    background-image: url(../icons/annote-color-style-1-2.png);
+}
+[data-color-style="1"][data-color-type="3"] {
+    background-color: transparent!important;
+    background-image: url(../icons/annote-color-style-1-3.png);
+}
+[data-color-style="1"][data-color-type="4"] {
+    background-color: transparent!important;
+    background-image: url(../icons/annote-color-style-1-4.png);
+}
+[data-color-style="1"][data-color-type="5"] {
+    background-color: transparent!important;
+    background-image: url(../icons/annote-color-style-1-5.png);
+}
+
+/**
+ * Annotation color style 2
+ */
+
+[data-color-style="2"] {
+    background-color:transparent!important;
+}
+
+[data-color-style="2"][data-color-type="1"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, var(--sr-annote-color-1) 50%);
+}
+[data-color-style="2"][data-color-type="2"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, var(--sr-annote-color-2) 50%);
+}
+[data-color-style="2"][data-color-type="3"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, var(--sr-annote-color-3) 50%);
+}
+[data-color-style="2"][data-color-type="4"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, var(--sr-annote-color-4) 50%);
+}
+[data-color-style="2"][data-color-type="5"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, var(--sr-annote-color-5) 50%);
+}
+
+/**
+ * Annotation color style 3
+ */
+
+[data-color-style="3"] {
+    position: relative;
+    background-color:transparent!important;
+}
+
+[data-color-style="3"]:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    height: 8px;
+    width: 58px;
+    border-radius: 4px;
+    opacity: .8;
+    transition: all .3s;
+}
+
+[data-color-style="3"][data-color-type="1"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 85%, var(--sr-annote-color-1) 50%);
+}
+[data-color-style="3"][data-color-type="2"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 85%, var(--sr-annote-color-2) 50%);
+}
+[data-color-style="3"][data-color-type="3"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 85%, var(--sr-annote-color-3) 50%);
+}
+[data-color-style="3"][data-color-type="4"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 85%, var(--sr-annote-color-4) 50%);
+}
+[data-color-style="3"][data-color-type="5"] {
+    background-color: transparent!important;
+    background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 85%, var(--sr-annote-color-5) 50%);
+}
+
+sr-annote {
+    padding: 6px 0;
+    background-color: transparent;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.sr-annote[data-type="img"],
+.sr-annote[data-type="code"] {
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+}
+
+sr-annote[data-color-type="0"] {
+    padding: 7px 0;
+}
+
+sr-annote-note {
+    position: relative;
+    bottom: -5px;
+
+    padding: 0 4px;
+
+    color: #fff;
+    background-color: #333;
+
+    font-weight: bold;
+    font-style: normal;
+    font-family: arial, helvetica, clean, sans-serif;
+
+    border-radius: 5px;
+
+    opacity: .8;
+    cursor: pointer;
+}
+
+sr-annote-note:after {
+    content: "N";
+}
+
+pre.sr-annote + sr-annote-note {
+    bottom: 25px;
+    right: 25px;
+}
+
+sr-annote-note:hover {
+    opacity: 1;
+}
+
+sr-annote-note sr-annote-note-tip {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    padding: .5em 1em;
+
+    max-width: 400px;
+
+    color: #fff;
+    background: rgba(16, 16, 16, 1);
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: none;
+    font-size: 12px;
+    text-indent: 0;
+
+    white-space: pre;
+    z-index: 10;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+    opacity: 0;
+    overflow: auto;
+
+    pointer-events: none;
+    z-index: 20000;
+    transition: all .18s ease-out .18s;
+}
+
+sr-annote-note:hover sr-annote-note-tip {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+sr-annote-note sr-annote-note-tip {
+    overflow: hidden;
+}
+
+sr-annote-note sr-annote-note-tip:hover {
+    overflow: overlay;
+}
+
+sr-annote-note sr-annote-note-tip::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+sr-annote-note sr-annote-note-tip::-webkit-scrollbar {
+    width: 12px;
+}
+
+sr-annote-note sr-annote-note-tip::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    padding-top: 80px;
+    background-color: #dddddd;
+    border: 3px solid transparent;
+    border-radius: 8px;
+}

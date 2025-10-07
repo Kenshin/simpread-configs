@@ -1,5 +1,7 @@
 var obsidian = require( 'obsidian' );
 const http      = require( 'http' ),
+      fs        = require( 'fs' ),
+      path      = require( 'path' ),
       { shell } = require( 'electron' );
 
 function __awaiter(thisArg, _arguments, P, generator) {
@@ -20,6 +22,50 @@ function engine() {
     (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ejs=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){"use strict";var fs=require("fs");var path=require("path");var utils=require("./utils");var scopeOptionWarned=false;var _VERSION_STRING=require("../package.json").version;var _DEFAULT_OPEN_DELIMITER="<";var _DEFAULT_CLOSE_DELIMITER=">";var _DEFAULT_DELIMITER="%";var _DEFAULT_LOCALS_NAME="locals";var _NAME="ejs";var _REGEX_STRING="(<%%|%%>|<%=|<%-|<%_|<%#|<%|%>|-%>|_%>)";var _OPTS_PASSABLE_WITH_DATA=["delimiter","scope","context","debug","compileDebug","client","_with","rmWhitespace","strict","filename","async"];var _OPTS_PASSABLE_WITH_DATA_EXPRESS=_OPTS_PASSABLE_WITH_DATA.concat("cache");var _BOM=/^\uFEFF/;exports.cache=utils.cache;exports.fileLoader=fs.readFileSync;exports.localsName=_DEFAULT_LOCALS_NAME;exports.promiseImpl=new Function("return this;")().Promise;exports.resolveInclude=function(name,filename,isDir){var dirname=path.dirname;var extname=path.extname;var resolve=path.resolve;var includePath=resolve(isDir?filename:dirname(filename),name);var ext=extname(name);if(!ext){includePath+=".ejs"}return includePath};function resolvePaths(name,paths){var filePath;if(paths.some(function(v){filePath=exports.resolveInclude(name,v,true);return fs.existsSync(filePath)})){return filePath}}function getIncludePath(path,options){var includePath;var filePath;var views=options.views;var match=/^[A-Za-z]+:\\|^\//.exec(path);if(match&&match.length){path=path.replace(/^\/*/,"");if(Array.isArray(options.root)){includePath=resolvePaths(path,options.root)}else{includePath=exports.resolveInclude(path,options.root||"/",true)}}else{if(options.filename){filePath=exports.resolveInclude(path,options.filename);if(fs.existsSync(filePath)){includePath=filePath}}if(!includePath&&Array.isArray(views)){includePath=resolvePaths(path,views)}if(!includePath&&typeof options.includer!=="function"){throw new Error('Could not find the include file "'+options.escapeFunction(path)+'"')}}return includePath}function handleCache(options,template){var func;var filename=options.filename;var hasTemplate=arguments.length>1;if(options.cache){if(!filename){throw new Error("cache option requires a filename")}func=exports.cache.get(filename);if(func){return func}if(!hasTemplate){template=fileLoader(filename).toString().replace(_BOM,"")}}else if(!hasTemplate){if(!filename){throw new Error("Internal EJS error: no file name or template "+"provided")}template=fileLoader(filename).toString().replace(_BOM,"")}func=exports.compile(template,options);if(options.cache){exports.cache.set(filename,func)}return func}function tryHandleCache(options,data,cb){var result;if(!cb){if(typeof exports.promiseImpl=="function"){return new exports.promiseImpl(function(resolve,reject){try{result=handleCache(options)(data);resolve(result)}catch(err){reject(err)}})}else{throw new Error("Please provide a callback function")}}else{try{result=handleCache(options)(data)}catch(err){return cb(err)}cb(null,result)}}function fileLoader(filePath){return exports.fileLoader(filePath)}function includeFile(path,options){var opts=utils.shallowCopy({},options);opts.filename=getIncludePath(path,opts);if(typeof options.includer==="function"){var includerResult=options.includer(path,opts.filename);if(includerResult){if(includerResult.filename){opts.filename=includerResult.filename}if(includerResult.template){return handleCache(opts,includerResult.template)}}}return handleCache(opts)}function rethrow(err,str,flnm,lineno,esc){var lines=str.split("\n");var start=Math.max(lineno-3,0);var end=Math.min(lines.length,lineno+3);var filename=esc(flnm);var context=lines.slice(start,end).map(function(line,i){var curr=i+start+1;return(curr==lineno?" >> ":"    ")+curr+"| "+line}).join("\n");err.path=filename;err.message=(filename||"ejs")+":"+lineno+"\n"+context+"\n\n"+err.message;throw err}function stripSemi(str){return str.replace(/;(\s*$)/,"$1")}exports.compile=function compile(template,opts){var templ;if(opts&&opts.scope){if(!scopeOptionWarned){console.warn("`scope` option is deprecated and will be removed in EJS 3");scopeOptionWarned=true}if(!opts.context){opts.context=opts.scope}delete opts.scope}templ=new Template(template,opts);return templ.compile()};exports.render=function(template,d,o){var data=d||{};var opts=o||{};if(arguments.length==2){utils.shallowCopyFromList(opts,data,_OPTS_PASSABLE_WITH_DATA)}return handleCache(opts,template)(data)};exports.renderFile=function(){var args=Array.prototype.slice.call(arguments);var filename=args.shift();var cb;var opts={filename:filename};var data;var viewOpts;if(typeof arguments[arguments.length-1]=="function"){cb=args.pop()}if(args.length){data=args.shift();if(args.length){utils.shallowCopy(opts,args.pop())}else{if(data.settings){if(data.settings.views){opts.views=data.settings.views}if(data.settings["view cache"]){opts.cache=true}viewOpts=data.settings["view options"];if(viewOpts){utils.shallowCopy(opts,viewOpts)}}utils.shallowCopyFromList(opts,data,_OPTS_PASSABLE_WITH_DATA_EXPRESS)}opts.filename=filename}else{data={}}return tryHandleCache(opts,data,cb)};exports.Template=Template;exports.clearCache=function(){exports.cache.reset()};function Template(text,opts){opts=opts||{};var options={};this.templateText=text;this.mode=null;this.truncate=false;this.currentLine=1;this.source="";options.client=opts.client||false;options.escapeFunction=opts.escape||opts.escapeFunction||utils.escapeXML;options.compileDebug=opts.compileDebug!==false;options.debug=!!opts.debug;options.filename=opts.filename;options.openDelimiter=opts.openDelimiter||exports.openDelimiter||_DEFAULT_OPEN_DELIMITER;options.closeDelimiter=opts.closeDelimiter||exports.closeDelimiter||_DEFAULT_CLOSE_DELIMITER;options.delimiter=opts.delimiter||exports.delimiter||_DEFAULT_DELIMITER;options.strict=opts.strict||false;options.context=opts.context;options.cache=opts.cache||false;options.rmWhitespace=opts.rmWhitespace;options.root=opts.root;options.includer=opts.includer;options.outputFunctionName=opts.outputFunctionName;options.localsName=opts.localsName||exports.localsName||_DEFAULT_LOCALS_NAME;options.views=opts.views;options.async=opts.async;options.destructuredLocals=opts.destructuredLocals;options.legacyInclude=typeof opts.legacyInclude!="undefined"?!!opts.legacyInclude:true;if(options.strict){options._with=false}else{options._with=typeof opts._with!="undefined"?opts._with:true}this.opts=options;this.regex=this.createRegex()}Template.modes={EVAL:"eval",ESCAPED:"escaped",RAW:"raw",COMMENT:"comment",LITERAL:"literal"};Template.prototype={createRegex:function(){var str=_REGEX_STRING;var delim=utils.escapeRegExpChars(this.opts.delimiter);var open=utils.escapeRegExpChars(this.opts.openDelimiter);var close=utils.escapeRegExpChars(this.opts.closeDelimiter);str=str.replace(/%/g,delim).replace(/</g,open).replace(/>/g,close);return new RegExp(str)},compile:function(){var src;var fn;var opts=this.opts;var prepended="";var appended="";var escapeFn=opts.escapeFunction;var ctor;var sanitizedFilename=opts.filename?JSON.stringify(opts.filename):"undefined";if(!this.source){this.generateSource();prepended+='  var __output = "";\n'+"  function __append(s) { if (s !== undefined && s !== null) __output += s }\n";if(opts.outputFunctionName){prepended+="  var "+opts.outputFunctionName+" = __append;"+"\n"}if(opts.destructuredLocals&&opts.destructuredLocals.length){var destructuring="  var __locals = ("+opts.localsName+" || {}),\n";for(var i=0;i<opts.destructuredLocals.length;i++){var name=opts.destructuredLocals[i];if(i>0){destructuring+=",\n  "}destructuring+=name+" = __locals."+name}prepended+=destructuring+";\n"}if(opts._with!==false){prepended+="  with ("+opts.localsName+" || {}) {"+"\n";appended+="  }"+"\n"}appended+="  return __output;"+"\n";this.source=prepended+this.source+appended}if(opts.compileDebug){src="var __line = 1"+"\n"+"  , __lines = "+JSON.stringify(this.templateText)+"\n"+"  , __filename = "+sanitizedFilename+";"+"\n"+"try {"+"\n"+this.source+"} catch (e) {"+"\n"+"  rethrow(e, __lines, __filename, __line, escapeFn);"+"\n"+"}"+"\n"}else{src=this.source}if(opts.client){src="escapeFn = escapeFn || "+escapeFn.toString()+";"+"\n"+src;if(opts.compileDebug){src="rethrow = rethrow || "+rethrow.toString()+";"+"\n"+src}}if(opts.strict){src='"use strict";\n'+src}if(opts.debug){console.log(src)}if(opts.compileDebug&&opts.filename){src=src+"\n"+"//# sourceURL="+sanitizedFilename+"\n"}try{if(opts.async){try{ctor=new Function("return (async function(){}).constructor;")()}catch(e){if(e instanceof SyntaxError){throw new Error("This environment does not support async/await")}else{throw e}}}else{ctor=Function}fn=new ctor(opts.localsName+", escapeFn, include, rethrow",src)}catch(e){if(e instanceof SyntaxError){if(opts.filename){e.message+=" in "+opts.filename}e.message+=" while compiling ejs\n\n";e.message+="If the above error is not helpful, you may want to try EJS-Lint:\n";e.message+="https://github.com/RyanZim/EJS-Lint";if(!opts.async){e.message+="\n";e.message+="Or, if you meant to create an async function, pass `async: true` as an option."}}throw e}var returnedFn=opts.client?fn:function anonymous(data){var include=function(path,includeData){var d=utils.shallowCopy({},data);if(includeData){d=utils.shallowCopy(d,includeData)}return includeFile(path,opts)(d)};return fn.apply(opts.context,[data||{},escapeFn,include,rethrow])};if(opts.filename&&typeof Object.defineProperty==="function"){var filename=opts.filename;var basename=path.basename(filename,path.extname(filename));try{Object.defineProperty(returnedFn,"name",{value:basename,writable:false,enumerable:false,configurable:true})}catch(e){}}return returnedFn},generateSource:function(){var opts=this.opts;if(opts.rmWhitespace){this.templateText=this.templateText.replace(/[\r\n]+/g,"\n").replace(/^\s+|\s+$/gm,"")}this.templateText=this.templateText.replace(/[ \t]*<%_/gm,"<%_").replace(/_%>[ \t]*/gm,"_%>");var self=this;var matches=this.parseTemplateText();var d=this.opts.delimiter;var o=this.opts.openDelimiter;var c=this.opts.closeDelimiter;if(matches&&matches.length){matches.forEach(function(line,index){var closing;if(line.indexOf(o+d)===0&&line.indexOf(o+d+d)!==0){closing=matches[index+2];if(!(closing==d+c||closing=="-"+d+c||closing=="_"+d+c)){throw new Error('Could not find matching close tag for "'+line+'".')}}self.scanLine(line)})}},parseTemplateText:function(){var str=this.templateText;var pat=this.regex;var result=pat.exec(str);var arr=[];var firstPos;while(result){firstPos=result.index;if(firstPos!==0){arr.push(str.substring(0,firstPos));str=str.slice(firstPos)}arr.push(result[0]);str=str.slice(result[0].length);result=pat.exec(str)}if(str){arr.push(str)}return arr},_addOutput:function(line){if(this.truncate){line=line.replace(/^(?:\r\n|\r|\n)/,"");this.truncate=false}if(!line){return line}line=line.replace(/\\/g,"\\\\");line=line.replace(/\n/g,"\\n");line=line.replace(/\r/g,"\\r");line=line.replace(/"/g,'\\"');this.source+='    ; __append("'+line+'")'+"\n"},scanLine:function(line){var self=this;var d=this.opts.delimiter;var o=this.opts.openDelimiter;var c=this.opts.closeDelimiter;var newLineCount=0;newLineCount=line.split("\n").length-1;switch(line){case o+d:case o+d+"_":this.mode=Template.modes.EVAL;break;case o+d+"=":this.mode=Template.modes.ESCAPED;break;case o+d+"-":this.mode=Template.modes.RAW;break;case o+d+"#":this.mode=Template.modes.COMMENT;break;case o+d+d:this.mode=Template.modes.LITERAL;this.source+='    ; __append("'+line.replace(o+d+d,o+d)+'")'+"\n";break;case d+d+c:this.mode=Template.modes.LITERAL;this.source+='    ; __append("'+line.replace(d+d+c,d+c)+'")'+"\n";break;case d+c:case"-"+d+c:case"_"+d+c:if(this.mode==Template.modes.LITERAL){this._addOutput(line)}this.mode=null;this.truncate=line.indexOf("-")===0||line.indexOf("_")===0;break;default:if(this.mode){switch(this.mode){case Template.modes.EVAL:case Template.modes.ESCAPED:case Template.modes.RAW:if(line.lastIndexOf("//")>line.lastIndexOf("\n")){line+="\n"}}switch(this.mode){case Template.modes.EVAL:this.source+="    ; "+line+"\n";break;case Template.modes.ESCAPED:this.source+="    ; __append(escapeFn("+stripSemi(line)+"))"+"\n";break;case Template.modes.RAW:this.source+="    ; __append("+stripSemi(line)+")"+"\n";break;case Template.modes.COMMENT:break;case Template.modes.LITERAL:this._addOutput(line);break}}else{this._addOutput(line)}}if(self.opts.compileDebug&&newLineCount){this.currentLine+=newLineCount;this.source+="    ; __line = "+this.currentLine+"\n"}}};exports.escapeXML=utils.escapeXML;exports.__express=exports.renderFile;exports.VERSION=_VERSION_STRING;exports.name=_NAME;if(typeof window!="undefined"){window.ejs=exports}},{"../package.json":6,"./utils":2,fs:3,path:4}],2:[function(require,module,exports){"use strict";var regExpChars=/[|\\{}()[\]^$+*?.]/g;exports.escapeRegExpChars=function(string){if(!string){return""}return String(string).replace(regExpChars,"\\$&")};var _ENCODE_HTML_RULES={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&#34;","'":"&#39;"};var _MATCH_HTML=/[&<>'"]/g;function encode_char(c){return _ENCODE_HTML_RULES[c]||c}var escapeFuncStr="var _ENCODE_HTML_RULES = {\n"+'      "&": "&amp;"\n'+'    , "<": "&lt;"\n'+'    , ">": "&gt;"\n'+'    , \'"\': "&#34;"\n'+'    , "\'": "&#39;"\n'+"    }\n"+"  , _MATCH_HTML = /[&<>'\"]/g;\n"+"function encode_char(c) {\n"+"  return _ENCODE_HTML_RULES[c] || c;\n"+"};\n";exports.escapeXML=function(markup){return markup==undefined?"":String(markup).replace(_MATCH_HTML,encode_char)};exports.escapeXML.toString=function(){return Function.prototype.toString.call(this)+";\n"+escapeFuncStr};exports.shallowCopy=function(to,from){from=from||{};for(var p in from){to[p]=from[p]}return to};exports.shallowCopyFromList=function(to,from,list){for(var i=0;i<list.length;i++){var p=list[i];if(typeof from[p]!="undefined"){to[p]=from[p]}}return to};exports.cache={_data:{},set:function(key,val){this._data[key]=val},get:function(key){return this._data[key]},remove:function(key){delete this._data[key]},reset:function(){this._data={}}};exports.hyphenToCamel=function(str){return str.replace(/-[a-z]/g,function(match){return match[1].toUpperCase()})}},{}],3:[function(require,module,exports){},{}],4:[function(require,module,exports){(function(process){function normalizeArray(parts,allowAboveRoot){var up=0;for(var i=parts.length-1;i>=0;i--){var last=parts[i];if(last==="."){parts.splice(i,1)}else if(last===".."){parts.splice(i,1);up++}else if(up){parts.splice(i,1);up--}}if(allowAboveRoot){for(;up--;up){parts.unshift("..")}}return parts}exports.resolve=function(){var resolvedPath="",resolvedAbsolute=false;for(var i=arguments.length-1;i>=-1&&!resolvedAbsolute;i--){var path=i>=0?arguments[i]:process.cwd();if(typeof path!=="string"){throw new TypeError("Arguments to path.resolve must be strings")}else if(!path){continue}resolvedPath=path+"/"+resolvedPath;resolvedAbsolute=path.charAt(0)==="/"}resolvedPath=normalizeArray(filter(resolvedPath.split("/"),function(p){return!!p}),!resolvedAbsolute).join("/");return(resolvedAbsolute?"/":"")+resolvedPath||"."};exports.normalize=function(path){var isAbsolute=exports.isAbsolute(path),trailingSlash=substr(path,-1)==="/";path=normalizeArray(filter(path.split("/"),function(p){return!!p}),!isAbsolute).join("/");if(!path&&!isAbsolute){path="."}if(path&&trailingSlash){path+="/"}return(isAbsolute?"/":"")+path};exports.isAbsolute=function(path){return path.charAt(0)==="/"};exports.join=function(){var paths=Array.prototype.slice.call(arguments,0);return exports.normalize(filter(paths,function(p,index){if(typeof p!=="string"){throw new TypeError("Arguments to path.join must be strings")}return p}).join("/"))};exports.relative=function(from,to){from=exports.resolve(from).substr(1);to=exports.resolve(to).substr(1);function trim(arr){var start=0;for(;start<arr.length;start++){if(arr[start]!=="")break}var end=arr.length-1;for(;end>=0;end--){if(arr[end]!=="")break}if(start>end)return[];return arr.slice(start,end-start+1)}var fromParts=trim(from.split("/"));var toParts=trim(to.split("/"));var length=Math.min(fromParts.length,toParts.length);var samePartsLength=length;for(var i=0;i<length;i++){if(fromParts[i]!==toParts[i]){samePartsLength=i;break}}var outputParts=[];for(var i=samePartsLength;i<fromParts.length;i++){outputParts.push("..")}outputParts=outputParts.concat(toParts.slice(samePartsLength));return outputParts.join("/")};exports.sep="/";exports.delimiter=":";exports.dirname=function(path){if(typeof path!=="string")path=path+"";if(path.length===0)return".";var code=path.charCodeAt(0);var hasRoot=code===47;var end=-1;var matchedSlash=true;for(var i=path.length-1;i>=1;--i){code=path.charCodeAt(i);if(code===47){if(!matchedSlash){end=i;break}}else{matchedSlash=false}}if(end===-1)return hasRoot?"/":".";if(hasRoot&&end===1){return"/"}return path.slice(0,end)};function basename(path){if(typeof path!=="string")path=path+"";var start=0;var end=-1;var matchedSlash=true;var i;for(i=path.length-1;i>=0;--i){if(path.charCodeAt(i)===47){if(!matchedSlash){start=i+1;break}}else if(end===-1){matchedSlash=false;end=i+1}}if(end===-1)return"";return path.slice(start,end)}exports.basename=function(path,ext){var f=basename(path);if(ext&&f.substr(-1*ext.length)===ext){f=f.substr(0,f.length-ext.length)}return f};exports.extname=function(path){if(typeof path!=="string")path=path+"";var startDot=-1;var startPart=0;var end=-1;var matchedSlash=true;var preDotState=0;for(var i=path.length-1;i>=0;--i){var code=path.charCodeAt(i);if(code===47){if(!matchedSlash){startPart=i+1;break}continue}if(end===-1){matchedSlash=false;end=i+1}if(code===46){if(startDot===-1)startDot=i;else if(preDotState!==1)preDotState=1}else if(startDot!==-1){preDotState=-1}}if(startDot===-1||end===-1||preDotState===0||preDotState===1&&startDot===end-1&&startDot===startPart+1){return""}return path.slice(startDot,end)};function filter(xs,f){if(xs.filter)return xs.filter(f);var res=[];for(var i=0;i<xs.length;i++){if(f(xs[i],i,xs))res.push(xs[i])}return res}var substr="ab".substr(-1)==="b"?function(str,start,len){return str.substr(start,len)}:function(str,start,len){if(start<0)start=str.length+start;return str.substr(start,len)}}).call(this,require("_process"))},{_process:5}],5:[function(require,module,exports){var process=module.exports={};var cachedSetTimeout;var cachedClearTimeout;function defaultSetTimout(){throw new Error("setTimeout has not been defined")}function defaultClearTimeout(){throw new Error("clearTimeout has not been defined")}(function(){try{if(typeof setTimeout==="function"){cachedSetTimeout=setTimeout}else{cachedSetTimeout=defaultSetTimout}}catch(e){cachedSetTimeout=defaultSetTimout}try{if(typeof clearTimeout==="function"){cachedClearTimeout=clearTimeout}else{cachedClearTimeout=defaultClearTimeout}}catch(e){cachedClearTimeout=defaultClearTimeout}})();function runTimeout(fun){if(cachedSetTimeout===setTimeout){return setTimeout(fun,0)}if((cachedSetTimeout===defaultSetTimout||!cachedSetTimeout)&&setTimeout){cachedSetTimeout=setTimeout;return setTimeout(fun,0)}try{return cachedSetTimeout(fun,0)}catch(e){try{return cachedSetTimeout.call(null,fun,0)}catch(e){return cachedSetTimeout.call(this,fun,0)}}}function runClearTimeout(marker){if(cachedClearTimeout===clearTimeout){return clearTimeout(marker)}if((cachedClearTimeout===defaultClearTimeout||!cachedClearTimeout)&&clearTimeout){cachedClearTimeout=clearTimeout;return clearTimeout(marker)}try{return cachedClearTimeout(marker)}catch(e){try{return cachedClearTimeout.call(null,marker)}catch(e){return cachedClearTimeout.call(this,marker)}}}var queue=[];var draining=false;var currentQueue;var queueIndex=-1;function cleanUpNextTick(){if(!draining||!currentQueue){return}draining=false;if(currentQueue.length){queue=currentQueue.concat(queue)}else{queueIndex=-1}if(queue.length){drainQueue()}}function drainQueue(){if(draining){return}var timeout=runTimeout(cleanUpNextTick);draining=true;var len=queue.length;while(len){currentQueue=queue;queue=[];while(++queueIndex<len){if(currentQueue){currentQueue[queueIndex].run()}}queueIndex=-1;len=queue.length}currentQueue=null;draining=false;runClearTimeout(timeout)}process.nextTick=function(fun){var args=new Array(arguments.length-1);if(arguments.length>1){for(var i=1;i<arguments.length;i++){args[i-1]=arguments[i]}}queue.push(new Item(fun,args));if(queue.length===1&&!draining){runTimeout(drainQueue)}};function Item(fun,array){this.fun=fun;this.array=array}Item.prototype.run=function(){this.fun.apply(null,this.array)};process.title="browser";process.browser=true;process.env={};process.argv=[];process.version="";process.versions={};function noop(){}process.on=noop;process.addListener=noop;process.once=noop;process.off=noop;process.removeListener=noop;process.removeAllListeners=noop;process.emit=noop;process.prependListener=noop;process.prependOnceListener=noop;process.listeners=function(name){return[]};process.binding=function(name){throw new Error("process.binding is not supported")};process.cwd=function(){return"/"};process.chdir=function(dir){throw new Error("process.chdir is not supported")};process.umask=function(){return 0}},{}],6:[function(require,module,exports){module.exports={name:"ejs",description:"Embedded JavaScript templates",keywords:["template","engine","ejs"],version:"3.1.6",author:"Matthew Eernisse <mde@fleegix.org> (http://fleegix.org)",license:"Apache-2.0",bin:{ejs:"./bin/cli.js"},main:"./lib/ejs.js",jsdelivr:"ejs.min.js",unpkg:"ejs.min.js",repository:{type:"git",url:"git://github.com/mde/ejs.git"},bugs:"https://github.com/mde/ejs/issues",homepage:"https://github.com/mde/ejs",dependencies:{jake:"^10.6.1"},devDependencies:{browserify:"^16.5.1",eslint:"^6.8.0","git-directory-deploy":"^1.5.1",jsdoc:"^3.6.4","lru-cache":"^4.0.1",mocha:"^7.1.1","uglify-js":"^3.3.16"},engines:{node:">=0.10.0"},scripts:{test:"mocha"}}},{}]},{},[1])(1)});
 }
 
+function getContentType( ext ) {
+    switch ( ext ) {
+      case '.png':
+        return 'image/png';
+      case '.jpg':
+      case '.jpeg':
+        return 'image/jpeg';
+      case '.gif':
+        return 'image/gif';
+      default:
+        return 'image/png';
+    }
+}
+
+/**
+ * @param {string} root image root path e.g. /Users/xxx/Documents/simpread@images
+ * @param {string} folder image path e.g. aaa/bbb/ccc
+ * @param {string} data image base64
+ * @param {boolean} override
+ * @param {string} name image name
+ * @param {func} callback 
+ */
+function base64toImage( root, folder, data, override, name, callback ) {
+    const folderPath = path.join( root, folder );
+    !fs.existsSync( folderPath ) && fs.mkdirSync( folderPath, { recursive: true });
+    const suffix  = () => {
+            const arr = data.match( /^data:image\/([a-zA-Z0-9]+);base64,/ );
+            return arr && arr[1] ? arr[1] : 'png';
+          },
+          ext        = '.' + suffix(),
+          base64Data = data.replace( /^data:image\/\w+;base64,/, '' ),
+          binaryData = new Buffer( base64Data, 'base64' ).toString( 'binary' ),
+          file       = path.join( folderPath, name + ext );
+    let is_write     = false;
+    if ( override ) is_write = true;
+    else if ( !override && !fs.existsSync( file )) is_write = true;
+    if ( is_write ) {
+        fs.writeFile( file, binaryData, 'binary', error => {
+            error  && console.log( '/assets/upload error: ', err );
+            !error && callback( path.join( folder, name + ext ) );
+        });
+    } else callback( path.join( folder, name + ext ));
+}
+
 const DEFAULT_SETTINGS = {
     config    : 'simpread_config.json',
     host      : 'localhost',
@@ -27,7 +73,11 @@ const DEFAULT_SETTINGS = {
     count     : '10',
     override  : true,
     folder    : 'SimpRead',
+    sub_folder: true,
     path      : '',
+    assets_root : 'root',
+    assets    : '',
+    img_relative : true,
     annote    : true,
     frequency : '-1',
     tag_prefix: '#',
@@ -37,9 +87,10 @@ const DEFAULT_SETTINGS = {
     title     : '{{id}}-{{title}}{{mode}}',
     template  : `---
 title: "srAnnote@{{title}}"
-alias: [<% if ( unread.note && unread.title != unread.note ) { %>"srAnnote@{{note}}",<% } %>"srAnnote@{{title}}"]
+aliases: [<% if ( unread.note && unread.title != unread.note ) { %>"srAnnote@{{note}}",<% } %>"srAnnote@{{title}}"]
 type: Simpread
-tag: {{tags}}
+tags:
+{{ - |tag|\n| }}
 ---
 
 # {{title}}
@@ -147,9 +198,11 @@ class UnreadSuggest extends obsidian.SuggestModal {
         if ( !unread.annotations ) unread.annotations = [];
         try {
             this.template2( unread, this.unrdist, md => {
-                const path  = this.app.vault.adapter.basePath + '/' + this.settings.folder,
+                const //path  = this.app.vault.adapter.basePath + '/' + this.settings.folder,
+                      path  = this.app.vault.adapter.path.join( this.app.vault.adapter.basePath, this.settings.folder ),
                       title = this.safe( this.parseTitle( this.settings.title, unread ));
-                this.app.vault.adapter.fs.writeFileSync( path + '/' + title + '.md', md );
+                //this.app.vault.adapter.fs.writeFileSync( path + '/' + title + '.md', md );
+                this.app.vault.adapter.fs.writeFileSync( this.app.vault.adapter.path.join( path, title + '.md' ), md );
                 setTimeout( () => {
                     const file = this.app.vault.getFiles().find( f => f.name === title + '.md' );
                     file && this.app.workspace.getMostRecentLeaf().openFile( file );
@@ -304,6 +357,7 @@ class SimpReadPlugin extends obsidian.Plugin {
         });
     }
 
+    // from filter.js
     filter( type, arr, str ) {
         if("today"==type)arr=arr.filter(e=>{const t=new Date,a=new Date(e.create.replace(/年|月/gi,"-").replace("日",""));return t.getFullYear()==a.getFullYear()&&t.getMonth()==a.getMonth()&&t.getDate()==a.getDate()});else if("yestoday"==type)arr=arr.filter(e=>{const t=new Date,a=t.getFullYear(),r=t.getMonth()+1,n=t.getDate(),s=+new Date(a+`-${r}-${n} 00:00:00`),l=+new Date(a+`-${r}-${n} 23:59:59`)-864e5,o=+new Date(e.create.replace(/年|月/gi,"-").replace("日",""));return l<864e5+o&&o<s});else if("week"==type)arr=arr.filter(e=>{const t=new Date,a=t.getFullYear(),r=t.getMonth()+1,n=t.getDate(),s=+new Date(a+`-${r}-${n} 23:59:59`),l=+new Date(e.create.replace(/年|月/gi,"-").replace("日",""));return s<6048e5+l});else if("sunday"==type){const u=new Date,v=u.getTime(),w=u.getDay()||7,x=864e5,y=(e,t)=>{var a=(e=new Date(e)).getFullYear(),r=e.getMonth()+1,e=e.getDate();return+new Date(a+`-${r}-${e} `+t)},z=y(v-(w-1)*x,"00:00:00"),A=y(v+(7-w)*x,"23:59:59");arr=arr.filter(e=>{e=+new Date(e.create.replace(/年|月/gi,"-").replace("日",""));return e>=z&&e<=A})}else if("daily"==type)arr=arr.filter(e=>{return+new Date-+new Date(e.create.replace(/年|月/gi,"-").replace("日",""))<=864e5});else if("nohighlight"==type)arr=arr.filter(e=>!e.annotations||0==e.annotations.length);else if("notags"==type)arr=arr.filter(e=>!e.tags||0==e.tags.length);else if("unarchive"==type)arr=arr.filter(e=>!e.archive);else if("archive"==type)arr=arr.filter(e=>e.archive);else if("share"==type)arr=arr.filter(e=>e.share);else if("annoate"==type){let r=[];arr.forEach(e=>{{var a=e.annotations;let t=!1;return a&&a.forEach(e=>{null==e.note&&(e.note=""),""==e.note&&(t=!0)}),void(t&&r.push(e))}}),arr=r}else if("img"==type||"code"==type){let r=[];arr.forEach(e=>{{var a=e.annotations;let t=!1;return a&&a.forEach(e=>e.type==type&&(t=!0)),void(t&&r.push(e))}}),arr=r}else if("note"==type){let r=[];arr.forEach(e=>{e.note&&0<e.note.length&&r.push(e);{var a=e.annotations;let t=!1;return a&&a.forEach(e=>e.note&&0<e.note.length&&(t=!0)),void(t&&r.push(e))}}),arr=r}else if("any"==type){let r=[];arr.forEach(e=>{if(e.desc||(e.desc=""),e.note||(e.note=""),e.tags||(e.tags=[]),e.annotations||(e.annotations=[]),e.title.includes(str)||e.desc.includes(str)||e.note.includes(str)||e.tags.includes(str))r.push(e);else{var a=e.annotations;let t=!1;a&&a.forEach(e=>{e.note||(e.note=""),e.tags||(e.tags=[]),(e.note.includes(str)||e.text.includes(str)||e.tags.includes(str))&&(t=!0)}),t&&r.push(e)}}),arr=r}else if(type.includes(":")){let r=[];str=type.split(":")[1],type=type.split(":")[0],arr.forEach(e=>{if(e.desc||(e.desc=""),e.note||(e.note=""),e.tags||(e.tags=[]),e.annotations||(e.annotations=[]),["title","desc","note","tags","tag"].includes(type)&&("tag"==type&&(type="tags"),e[type].includes(str)&&r.push(e)),["note","tags","tag","annote","text"].includes(type)){var a=e.annotations;let t=!1;a&&a.forEach(e=>{"tag"==(type="annote"==type?"text":type)&&(type="tags"),e.note||(e.note=""),e.tags||(e.tags=[]),e[type].includes(str)&&(t=!0)}),t&&r.push(e)}}),arr=r}
         return arr;
@@ -313,9 +367,80 @@ class SimpReadPlugin extends obsidian.Plugin {
         const requestListener = ( req, res ) => {
             res.setHeader( 'Access-Control-Allow-Origin', '*' );
             res.setHeader( 'Access-Control-Allow-Methods', '*' );
-            if ( req.method === 'GET' ) {
+            if ( req.method === 'GET' && req.url == '/' ) {
                 res.writeHead( 200 );
                 res.end( 'SimpRead Sync server run' );
+            } else if ( req.method === 'GET' && req.url.startsWith( '/assets' )) {
+                const uri      = req.url.replace( '/assets', '' ),
+                      root     = this.settings.assets_root == 'root'
+                                   ? path.join( this.app.vault.adapter.basePath, this.settings.folder )
+                                   : this.settings.assets,
+                      filePath = path.join( root, decodeURI( uri ));
+                fs.access( filePath, fs.constants.F_OK, err => {
+                    if ( err ) {
+                        res.statusCode = 404;
+                        res.end( 'File not found' );
+                    } else fs.readFile( filePath, ( err, data ) => {
+                        if ( err ) {
+                            res.statusCode = 500;
+                            res.end( 'Internal Server Error' );
+                        } else {
+                            const ext         = path.extname( filePath ),
+                                  contentType = getContentType( ext );
+                            res.setHeader( 'Content-Type', contentType );
+                            res.statusCode = 200;
+                            res.end( data );
+                        }
+                    });
+                });
+            } else if ( req.method === 'POST' && req.url == '/assets/upload' ) {
+                let body = '';
+                req.on( 'data', chunk => {
+                    body += chunk;
+                });
+                req.on( 'end', () => {
+                    try {
+                        body = JSON.parse( body );
+                        const { title, base64, override, name } = body;
+                        let root = this.settings.assets_root == 'root'
+                                   ? path.join( this.app.vault.adapter.basePath, this.settings.folder )
+                                   : this.settings.assets;
+                        let folder  = this.settings.assets_root == 'root' ? path.join( title, 'assets' ) : body.folder || '';
+                        base64toImage( root, folder, base64 || '', override, name || + new Date(), file => {
+                            res.setHeader( 'Content-Type', 'application/json' );
+                            res.writeHead( 200 );
+                            res.end( JSON.stringify( file ));
+                        });
+                    } catch ( error ) {
+                        console.error( error )
+                        res.setHeader( 'Content-Type', 'application/json' );
+                        res.writeHead( 403 );
+                        res.end( `{ "code": 403, "message": "${ error.message }" }` );
+                    }
+                });
+            } else if ( req.method === 'POST' && req.url == '/assets/upload/indexes' ) {
+                let body = '';
+                req.on( 'data', chunk => {
+                    body += chunk;
+                });
+                req.on( 'end', () => {
+                    try {
+                        body = JSON.parse( body );
+                        const { title, folder, indexes } = body;
+                        this.indexes( 'write', title, folder, indexes, error => {
+                            if ( !error ) {
+                                res.setHeader( 'Content-Type', 'application/json' );
+                                res.writeHead( 200 );
+                                res.end(JSON.stringify({ code: 200 }));
+                            } else console.log( '/assets/upload/indexes error: ', error );
+                        });
+                    } catch ( error ) {
+                        console.error( error )
+                        res.setHeader( 'Content-Type', 'application/json' );
+                        res.writeHead( 403 );
+                        res.end( `{ "code": 403, "message": "${ error.message }" }` );
+                    }
+                });
             } else if ( req.method === 'POST' ) {
                 let body = '';
                 req.on( 'data', chunk => {
@@ -328,13 +453,46 @@ class SimpReadPlugin extends obsidian.Plugin {
                         if ( req.url == '/unread' ) {
                             const unread = body.unread;
                             if ( !unread.annotations ) unread.annotations = [];
+                            // fixed image url
+                            this.fixedImgURL( unread );
                             this.template2( unread, this.unrdist, md => {
+                                /*
                                 const path  = this.app.vault.adapter.basePath + '/' + this.settings.folder,
                                         title = this.safe( this.parseTitle( this.settings.title, unread ));
-                                this.app.vault.adapter.fs.writeFileSync( path + '/' + title + '.md', md );
+                                */
+                                const title = this.safe( this.parseTitle( this.settings.title, unread )),
+                                      folder= this.settings.sub_folder ? title.replace( /@annote|@all/i, '' ) : '',
+                                      path  = this.app.vault.adapter.path.join( this.app.vault.adapter.basePath, this.settings.folder, folder ),
+                                      file  = this.app.vault.adapter.path.resolve( path, this.safe( title ) + '.md' );
+                                //md = this.relative( title, md );
+                                //this.app.vault.adapter.fs.writeFileSync( this.app.vault.adapter.path.join( path, this.safe( title ) + '.md' ), md );
+                                this.replaceImage( title, md, str => {
+                                    md = str;
+                                    md = this.relative( title, md, 'unread' );
+                                    this.read( body.type, title, ( file, md ) => this.update( file, md, { md } ) );
+                                    this.app.vault.adapter.fs.writeFileSync( this.app.vault.adapter.path.join( path, this.safe( title ) + '.md' ), md );
+                                });
                             });
                         } else {
-                            this.read( body.title, ( file, md ) => this.update( file, md, body ) );
+                            /*
+                            if ( this.settings.img_relative ) {
+                                if ( this.settings.assets_root == 'root' ) {
+                                    let title = body.title.replace( /@annote|@all/i, '' );
+                                    title     = body.type == 'unread' ? title : encodeURI( title );
+                                    body.md   = body.md.replace( new RegExp( 'http://localhost:7027/assets/' + title + '/', 'ig' ), '' );
+                                } else {
+                                    body.md   = body.md.replace( new RegExp( 'http://localhost:7027/assets', 'ig' ), 'file:///' + this.settings.assets );
+                                }
+                                console.log( 'adadadf', body.md )
+                            }
+                            */
+                            //body.md = this.relative( body.title, body.md, body.type );
+                            //this.read( body.title, ( file, md ) => this.update( file, md, body ) );
+                            this.replaceImage( body.title, body.md, md => {
+                                body.md = md;
+                                body.md = this.relative( body.title, body.md, 'unread' );
+                                this.read( body.type, body.title, ( file, md ) => this.update( file, md, body ) );
+                            });
                         }
                         res.setHeader( 'Content-Type', 'application/json' );
                         res.writeHead( 200 );
@@ -437,7 +595,11 @@ class SimpReadPlugin extends obsidian.Plugin {
                     .replace( /\\/ig, '-' )
                     .replace( /%/ig, '％' )
                     .replace( /;/ig, '；' )
-                    .replace( /"/ig, '' );
+                    .replace( /"/ig, '' )
+                    .replace( /\[/ig, '【' )
+                    .replace( /\]/ig, '】' )
+                    .replace( /#/ig, '' )
+                    .trim();
     }
 
     parseTitle( title, unread , mode = '@annote' ) {
@@ -488,9 +650,16 @@ class SimpReadPlugin extends obsidian.Plugin {
         this.app.vault.adapter.fs.writeFileSync( file, body.md );
     }
 
-    read( title, callback ) {
-        const path  = this.app.vault.adapter.basePath + '/' + this.settings.folder,
+    read( type, title, callback ) {
+        const folder= type && type.startsWith( 'collection' ) ? type.replace( 'collection:', '' ) : this.settings.sub_folder ? '/' + title.replace( /@annote|@all/i, '' ) : '',
+              path  = this.app.vault.adapter.path.join( this.app.vault.adapter.basePath, this.settings.folder, folder ),
               file  = this.app.vault.adapter.path.resolve( path, this.safe( title ) + '.md' );
+        if ( this.settings.sub_folder ) {
+            const exists = this.app.vault.adapter.fs.existsSync( path );
+            if ( !exists ) {
+                this.app.vault.adapter.fs.mkdirSync( path, { recursive: true });
+            }
+        }
         this.app.vault.adapter.fs.readFile( file, 'utf8', ( err, result ) => {
             if ( !err ) {
                 callback( file, result );
@@ -501,7 +670,8 @@ class SimpReadPlugin extends obsidian.Plugin {
     }
 
     write( unrdist ) {
-        const path   = this.app.vault.adapter.basePath + '/' + this.settings.folder,
+        const //path   = this.app.vault.adapter.basePath + '/' + this.settings.folder,
+              path   = this.app.vault.adapter.path.join( this.app.vault.adapter.basePath, this.settings.folder ),
               exists = this.app.vault.adapter.fs.existsSync( path );
         if ( !exists ) {
             this.app.vault.adapter.fs.mkdirSync( path );
@@ -554,10 +724,21 @@ class SimpReadPlugin extends obsidian.Plugin {
                 if ( !unread.annotations ) unread.annotations = [];
                 try {
                     this.template2( unread, this.unrdist, md => {
-                        const title = this.safe( this.parseTitle( this.settings.title, unread ));
+                        const title = this.safe( this.parseTitle( this.settings.title, unread )),
+                              folder= this.settings.sub_folder ? title.replace( /@annote|@all/i, '' ) : '',
+                              path  = this.app.vault.adapter.path.join( this.app.vault.adapter.basePath, this.settings.folder, folder ),
+                              file  = this.app.vault.adapter.path.resolve( path, this.safe( title ) + '.md' );
                         // when override remove exist file
-                        somefiles.forEach( remove => this.app.vault.adapter.fs.unlinkSync( path + '/' + remove ));
-                        this.app.vault.adapter.fs.writeFileSync( path + '/' + title + '.md', md );
+                        somefiles.forEach( remove => {
+                            this.app.vault.adapter.fs.existsSync( file ) &&
+                                this.app.vault.adapter.fs.unlinkSync( file );
+                        });
+                        !this.app.vault.adapter.fs.existsSync( path ) && fs.mkdirSync( path, { recursive: true });
+                        //this.app.vault.adapter.fs.writeFileSync( file, this.relative( title, md ));
+                        this.replaceImage( title, md, str => {
+                            md = str;
+                            this.app.vault.adapter.fs.writeFileSync( file, this.relative( title, md ));
+                        });
                     });
                 } catch ( error ) {
                     console.error( 'current unread write error: ', error, unread )
@@ -566,8 +747,9 @@ class SimpReadPlugin extends obsidian.Plugin {
         }
     }
 
+    // from template2.js
     template2( unread, unrdist, global_callback ) {
-        const plugin_storage=this.settings;function markdown(e,t,a,r=0,n=""){try{n=JSON.parse(n||"{}")}catch(e){n={}}const i=(new TurndownService)(n);i.escape=e=>e,i.addRule("pre",{filter:["pre"],replacement:e=>"\n\n```\n"+e+"\n```\n\n"}),i.addRule("table",{filter:["table"],replacement:(e,t,a)=>{try{if("md"!=a.table)return t.outerHTML;{const i=e.trim().split("\n"),l=[];for(let e=0;e<i.length;e++){var r,n;1!=e||i[e].startsWith("| -")||(r=i[e].match(/\|/g).length,n="|".repeat(r-1).replace(/\|/g,"|-")+"|",l.push(n)),l.push(i[e])}return l.join("\n")}}catch(e){return t.outerHTML}}}),i.addRule("video",{filter:["video"],replacement:(e,t,a)=>`<video src="${t.src}" control></video>`+"\n\n"}),i.addRule("math",{filter:["math"],replacement:(e,t,a)=>""});n=i.turndown(e);a&&a(n)}function AnnoteMDTemplate2(c,p,n,t,a,m,e){const o=()=>{u=/d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,h=/\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,_=/[^-+\dA-Z]/g;var u,h,_,f=function(e,t,a){var r=f;if(1!=arguments.length||"[object String]"!=Object.prototype.toString.call(e)||/\d/.test(e)||(t=e,e=void 0),e=e?new Date(e):new Date,isNaN(e))throw SyntaxError("invalid date");"UTC:"==(t=String(r.masks[t]||t||r.masks.default)).slice(0,4)&&(t=t.slice(4),a=!0);var n=a?"getUTC":"get",i=e[n+"Date"](),l=e[n+"Day"](),c=e[n+"Month"](),o=e[n+"FullYear"](),s=e[n+"Hours"](),g=e[n+"Minutes"](),p=e[n+"Seconds"](),n=e[n+"Milliseconds"](),m=a?0:e.getTimezoneOffset(),d={d:i,dd:y(i),ddd:r.i18n.dayNames[l],dddd:r.lang.dayNames.long[l],m:c+1,mm:y(c+1),mmm:r.i18n.monthNames[c],mmmm:r.lang.monthNames.long[c],yy:String(o).slice(2),yyyy:o,h:s%12||12,hh:y(s%12||12),H:s,HH:y(s),M:g,MM:y(g),s:p,ss:y(p),l:y(n,3),L:y(99<n?Math.round(n/10):n),t:s<12?"a":"p",tt:s<12?"am":"pm",T:s<12?"A":"P",TT:s<12?"AM":"PM",Z:a?"UTC":(String(e).match(h)||[""]).pop().replace(_,""),o:(0<m?"-":"+")+y(100*Math.floor(Math.abs(m)/60)+Math.abs(m)%60,4),S:["th","st","nd","rd"][3<i%10?0:(i%100-i%10!=10)*i%10]};return t.replace(u,function(e){return e in d?d[e]:e.slice(1,e.length-1)})};function y(e,t){for(e=String(e),t=t||2;e.length<t;)e="0"+e;return e}return f.masks={default:"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"},f.lang={dayNames:{short:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],long:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],zh:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]},monthNames:{short:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],long:["January","February","March","April","May","June","July","August","September","October","November","December"],zh:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]}},f.i18n={dayNames:f.lang.dayNames.short,monthNames:f.lang.monthNames.short},f.setLocal=function(e){f.i18n={dayNames:f.lang.dayNames[e],monthNames:f.lang.monthNames[e]}},f},s=(t,e)=>{var a={M:t.getMonth()+1,d:t.getDate(),h:t.getHours(),m:t.getMinutes(),s:t.getSeconds()};return(e=e.replace(/(M+|d+|h+|m+|s+)/g,function(e){return((1<e.length?"0":"")+a[e.slice(-1)]).slice(-2)})).replace(/(y+)/g,function(e){return t.getFullYear().toString().slice(-e.length)})},d=e=>{const t=c.match(/{{date_format\|[\S ]+\|[\S ]+}} /);let a="";try{if(t&&0<t.length){a=t[0];const l=t[0].replace("{{date_format|","").replace("}}","");var r=l.split("|"),n=r[0],i=r[1];"now"==n?a=s(new Date,i):"id"==n&&e&&(a=s(new Date(e),i))}return a}catch(e){return a}},r=e=>title=plugin_storage.title&&e?plugin_storage.title.replace(/{{id}}/gi,e.idx).replace(/{{title}}/gi,e.title).replace(/{{un_title}}/gi,e.title).replace(/{{timestamp}}/gi,e.create.replace(/年|月|日|:| /gi,"")).replace(/{{now\|[\w-\/ :]+}}/gi,y).replace(/{{note}}/gi,e.note||e.title):e?e.title:"<解析失败>",i=e=>new URL(e),u=e=>{let t="";return"\\n"==plugin_storage.tag_suffix&&(plugin_storage.tag_suffix="\n"),e&&e.forEach(e=>t+=plugin_storage.tag_prefix+(""+e.replace(/ /gi,"_"))+plugin_storage.tag_suffix),t.trim()},l=(e,t)=>{let a="";const r=(e=e.replace(/\{|\}/gi,"")).split("|"),n=r[0],i=r[2];return t&&t.forEach(e=>a+=n+e+("\\n"==i?"\n":i)),a=4==r.length?a.replace(new RegExp(r[3]+"$"),""):a},h=e=>{let t="";return e&&e.split("\n").forEach(e=>{e.startsWith("<")?(e=e.replace(/^<|>$/g,""),t+=`[${e}](<${e}>)`+"\n"):t+=e+"\n"}),t.trim()},_=(e,a)=>{const r=new RegExp(`{{[ \\S]+\\|${e}}}`);if(r.test(c)){let t="";const n=c.match(r)[0].replace(/{|{|}|}|}|\|/gi,"").replace(e,"");return a&&a.split("\n").forEach(e=>t+=n+" "+e+"\n"),t.trim()}return a},f=(t,a,r,e)=>{if("org"==t)return n.url+"#:~:text="+encodeURIComponent(r);if("int"==t)return"http://localhost:7026/reading/"+n.idx+(a?"#id="+a:"");if("ext"==t){let e=plugin_storage.ext_uri;return e.startsWith("https://simpread.pro/@")?e?e+n.idx+(a?"#id="+a:""):"{{ext_uri}}":(e=(r=plugin_storage.ext_uri,t=n,r&&t?r.replace(/{{id}}/gi,t.idx).replace(/{{title}}/gi,t.title).replace(/{{un_title}}/gi,t.title).replace(/{{timestamp}}/gi,t.create.replace(/年|月|日|:| /gi,"")).replace(/{{now\|[\w-\/ :]+}}/gi,y).replace(/{{note}}/gi,t.note||t.title):r))+(a?"#id="+a:"")}},g=(e,t)=>{const a=o(),[r,n,i]=e.replace(/{|}/gi,"").split("|");a.setLocal(i||"short");let l="";return l="create"==r?t.replace(/年|月/gi,"-").replace(/日/gi,""):new Date(t),a(l,n)},y=e=>{e=e.replace(/(\{\{now\|)|(\}\})/gi,"");return o()(+new Date,e)},S=e=>{return o()(e,"yyyyddmmHHMMss")},M=e=>{let a="";return e&&e.forEach(e=>{var t;"unread"==e.type?(t=((t,a)=>{for(let e=0;e<a.length;e++)if(a[e].idx==t)return a[e]})(e.id,unrdist))&&(a+=r(t)+" "):"annote"==e.type&&(t=((t,a)=>{for(let e=0;e<a.length;e++){const r=a[e],n=r.annotations&&r.annotations.findIndex(e=>e.id==t);if(-1<n)return{unread:r,annote:r.annotations[n]}}return{unread:{},annote:{}}})(e.id,unrdist))&&(e=t.unread,t.annote,e&&!$.isEmptyObject(e)&&(a+=r(e)+" "))}),a.trim()},k=()=>{const e=c.match(/{{#each}}[\S\n ]+{{\/each}}/gi);if(e&&0<e.length){let s="",g=e[0].replace("{{#each}}","").replace("{{/each}}","").trim();return a&&a.forEach(e=>{const{type:t,text:a,html:r,note:n,tags:i,id:l,refs:c}=e;let o="";"img"==t?o=`![](${a})`:"code"==t?o="```\n"+a.trim()+"\n```":"paragraph"==t&&(o=m(r,void 0,void 0,!0,p.format)),s+=g.replace(/{{an_create}}/gi,(e=>{const t=new Date(e),a=e=>e=e<10?"0"+e:e;return t.getFullYear()+"年"+a(t.getMonth()+1)+"月"+a(t.getDate())+"日 "+a(t.getHours())+":"+a(t.getMinutes())+":"+a(t.getSeconds())})(l)).replace(/{{an_html}}/gi,o).replace(/{{an_timestamp}}/gi,S(l)).replace(/{{an_id}}/gi,l).replace(/{{an_text}}/gi,a).replace(/{{an_short_text}}/gi,a.substr(0,20)+(10<a.length?"...":"")).replace(/{{an_note}}/gi,n).replace(/{{an_tags}}/gi,u(i)).replace(/{{[ \S]+\|an_text}}/gi,_("an_text",a)).replace(/{{[ \S]+\|an_html}}/gi,_("an_html",o)).replace(/{{[ \S]+\|an_note}}/gi,_("an_note",n)).replace(/{{[ \S]+\|an_refs}}/gi,_("an_refs",h(c))).replace(/{{[ \S]+\|an_backlinks}}/gi,_("an_backlinks",M(e.backlinks))).replace(/{{an_backlinks}}/gi,M(e.backlinks)).replace(/{{date_format\|[\S ]+\|[\S ]+}}/,d(l)).replace(/{{an_org_uri}}/gi,f("org",l,a)).replace(/{{an_int_uri}}/gi,f("int",l,a)).replace(/{{an_ext_uri}}/gi,f("ext",l,a))+"\n"}),s}return""};if(!e){if(t){const{type:b,text:T,html:x,note:w,tags:D,id:v,refs:N}=t;let e="";"img"==b?e=`![](${T})`:"code"==b?e="```\n"+T.trim()+"\n```":"paragraph"==b&&(e=x),c=c.replace(/{{an_create\|[ \S]+}}/gi,e=>g(e,v)).replace(/{{now\|[ \S]+}}/gi,e=>g(e,+new Date)).replace(/{{an_timestamp}}/gi,S(v)).replace(/{{an_html}}/gi,e).replace(/{{an_id}}/gi,v).replace(/{{an_text}}/gi,T).replace(/{{an_short_text}}/gi,T.substr(0,20)+(10<T.length?"...":"")).replace(/{{an_note}}/gi,w).replace(/{{an_tags}}/gi,u(D)).replace(/{{[ \S]+\|an_text}}/gi,_("an_text",T)).replace(/{{[ \S]+\|an_html}}/gi,_("an_html",e)).replace(/{{[ \S]+\|an_note}}/gi,_("an_note",w)).replace(/{{[ \S]+\|an_refs}}/gi,_("an_refs",h(N))).replace(/{{[ \S]+\|an_backlinks}}/gi,_("an_backlinks",M(t.backlinks))).replace(/{{an_backlinks}}/gi,M(t.backlinks)).replace(/{{an_org_uri}}/gi,f("org",v,T)).replace(/{{an_int_uri}}/gi,f("int",v,T)).replace(/{{an_ext_uri}}/gi,f("ext",v,T)).replace(/{{an_refs}}/gi,_("an_refs",h(n.refs))).replace(/{{[^{]+\|an_tag\|[^}]+}}/gi,e=>l(e,D)).replace(/{{3}html\_format\|[^|]+\|!\[\S?\]\([a-zA-z]+:\/\/[^\s]*\}\}\}/gi,e=>{const t=e.split("|"),a=t[1],r=t[t.length-1].replace(/}{3}$/,"");return/<\w+>/.test(a)?e:a+" "+r})}else c=(c=c.replace(/{{create\|[ \S]+}}/gi,e=>g(e,n.create)).replace(/{{now\|[ \S]+}}/gi,e=>g(e,+new Date)).replace(/{{date_format\|[\S ]+\|[\S ]+}}/,d()).replace(/{{idx}}/gi,n.idx).replace(/{{url}}/gi,n.url).replace(/{{title}}/gi,n.title).replace(/{{create}}/gi,n.create).replace(/{{timestamp}}/gi,n.create.replace(/年|月|日|:| /gi,"")).replace(/{{desc}}/gi,n.desc).replace(/{{note}}/gi,n.note).replace(/{{backlinks}}/gi,M(n.backlinks)).replace(/{{host}}/gi,i(n.url).host).replace(/{{tags}}/gi,u(n.tags)).replace(/{{int_uri}}/gi,f("int")).replace(/{{ext_uri}}/gi,f("ext")).replace(/{{org_uri}}/gi,f("org")).replace(/{{refs}}/gi,_("refs",h(n.refs))).replace(/{{[ \S]+\|refs}}/gi,_("refs",h(n.refs))).replace(/{{[ \S]+\|desc}}/gi,_("desc",n.desc)).replace(/{{[ \S]+\|note}}/gi,_("note",n.note)).replace(/{{[ \S]+\|backlinks}}/gi,_("backlinks",M(n.backlinks))).replace(/{{[^{]+\|tag\|[^}]+}}/gi,e=>l(e,n.tags))).replace(/{{#each}}[\S\n ]+{{\/each}}/gi,k(n.annotations));return c}e({parseURLScheme:i,fmtDate:o,parseBakinks:M})}function mdtemplate(i){let e=plugin_storage.template,l=plugin_storage.annotation;const c=(e,t,a)=>{let r=plugin_storage.format;try{r=r?{bulletListMarker:"-",...r=JSON.parse(r)}:JSON.stringify({bulletListMarker:"-"})}catch(e){r=JSON.stringify({bulletListMarker:"-"}),console.error("format_html option error",e)}/^```/i.test(e)&&/```$/i.test(e)&&(e=e.replace(/</gi,"&lt;").replace(/>/gi,"&gt;")),t?">"==t?e=`<blockquote>${e}</blockquote>`:"-"==t||"*"==t?e=`<li>${e}</li>`:/<\w+>/.test(t)&&(e=`<${t=t.replace(/<|>/gi,"")}>${e}</<${t}>`):e=`<p>${e}</p>`,markdown(e=e.replace(/\n/gi,"<br>"),void 0,e=>{e=e.replace(/!\\\[\\\]/i,"![]"),a(e)},!1,JSON.stringify(r))};let o=ejs.render(e,{unread:i});const a=(o=AnnoteMDTemplate2(o,plugin_storage,i,void 0,i.annotations,markdown)).match(/{{3}html\_format\|[^|]+\|[^{{{]+}{3}|{{3}html\_format\|[^|]+\|[^]+}{3}/gi)||[],r=a.length,n=[];let s=0;const g=e=>{var t=e.split("|")[1],e=e.replace("{{{html_format|"+t+"|","").replace(/}}}$/,"");c(e,t,e=>{n.push(e),++s<r?g(a[s]):(console.log("md template replace ",a,n),a.forEach((e,t)=>{o=o.replace(e,n[t])}),(/{{annotations}}/.test(o)?p:m)())})},p=()=>{let t="",a=0;const r=i.annotations.length,n=e=>{t+=e,++a<r?antemplate(l,i,i.annotations[a],c,n):(o=o.replace("{{annotations}}",t),m())};0<r?antemplate(l,i,i.annotations[a],c,n):m()},m=()=>{console.log("unread template is ",o),global_callback?global_callback(o):console.log("unread template is ",o)};try{0<r?g(a[s]):p()}catch(e){console.log(e)}}function antemplate(e,t,a,r,n){let i=ejs.render(e,{unread:t,annote:a});const l=(i=AnnoteMDTemplate2(i,plugin_storage,t,a,t.annotations,markdown)).match(/{{3}html\_format\|[^|]+\|[^{{{]+}{3}|{{3}html\_format\|[^|]+\|[^]+}{3}/gi)||[],c=l.length,o=[];let s=0;const g=e=>{var t=e.split("|")[1],e=e.replace("{{{html_format|"+t+"|","").replace(/}}}$/,"");r(e,t,e=>{o.push(e),++s<c?g(l[s]):(l.forEach((e,t)=>{i=i.replace(e,o[t])}),n(i))})};0<c?g(l[s]):n(i)}mdtemplate(unread);
+        const plugin_storage=this.settings;function markdown(e,t,a,r=0,n=""){try{n=JSON.parse(n||"{}")}catch(e){n={}}const l=(new TurndownService)(n);l.escape=e=>e,l.addRule("pre",{filter:["pre"],replacement:e=>"\n\n```\n"+e+"\n```\n\n"}),l.addRule("table",{filter:["table"],replacement:(e,t,a)=>{try{if("md"!=a.table)return t.outerHTML;{const l=e.trim().split("\n"),i=[];for(let e=0;e<l.length;e++){var r,n;1!=e||l[e].startsWith("| -")||(r=l[e].match(/\|/g).length,n="|".repeat(r-1).replace(/\|/g,"|-")+"|",i.push(n)),i.push(l[e])}return i.join("\n")}}catch(e){return t.outerHTML}}}),l.addRule("video",{filter:["video"],replacement:(e,t,a)=>`<video src="${t.src}" control></video>`+"\n\n"}),l.addRule("math",{filter:["math"],replacement:(e,t,a)=>""});n=l.turndown(e);a&&a(n)}function AnnoteMDTemplate2(o,p,n,t,a,m,e){const c=()=>{d=/d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,h=/\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,y=/[^-+\dA-Z]/g;var d,h,y,f=function(e,t,a){var r=f;if(1!=arguments.length||"[object String]"!=Object.prototype.toString.call(e)||/\d/.test(e)||(t=e,e=void 0),e=e?new Date(e):new Date,isNaN(e))throw SyntaxError("invalid date");"UTC:"==(t=String(r.masks[t]||t||r.masks.default)).slice(0,4)&&(t=t.slice(4),a=!0);var n=a?"getUTC":"get",l=e[n+"Date"](),i=e[n+"Day"](),o=e[n+"Month"](),c=e[n+"FullYear"](),s=e[n+"Hours"](),g=e[n+"Minutes"](),p=e[n+"Seconds"](),n=e[n+"Milliseconds"](),m=a?0:e.getTimezoneOffset(),u={d:l,dd:_(l),ddd:r.i18n.dayNames[i],dddd:r.lang.dayNames.long[i],m:o+1,mm:_(o+1),mmm:r.i18n.monthNames[o],mmmm:r.lang.monthNames.long[o],yy:String(c).slice(2),yyyy:c,h:s%12||12,hh:_(s%12||12),H:s,HH:_(s),M:g,MM:_(g),s:p,ss:_(p),l:_(n,3),L:_(99<n?Math.round(n/10):n),t:s<12?"a":"p",tt:s<12?"am":"pm",T:s<12?"A":"P",TT:s<12?"AM":"PM",Z:a?"UTC":(String(e).match(h)||[""]).pop().replace(y,""),o:(0<m?"-":"+")+_(100*Math.floor(Math.abs(m)/60)+Math.abs(m)%60,4),S:["th","st","nd","rd"][3<l%10?0:(l%100-l%10!=10)*l%10]};return t.replace(d,function(e){return e in u?u[e]:e.slice(1,e.length-1)})};function _(e,t){for(e=String(e),t=t||2;e.length<t;)e="0"+e;return e}return f.masks={default:"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"},f.lang={dayNames:{short:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],long:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],zh:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]},monthNames:{short:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],long:["January","February","March","April","May","June","July","August","September","October","November","December"],zh:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]}},f.i18n={dayNames:f.lang.dayNames.short,monthNames:f.lang.monthNames.short},f.setLocal=function(e){f.i18n={dayNames:f.lang.dayNames[e],monthNames:f.lang.monthNames[e]}},f},s=(t,e)=>{var a={M:t.getMonth()+1,d:t.getDate(),h:t.getHours(),m:t.getMinutes(),s:t.getSeconds()};return(e=e.replace(/(M+|d+|h+|m+|s+)/g,function(e){return((1<e.length?"0":"")+a[e.slice(-1)]).slice(-2)})).replace(/(y+)/g,function(e){return t.getFullYear().toString().slice(-e.length)})},u=e=>{const t=o.match(/{{date_format\|[\S ]+\|[\S ]+}} /);let a="";try{if(t&&0<t.length){a=t[0];const i=t[0].replace("{{date_format|","").replace("}}","");var r=i.split("|"),n=r[0],l=r[1];"now"==n?a=s(new Date,l):"id"==n&&e&&(a=s(new Date(e),l))}return a}catch(e){return a}},r=e=>title=plugin_storage.title&&e?plugin_storage.title.replace(/{{id}}/gi,e.idx).replace(/{{title}}/gi,e.title).replace(/{{un_title}}/gi,e.title).replace(/{{timestamp}}/gi,e.create.replace(/年|月|日|:| /gi,"")).replace(/{{now\|[\w-\/ :]+}}/gi,_).replace(/{{note}}/gi,e.note||e.title):e?e.title:"<解析失败>",l=e=>new URL(e),d=e=>{let t="";return"\\n"==plugin_storage.tag_suffix&&(plugin_storage.tag_suffix="\n"),e&&e.forEach(e=>t+=plugin_storage.tag_prefix+(""+e.replace(/ /gi,"_"))+plugin_storage.tag_suffix),t.trim()},i=(e,t)=>{let a="";const r=(e=e.replace(/\{|\}/gi,"")).split("|"),n=r[0],l=r[2];return t&&t.forEach(e=>a+=n+e+("\\n"==l?"\n":l)),a=4==r.length?a.replace(new RegExp(r[3]+"$"),""):a},h=e=>{let t="";return e&&e.split("\n").forEach(e=>{e.startsWith("<")?(e=e.replace(/^<|>$/g,""),t+=`[${e}](<${e}>)`+"\n"):t+=e+"\n"}),t.trim()},y=(e,a)=>{const r=new RegExp(`{{[ \\S]+\\|${e}}}`);if(r.test(o)){let t="";const n=o.match(r)[0].replace(/{|{|}|}|}|\|/gi,"").replace(e,"");return a&&a.split("\n").forEach(e=>t+=n+" "+e+"\n"),t.trim()}return a},f=(t,a,r,e)=>{if("org"==t)return n.url+"#:~:text="+encodeURIComponent(r);if("int"==t)return"http://localhost:7026/reading/"+n.idx+(a?"#id="+a:"");if("uri"==t)return"http://localhost:7026/unread/"+n.idx+(a?"#id="+a:"");if("ext"==t){let e=plugin_storage.ext_uri;return e.startsWith("https://simpread.pro/@")?e?e+n.idx+(a?"#id="+a:""):"{{ext_uri}}":(e=(r=plugin_storage.ext_uri,t=n,r&&t?r.replace(/{{id}}/gi,t.idx).replace(/{{title}}/gi,t.title).replace(/{{un_title}}/gi,t.title).replace(/{{timestamp}}/gi,t.create.replace(/年|月|日|:| /gi,"")).replace(/{{now\|[\w-\/ :]+}}/gi,_).replace(/{{note}}/gi,t.note||t.title):r))+(a?"#id="+a:"")}},g=(e,t)=>{const a=c(),[r,n,l]=e.replace(/{|}/gi,"").split("|");a.setLocal(l||"short");let i="";return i="create"==r?t.replace(/年|月/gi,"-").replace(/日/gi,""):new Date(t),a(i,n)},_=e=>{e=e.replace(/(\{\{now\|)|(\}\})/gi,"");return c()(+new Date,e)},S=e=>{return c()(e,"yyyyddmmHHMMss")},k=e=>{let a="";return e&&e.forEach(e=>{var t;"unread"==e.type?(t=((t,a)=>{for(let e=0;e<a.length;e++)if(a[e].idx==t)return a[e]})(e.id,unrdist))&&(a+=r(t)+" "):"annote"==e.type&&(t=((t,a)=>{for(let e=0;e<a.length;e++){const r=a[e],n=r.annotations&&r.annotations.findIndex(e=>e.id==t);if(-1<n)return{unread:r,annote:r.annotations[n]}}return{unread:{},annote:{}}})(e.id,unrdist))&&(e=t.unread,t.annote,e&&!$.isEmptyObject(e)&&(a+=r(e)+" "))}),a.trim()},b=()=>{const e=o.match(/{{#each}}[\S\n ]+{{\/each}}/gi);if(e&&0<e.length){let s="",g=e[0].replace("{{#each}}","").replace("{{/each}}","").trim();return a&&a.forEach(e=>{const{type:t,text:a,html:r,note:n,tags:l,id:i,refs:o}=e;let c="";"img"==t?c=`![](${a})`:"code"==t?c="```\n"+a.trim()+"\n```":"paragraph"==t&&(c=m(r,void 0,void 0,!0,p.format)),s+=g.replace(/{{an_create}}/gi,(e=>{const t=new Date(e),a=e=>e=e<10?"0"+e:e;return t.getFullYear()+"年"+a(t.getMonth()+1)+"月"+a(t.getDate())+"日 "+a(t.getHours())+":"+a(t.getMinutes())+":"+a(t.getSeconds())})(i)).replace(/{{an_html}}/gi,c).replace(/{{an_timestamp}}/gi,S(i)).replace(/{{an_id}}/gi,i).replace(/{{an_text}}/gi,a).replace(/{{an_short_text}}/gi,a.substr(0,20)+(10<a.length?"...":"")).replace(/{{an_note}}/gi,n).replace(/{{an_tags}}/gi,d(l)).replace(/{{[ \S]+\|an_text}}/gi,y("an_text",a)).replace(/{{[ \S]+\|an_html}}/gi,y("an_html",c)).replace(/{{[ \S]+\|an_note}}/gi,y("an_note",n)).replace(/{{[ \S]+\|an_refs}}/gi,y("an_refs",h(o))).replace(/{{[ \S]+\|an_backlinks}}/gi,y("an_backlinks",k(e.backlinks))).replace(/{{an_backlinks}}/gi,k(e.backlinks)).replace(/{{date_format\|[\S ]+\|[\S ]+}}/,u(i)).replace(/{{an_uri}}/gi,f("uri",i,a)).replace(/{{an_org_uri}}/gi,f("org",i,a)).replace(/{{an_int_uri}}/gi,f("int",i,a)).replace(/{{an_ext_uri}}/gi,f("ext",i,a))+"\n"}),s}return""};if(!e){if(t){const{type:M,text:x,html:w,note:T,tags:N,id:v,refs:D,color:E,style:C}=t;let e="";"img"==M?e=`![](${x})`:"code"==M?e="```\n"+x.trim()+"\n```":"paragraph"==M&&(e=w),o=o.replace(/{{an_create\|[ \S]+}}/gi,e=>g(e,v)).replace(/{{cover}}/gi,n.img||"").replace(/{{idx}}/gi,n.idx).replace(/{{url}}/gi,n.url).replace(/{{title}}/gi,n.title).replace(/{{un_title}}/gi,n.idx+"-"+n.title).replace(/{{create}}/gi,n.create).replace(/{{timestamp}}/gi,n.create.replace(/年|月|日|:| /gi,"")).replace(/{{host}}/gi,l(n.url).host).replace(/{{desc}}/gi,n.desc).replace(/{{note}}/gi,n.note).replace(/{{local}}/gi,"http://localhost:7026/reading/"+n.idx).replace(/{{unread}}/gi,"http://localhost:7026/unread/"+n.idx).replace(/{{now\|[ \S]+}}/gi,e=>g(e,+new Date)).replace(/{{an_type}}/gi,M).replace(/{{an_timestamp}}/gi,S(v)).replace(/{{an_html}}/gi,e).replace(/{{an_id}}/gi,v).replace(/{{an_text}}/gi,x).replace(/{{an_short_text}}/gi,x.substr(0,20)+(10<x.length?"...":"")).replace(/{{an_note}}/gi,T).replace(/{{an_tags}}/gi,d(N)).replace(/{{[ \S]+\|an_text}}/gi,y("an_text",x)).replace(/{{[ \S]+\|an_html}}/gi,y("an_html",e)).replace(/{{[ \S]+\|an_note}}/gi,y("an_note",T)).replace(/{{[ \S]+\|an_refs}}/gi,y("an_refs",h(D))).replace(/{{[ \S]+\|an_backlinks}}/gi,y("an_backlinks",k(t.backlinks))).replace(/{{an_backlinks}}/gi,k(t.backlinks)).replace(/{{an_org_uri}}/gi,f("org",v,x)).replace(/{{an_int_uri}}/gi,f("int",v,x)).replace(/{{an_ext_uri}}/gi,f("ext",v,x)).replace(/{{an_uri}}/gi,f("uri",v,x)).replace(/{{an_refs}}/gi,y("an_refs",h(n.refs))).replace(/{{an_style}}/gi,C).replace(/{{an_color}}/gi,E).replace(/{{an_color_val}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-"+E).trim()).replace(/{{color1}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-1").trim()).replace(/{{color2}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-2").trim()).replace(/{{color3}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-3").trim()).replace(/{{color4}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-4").trim()).replace(/{{color5}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-5").trim()).replace(/{{[^{]+\|an_tag\|[^}]+}}/gi,e=>i(e,N)).replace(/{{3}html\_format\|[^|]+\|!\[\S?\]\([a-zA-z]+:\/\/[^\s]*\}\}\}/gi,e=>{const t=e.split("|"),a=t[1],r=t[t.length-1].replace(/}{3}$/,"");return/<\w+>/.test(a)||a.startsWith(">")&&1<a.length||/{\d+}/i.test(a)||a.startsWith("!")?e:a+" "+r})}else o=(o=o.replace(/{{create\|[ \S]+}}/gi,e=>g(e,n.create)).replace(/{{now\|[ \S]+}}/gi,e=>g(e,+new Date)).replace(/{{date_format\|[\S ]+\|[\S ]+}}/,u()).replace(/{{cover}}/gi,n.img||"").replace(/{{idx}}/gi,n.idx).replace(/{{url}}/gi,n.url).replace(/{{title}}/gi,n.title).replace(/{{un_title}}/gi,n.idx+"-"+n.title).replace(/{{create}}/gi,n.create).replace(/{{timestamp}}/gi,n.create.replace(/年|月|日|:| /gi,"")).replace(/{{desc}}/gi,n.desc).replace(/{{note}}/gi,n.note).replace(/{{local}}/gi,"http://localhost:7026/reading/"+n.idx).replace(/{{unread}}/gi,"http://localhost:7026/unread/"+n.idx).replace(/{{backlinks}}/gi,k(n.backlinks)).replace(/{{host}}/gi,l(n.url).host).replace(/{{tags}}/gi,d(n.tags)).replace(/{{int_uri}}/gi,f("int")).replace(/{{ext_uri}}/gi,f("ext")).replace(/{{org_uri}}/gi,f("org")).replace(/{{refs}}/gi,y("refs",h(n.refs))).replace(/{{[ \S]+\|refs}}/gi,y("refs",h(n.refs))).replace(/{{[ \S]+\|desc}}/gi,y("desc",n.desc)).replace(/{{[ \S]+\|note}}/gi,y("note",n.note)).replace(/{{[ \S]+\|backlinks}}/gi,y("backlinks",k(n.backlinks))).replace(/{{color1}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-1").trim()).replace(/{{color2}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-2").trim()).replace(/{{color3}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-3").trim()).replace(/{{color4}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-4").trim()).replace(/{{color5}}/gi,getComputedStyle(document.documentElement).getPropertyValue("--sr-annote-color-5").trim()).replace(/{{[^{]+\|tag\|[^}]+}}/gi,e=>i(e,n.tags))).replace(/{{#each}}[\S\n ]+{{\/each}}/gi,b(n.annotations));return o}e({parseURLScheme:l,fmtDate:c,parseBakinks:k})}function mdtemplate(l){let e=plugin_storage.template,i=plugin_storage.annotation;const o=(e,t,a)=>{let r=plugin_storage.format;try{r=r?{bulletListMarker:"-",...r=JSON.parse(r)}:JSON.stringify({bulletListMarker:"-"})}catch(e){r=JSON.stringify({bulletListMarker:"-"}),console.error("format_html option error",e)}if(/^```/i.test(e)&&/```$/i.test(e)&&(e=e.replace(/</gi,"&lt;").replace(/>/gi,"&gt;")),t)if(">"==t)e=`<blockquote>${e}</blockquote>`;else if(t.startsWith(">")&&1<t.length)e="<blockquote>".repeat(t.length)+e+"</blockquote>".repeat(t.length);else if(/{\d+}/i.test(t)){const n=t.replace(/{\d+}/gi,""),l=t.replace(/{|}\S+/gi,"");e=n.repeat(l)+e}else"-"==t||"*"==t?e=`<li>${e}</li>`:/<\w+>/.test(t)&&(e=`<${t=t.replace(/<|>/gi,"")}>${e}</<${t}>`);else e=`<p>${e}</p>`;markdown(e=e.replace(/\n/gi,"<br>"),void 0,e=>{t.startsWith("!")&&(t=t.replace("!",""),e=e.split("\n").map(e=>t+e).join("\n")),e=e.replace(/!\\\[\\\]/i,"![]"),a(e)},!1,JSON.stringify(r))};let c=ejs.render(e,{unread:l});const a=(c=AnnoteMDTemplate2(c,plugin_storage,l,void 0,l.annotations,markdown)).match(/{{3}html\_format\|[^|]+\|[^{{{]+}{3}|{{3}html\_format\|[^|]+\|[^]+}{3}/gi)||[],r=a.length,n=[];let s=0;const g=e=>{var t=e.split("|")[1],e=e.replace("{{{html_format|"+t+"|","").replace(/}}}$/,"");o(e,t,e=>{n.push(e),++s<r?g(a[s]):(console.log("md template replace ",a,n),a.forEach((e,t)=>{c=c.replace(e,n[t])}),(/{{annotations}}/.test(c)?p:m)())})},p=()=>{let t="",a=0;const r=l.annotations.length,n=e=>{t+=e,++a<r?antemplate(i,l,l.annotations[a],o,n):(c=c.replace("{{annotations}}",t),m())};0<r?antemplate(i,l,l.annotations[a],o,n):m()},m=()=>{console.log("unread template is ",c),global_callback?global_callback(c):console.log("unread template is ",c)};try{0<r?g(a[s]):p()}catch(e){console.log(e)}}function antemplate(e,t,a,r,n){let l=ejs.render(e,{unread:t,annote:a});const i=(l=AnnoteMDTemplate2(l,plugin_storage,t,a,t.annotations,markdown)).match(/{{3}html\_format\|[^|]+\|[^{{{]+}{3}|{{3}html\_format\|[^|]+\|[^]+}{3}/gi)||[],o=i.length,c=[];let s=0;const g=e=>{var t=e.split("|")[1],e=e.replace("{{{html_format|"+t+"|","").replace(/}}}$/,"");r(e,t,e=>{c.push(e),++s<o?g(i[s]):(i.forEach((e,t)=>{l=l.replace(e,c[t])}),n(l))})};0<o?g(i[s]):n(l)}async function htmlformatSync(a,r){let n=plugin_storage.format;try{n=n?{bulletListMarker:"-",...n=JSON.parse(n)}:JSON.stringify({bulletListMarker:"-"})}catch(e){n=JSON.stringify({bulletListMarker:"-"}),console.error("format_html option error",e)}if(/^```/i.test(a)&&/```$/i.test(a)&&(a=a.replace(/</gi,"&lt;").replace(/>/gi,"&gt;")),r)if(">"==r)a=`<blockquote>${a}</blockquote>`;else if(r.startsWith(">")&&1<r.length)a="<blockquote>".repeat(r.length)+a+"</blockquote>".repeat(r.length);else if(/{\d+}/i.test(r)){const e=r.replace(/{\d+}/gi,""),t=r.replace(/{|}\S+/gi,"");a=e.repeat(t)+a}else"-"==r||"*"==r?a=`<li>${a}</li>`:/<\w+>/.test(r)&&(r=r.replace(/<|>/gi,""),a=`<${r}>${a}</<${r}>`);else a=`<p>${a}</p>`;return a=a.replace(/\n/gi,"<br>"),new Promise((t,e)=>{markdown(a,void 0,e=>{r.startsWith("!")&&(r=r.replace("!",""),e=e.split("\n").map(e=>r+e).join("\n")),t(e)},!1,JSON.stringify(n))})}function htmlformat(e,t,a){let r=plugin_storage.format;try{r=r?{bulletListMarker:"-",...r=JSON.parse(r)}:JSON.stringify({bulletListMarker:"-"})}catch(e){r=JSON.stringify({bulletListMarker:"-"}),console.error("format_html option error",e)}if(/^```/i.test(e)&&/```$/i.test(e)&&(e=e.replace(/</gi,"&lt;").replace(/>/gi,"&gt;")),t)if(">"==t)e=`<blockquote>${e}</blockquote>`;else if(t.startsWith(">")&&1<t.length)e="<blockquote>".repeat(t.length)+e+"</blockquote>".repeat(t.length);else if(/{\d+}/i.test(t)){const n=t.replace(/{\d+}/gi,""),l=t.replace(/{|}\S+/gi,"");e=n.repeat(l)+e}else"-"==t||"*"==t?e=`<li>${e}</li>`:/<\w+>/.test(t)&&(e=`<${t=t.replace(/<|>/gi,"")}>${e}</<${t}>`);else e=`<p>${e}</p>`;markdown(e=e.replace(/\n/gi,"<br>"),void 0,e=>{t.startsWith("!")&&(t=t.replace("!",""),e=e.split("\n").map(e=>t+e).join("\n")),a(e)},!1,JSON.stringify(r))}window.enhanTemplateFormatSync||(window.enhanTemplateFormatSync=htmlformatSync),window.enhanTemplateFormat||(window.enhanTemplateFormat=htmlformat),mdtemplate(unread);
     }
 
     schedule() {
@@ -602,6 +784,77 @@ class SimpReadPlugin extends obsidian.Plugin {
                 this.sync();
             }, loop );
         }
+    }
+
+    replaceImage( title, md, callback ) {
+        this.settings.img_relative
+        ? this.indexes( 'read', title, undefined, undefined, ( err, data ) => {
+            if ( err ) {
+                console.log( 'indexes.json not found: ', title );
+            } else {
+                const urls = JSON.parse( data );
+                Object.keys( urls ).forEach( url => {
+                    let uri = this.settings.assets_root == 'root' ? urls[ url ] : `|||${ urls[ url ] }|||`;
+                    uri     = uri.replace( /\\/ig, '/' );
+                    md      = md.replaceAll( url, uri );
+                });
+                console.log( '==== replace img relative from indexes.json ====' );
+                console.log( md );
+            }
+            callback( md );
+        })
+        : callback( md );
+    }
+
+    indexes( state = 'write', title, folder, indexes, callback ) {
+        title = title.replace( /@annote|@all/i, '' );
+        const root = this.settings.assets_root == 'root'
+                    ? path.join( this.app.vault.adapter.basePath, this.settings.folder )
+                    : this.settings.assets;
+        folder      = this.settings.assets_root == 'root' ? path.join( title, 'assets' ) : folder || title || '';
+        const filePath = path.join( root, folder, 'indexes.json' );
+        if ( state == 'write' ) {
+            fs.writeFile( filePath, JSON.stringify( indexes ), callback );
+        } else {
+            fs.readFile( filePath, 'utf8', callback );
+        }
+    }
+
+    relative( title, md, type = 'annote' ) {
+        if ( this.settings.img_relative ) {
+            if ( this.settings.assets_root == 'root' ) {
+                title   = title.replace( /@annote|@all/i, '' );
+                //title   = type == 'unread' ? title : encodeURI( title );
+                md      = md.replace( new RegExp( 'http://localhost:7027/assets/' + title + '/', 'ig' ), '' );
+                md      = md.replace( new RegExp( 'http://localhost:7027/assets/' + encodeURI( title ) + '/', 'ig' ), '' );
+                md      = md.replace( new RegExp( title + '/', 'ig' ), '' );
+            } else {
+                //md      = md.replace( new RegExp( 'http://localhost:7027/assets', 'ig' ), 'file:///' + this.settings.assets );
+                md      = md.replace( /(!\[\]\(http:\/\/localhost:7027\/assets\/)([\S ]+)(\.[\w]+\))/ig, ( match, p1, p2, p3 ) => '![](<file:///' + this.settings.assets + '/' + p2 + p3.replace( ')', '>)' ) );
+                md      = md.replaceAll( '![](|||', '![](<file:///' + this.settings.assets + '/' )
+                            .replaceAll( '|||)', '>)' );
+            }
+        }
+        return md;
+    }
+
+    fixedImgURL( unread ) {
+        unread.annotations.forEach( annote => {
+            if ( annote.type == 'img' && annote.text.startsWith( 'http://localhost:7027/assets' )) {
+                if ( this.settings.assets_root == 'root' ) {
+                    annote.text = `assets/${ new URL( annote.text ).pathname.split( '/' ).pop() }`;
+                } else {
+                    const str1 = decodeURI( annote.text ).replace( 'http://localhost:7027/assets/', '' ).replace( / |\+/ig, '' ),
+                          str2 = unread.title.replace( / |\+/ig, '' );
+                    if ( str1.search( str2 ) > -1 ) {
+                        annote.text = '<file:///' + this.settings.assets + `/${ unread.idx }-${ this.safe( unread.title ) }` + `/${ new URL( annote.text ).pathname.split( '/' ).pop() }>`;
+                    } else {
+                        annote.text = '<file:///' + this.settings.assets + decodeURI( annote.text ).replace( 'http://localhost:7027/assets', '' ) + '>';
+                    }
+                    console.log( str1, str2 )
+                }
+            }
+        });
     }
 
     notice( msg, show = false, timeout = 0, forcing = false ) {
@@ -876,8 +1129,8 @@ class SimpReadSettingTab extends obsidian.PluginSettingTab {
         containerEl.createEl( 'p', { text: 'Created by ' }).createEl( 'a', { text: 'SimpRead', href: 'https://simpread.pro' });
         containerEl.getElementsByTagName( 'p' )[0].appendText(' 📚' );
 
-        containerEl.createEl( 'h3', { text: 'Sync Server Settings' });
-        containerEl.createEl( 'p' ).innerHTML = `Sync Server Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1388527'>reference</a>.`;
+        containerEl.createEl( 'h3', { text: 'Server Settings' });
+        containerEl.createEl( 'p' ).innerHTML = `Server Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1388527'>reference</a>.`;
 
         new obsidian.Setting( containerEl )
             .setName( 'Server Host' )
@@ -903,8 +1156,8 @@ class SimpReadSettingTab extends obsidian.PluginSettingTab {
                 }))
             );
 
-        containerEl.createEl( 'h3', { text: 'Config Settings' });
-        containerEl.createEl( 'p' ).innerHTML = `Config Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1389535'>reference</a>.`;
+        containerEl.createEl( 'h3', { text: 'Saved Settings' });
+        containerEl.createEl( 'p' ).innerHTML = `Saved Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1389535'>reference</a>.`;
 
         new obsidian.Setting( containerEl )
             .setName( 'Customize base folder' )
@@ -919,19 +1172,66 @@ class SimpReadSettingTab extends obsidian.PluginSettingTab {
             );
 
         new obsidian.Setting( containerEl )
+            .setName( 'Is the subfolder scheme used?' )
+            .setDesc( 'Folder name the same as the file name' )
+            .addToggle( toggle => {
+                toggle.setValue( this.plugin.settings.sub_folder );
+                toggle.onChange( value => {
+                    this.plugin.settings.sub_folder = value;
+                    this.plugin.saveSettings();
+                });
+            });
+
+        containerEl.createEl( 'h3', { text: 'Image Hosting' });
+        containerEl.createEl( 'p' ).innerHTML = `Config Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-10446316'>reference</a>.`;
+
+        new obsidian.Setting( containerEl )
+            .setName( 'Setting Download Image path' )
+            .addDropdown( dropdown => {
+                dropdown.addOption( 'root', 'Base folder' );
+                dropdown.addOption( 'custom', 'Custom image download path' );
+                dropdown.setValue( this.plugin.settings.assets_root );
+                dropdown.onChange( value => {
+                    this.plugin.settings.assets_root = value;
+                    this.plugin.saveSettings();
+                });
+            });
+
+            new obsidian.Setting( containerEl )
+            .setName( 'Customize assets folder' )
+            .setDesc( 'Effective when custom is selected' )
+            .addText( text => text
+                .setValue( this.plugin.settings.assets )
+                .onChange( value => __awaiter(this, void 0, void 0, function* () {
+                    this.plugin.settings.assets = obsidian.normalizePath( value || DEFAULT_SETTINGS.assets );
+                    yield this.plugin.saveSettings();
+                }))
+            );
+
+        new obsidian.Setting( containerEl )
+            .setName( 'Are the images imported into Markdown using a relative path scheme?' )
+            .addToggle( toggle => {
+                toggle.setValue( this.plugin.settings.img_relative );
+                toggle.onChange( value => {
+                    this.plugin.settings.img_relative = value;
+                    this.plugin.saveSettings();
+                });
+            });
+
+        containerEl.createEl( 'h3', { text: 'Sync Settings' });
+        containerEl.createEl( 'p' ).innerHTML = `Sync Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1393730'>reference</a>.`;
+
+        new obsidian.Setting( containerEl )
             .setName( 'SimpRead config path' )
             .setDesc( 'Same as SimpRead Sync path' )
             .addText( text => text
-                .setPlaceholder( 'Required, do\'nt empty' )
+                .setPlaceholder( 'e.g Users/xxxxx/Nutstore/SimpRead' )
                 .setValue( this.plugin.settings.path )
                 .onChange( value => __awaiter(this, void 0, void 0, function* () {
                     this.plugin.settings.path = obsidian.normalizePath( value );
                     yield this.plugin.saveSettings();
                 }))
             );
-
-        containerEl.createEl( 'h3', { text: 'Sync Settings' });
-        containerEl.createEl( 'p' ).innerHTML = `Sync Settings <a target="_blank" href='https://github.com/Kenshin/simpread/discussions/2889#discussioncomment-1393730'>reference</a>.`;
 
         new obsidian.Setting( containerEl )
             .setName( 'Sync your SimpRead unread data with Obsidian' )

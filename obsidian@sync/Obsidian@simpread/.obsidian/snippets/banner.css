@@ -1,0 +1,29 @@
+.markdown-preview-view .markdown-preview-sizer {
+    margin-top: 200px;
+}
+.obsidian-banner-icon.cm5-banner-icon.h-custom.v-custom {
+    height: 1px;
+}
+.popover.hover-popover .markdown-preview-view .markdown-preview-sizer,
+.workspace-leaf-content[data-mode="source"] .markdown-preview-view .markdown-preview-sizer,
+.markdown-preview-view .markdown-preview-view .markdown-preview-sizer {
+    margin-top: 0;
+}
+.obsidian-banner-wrapper {
+    margin-top: 0;
+    padding-top: 0;
+}
+.obsidian-banner-icon.cm5-banner-icon.h-custom.v-custom {
+    height: 20px;
+}
+.internal-embed.markdown-embed.inline-embed.is-loaded {
+    padding: 12px 24px;
+    background-color: var(--background-primary-alt);
+    border-inline-start: none;
+}
+.embed-title.markdown-embed-title {
+    display: none;
+}
+.inline-embed .markdown-embed-content p:first-child {
+    margin-top: 16px;
+}

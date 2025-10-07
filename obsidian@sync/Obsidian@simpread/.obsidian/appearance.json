@@ -1,3 +1,8 @@
 {
-  "theme": "obsidian"
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "banner",
+    "annote_pros_template",
+    "simpread_annote"
+  ]
 }
